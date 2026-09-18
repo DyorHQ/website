@@ -1,28 +1,11 @@
 /* DyorHQ landing. No dependencies, no scroll listeners.
-   Theme (light default, choice persisted), IntersectionObserver reveals + nav state,
-   the mobile menu, copy-to-clipboard, footer year. */
+   IntersectionObserver reveals + nav state, the mobile menu, footer year. */
 (() => {
   'use strict';
   const root = document.documentElement;
   const $ = (s, c = document) => c.querySelector(s);
   const $$ = (s, c = document) => Array.from(c.querySelectorAll(s));
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
-
-  /* Theme: light by default; an explicit choice persists locally. */
-  const KEY = 'dyorhq.theme';
-  const get = () => { try { return localStorage.getItem(KEY); } catch { return null; } };
-  const isDark = () => root.dataset.theme === 'dark';
-  const apply = (m) => {
-    if (m === 'light' || m === 'dark') root.dataset.theme = m; else delete root.dataset.theme;
-    $$('[data-theme-toggle]').forEach((b) => b.setAttribute('aria-label', isDark() ? 'Switch to light appearance' : 'Switch to dark appearance'));
-    const meta = $('meta[name="theme-color"]'); if (meta) meta.content = isDark() ? '#0D0D10' : '#F6F5F1';
-  };
-  apply(get());
-  $$('[data-theme-toggle]').forEach((b) => b.addEventListener('click', () => {
-    const next = isDark() ? 'light' : 'dark';
-    try { localStorage.setItem(KEY, next); } catch {}
-    apply(next);
-  }));
 
   /* Nav stuck state via a sentinel (no scroll listener). */
   const nav = $('#nav');

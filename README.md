@@ -41,3 +41,12 @@ and negative values always carry a sign, never colour alone. Fonts are bundled u
 
 Market data and app previews on the page are illustrative. Nothing here is investment advice
 or an offer to trade.
+
+## Hero photograph
+
+`assets/photo/hero-hand.jpg` is a composite: a photograph from Unsplash
+(photo id `1717390758666-97dc77ef7a8c`, free for commercial use under the Unsplash
+License) with a real screenshot of the DyorHQ iOS app perspective-mapped onto the
+phone's screen. The screen inherits the photograph's own light falloff, so it reads
+as a real photo of the app rather than a pasted mockup. The photo's background is
+warmed to `#F2EEE7` to match the hero card exactly, which is why there is no seam.
