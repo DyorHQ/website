@@ -1,0 +1,89 @@
+/* DyorHQ foundation — the only source for interface colors, fonts and scales.
+   Mirrors public/design-tokens.css in the app repo plus the Monad-purple accent the iOS app uses. */
+@font-face{font-family:"Manrope";src:url("../assets/fonts/manrope.ttf") format("truetype");font-weight:200 800;font-style:normal;font-display:swap}
+@font-face{font-family:"Bodoni Moda";src:url("../assets/fonts/bodoni-moda.ttf") format("truetype");font-weight:400 900;font-style:normal;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url("../assets/fonts/ibm-plex-mono.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url("../assets/fonts/ibm-plex-mono-medium.ttf") format("truetype");font-weight:500 700;font-style:normal;font-display:swap}
+
+:root{
+  --font-display:"Bodoni Moda",Didot,"Times New Roman",serif;
+  --sans:"Manrope",system-ui,-apple-system,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  /* The phone mockups render in the platform UI face, like the app itself. */
+  --ios-font:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Helvetica Neue",Inter,system-ui,sans-serif;
+
+  --space-1:.25rem;--space-2:.5rem;--space-3:.75rem;--space-4:1rem;--space-5:1.25rem;--space-6:1.5rem;--space-8:2rem;--space-10:2.5rem;--space-12:3rem;--space-16:4rem;--space-24:6rem;
+  --type-meta:.75rem;--type-label:.875rem;--type-body:1rem;--type-lead:1.125rem;--type-title:1.5rem;
+  --r-small:6px;--r-row:8px;--r-input:12px;--r-card:16px;--r-sheet:24px;--r-pill:999px;
+  --duration-fast:140ms;--duration-normal:220ms;--duration-panel:320ms;--ease:cubic-bezier(.2,.8,.2,1);
+  --z-chrome:20;--z-menu:40;--z-sheet:50;--z-toast:60;
+
+  /* Asset identity colours — never used for actions or status. */
+  --asset-violet:#6650B8;--asset-blue:#315EB0;--asset-orange:#A85A0B;--asset-eth:#5268A3;--asset-teal:#087D6C;--asset-usdc:#275DAD;--asset-nvidia:#4A7300;--asset-tesla:#B52438;
+  --alloc-spot:#1F8299;--alloc-perps:#5C54A8;--alloc-launch:#B87A24;--alloc-moments:#B34D6B;
+
+  --porcelain:#F7F7F5;--chalk:#FCFCFA;--charcoal:#18191B;--graphite:#242528;
+  --ink-fixed:#18191B;--paper-fixed:#F7F7F5;
+  --bezel:linear-gradient(145deg,#DCDDE0,#96989D 28%,#505258 72%,#CBCDD1);
+
+  /* Monad purple: the single interactive accent, exactly as the iOS app uses it (Color.brand). */
+  --brand:#836EF9;--on-brand:#FFFFFF;--brand-soft:#ECE8FE;--brand-ink:#5B48D6;
+
+  color-scheme:light;
+  --ground:#E8E8E5;--bg:#F7F7F5;--card:#FCFCFA;--inner:#EFEFED;--inner2:#E0E0DD;--track:#D7D7D3;
+  --text:#18191B;--strong:#37383B;--muted:#606165;--faint:#6B6C70;--control-border:#85868B;
+  --accent:#18191B;--on-accent:#F7F7F5;--accent-soft:#E8E8E5;
+  --up:#126A4B;--up-soft:#E5F2EA;--down:#AD3047;--down-soft:#F8E9ED;--warning:#775812;--warning-soft:#F4EDD9;
+  --ring:rgb(24 25 27 / .10);--ring-strong:rgb(24 25 27 / .18);--mark-filter:none;
+  --glass-bg:rgb(247 247 245 / .78);--glass-ring:rgb(24 25 27 / .10);
+  --shadow-card:0 1px 2px rgb(24 25 27 / .04);
+  --shadow-float:0 30px 60px -24px rgb(24 25 27 / .35),0 12px 24px -12px rgb(24 25 27 / .18);
+  --shadow-phone:0 60px 90px -40px rgb(24 25 27 / .45),0 24px 40px -24px rgb(24 25 27 / .25);
+  --glow:radial-gradient(60% 50% at 50% 40%,rgb(131 110 249 / .16),transparent 70%);
+
+  /* iOS mockup surface — system grouped background, the way the app renders. */
+  --ios-bg:#F2F2F7;--ios-card:#FFFFFF;--ios-inner:#F2F2F7;--ios-fill:rgb(118 118 128 / .12);--ios-fill2:rgb(118 118 128 / .2);
+  --ios-text:#000000;--ios-muted:#6D6D72;--ios-tert:#AEAEB2;--ios-sep:rgb(60 60 67 / .14);
+  --ios-pos:#126A4B;--ios-pos-soft:#E5F2EA;--ios-neg:#AD3047;--ios-neg-soft:#F8E9ED;--ios-att:#775812;
+  --ios-purple:#836EF9;--ios-purple-soft:rgb(131 110 249 / .14);--ios-on-status:#FFFFFF;
+  --ios-glass:rgb(255 255 255 / .72);--ios-glass-ring:rgb(0 0 0 / .06);
+}
+
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  color-scheme:dark;
+  --ground:#101113;--bg:#18191B;--card:#242528;--inner:#2D2E32;--inner2:#3D3E43;--track:#45464B;
+  --text:#F7F7F5;--strong:#D8D8D5;--muted:#B0B1B6;--faint:#A3A4AA;--control-border:#878990;
+  --accent:#F7F7F5;--on-accent:#18191B;--accent-soft:#36373B;
+  --up:#77D8AC;--up-soft:#233B30;--down:#F496AA;--down-soft:#422C34;--warning:#E4C67D;--warning-soft:#3B3425;
+  --brand-soft:#2E2A47;--brand-ink:#A899FF;
+  --ring:rgb(247 247 245 / .12);--ring-strong:rgb(247 247 245 / .22);--mark-filter:invert(1);
+  --glass-bg:rgb(24 25 27 / .78);--glass-ring:rgb(247 247 245 / .10);
+  --shadow-card:0 1px 2px rgb(16 17 19 / .2);
+  --shadow-float:0 30px 60px -24px rgb(0 0 0 / .7),0 12px 24px -12px rgb(0 0 0 / .5);
+  --shadow-phone:0 60px 90px -40px rgb(0 0 0 / .8),0 24px 40px -24px rgb(0 0 0 / .6);
+  --glow:radial-gradient(60% 50% at 50% 40%,rgb(131 110 249 / .22),transparent 70%);
+  --ios-bg:#000000;--ios-card:#1C1C1E;--ios-inner:#2C2C2E;--ios-fill:rgb(118 118 128 / .24);--ios-fill2:rgb(118 118 128 / .32);
+  --ios-text:#FFFFFF;--ios-muted:#98989F;--ios-tert:#636366;--ios-sep:rgb(84 84 88 / .55);
+  --ios-pos:#77D8AC;--ios-pos-soft:#233B30;--ios-neg:#F496AA;--ios-neg-soft:#422C34;--ios-att:#E4C67D;
+  --ios-purple:#836EF9;--ios-purple-soft:rgb(131 110 249 / .22);--ios-on-status:#0D0D12;
+  --ios-glass:rgb(28 28 30 / .74);--ios-glass-ring:rgb(255 255 255 / .08);
+}}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --ground:#101113;--bg:#18191B;--card:#242528;--inner:#2D2E32;--inner2:#3D3E43;--track:#45464B;
+  --text:#F7F7F5;--strong:#D8D8D5;--muted:#B0B1B6;--faint:#A3A4AA;--control-border:#878990;
+  --accent:#F7F7F5;--on-accent:#18191B;--accent-soft:#36373B;
+  --up:#77D8AC;--up-soft:#233B30;--down:#F496AA;--down-soft:#422C34;--warning:#E4C67D;--warning-soft:#3B3425;
+  --brand-soft:#2E2A47;--brand-ink:#A899FF;
+  --ring:rgb(247 247 245 / .12);--ring-strong:rgb(247 247 245 / .22);--mark-filter:invert(1);
+  --glass-bg:rgb(24 25 27 / .78);--glass-ring:rgb(247 247 245 / .10);
+  --shadow-card:0 1px 2px rgb(16 17 19 / .2);
+  --shadow-float:0 30px 60px -24px rgb(0 0 0 / .7),0 12px 24px -12px rgb(0 0 0 / .5);
+  --shadow-phone:0 60px 90px -40px rgb(0 0 0 / .8),0 24px 40px -24px rgb(0 0 0 / .6);
+  --glow:radial-gradient(60% 50% at 50% 40%,rgb(131 110 249 / .22),transparent 70%);
+  --ios-bg:#000000;--ios-card:#1C1C1E;--ios-inner:#2C2C2E;--ios-fill:rgb(118 118 128 / .24);--ios-fill2:rgb(118 118 128 / .32);
+  --ios-text:#FFFFFF;--ios-muted:#98989F;--ios-tert:#636366;--ios-sep:rgb(84 84 88 / .55);
+  --ios-pos:#77D8AC;--ios-pos-soft:#233B30;--ios-neg:#F496AA;--ios-neg-soft:#422C34;--ios-att:#E4C67D;
+  --ios-purple:#836EF9;--ios-purple-soft:rgb(131 110 249 / .22);--ios-on-status:#0D0D12;
+  --ios-glass:rgb(28 28 30 / .74);--ios-glass-ring:rgb(255 255 255 / .08);
+}

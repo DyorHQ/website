@@ -1,0 +1,653 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DyorHQ — The RWA HQ for social trading</title>
+<meta name="description" content="DyorHQ is a self-custodial mobile app on Monad for launching stock-backed memecoins, copying on-chain traders, and trading perps and swaps. Your wallet, your keys.">
+<meta name="theme-color" content="#F7F7F5">
+<meta property="og:type" content="website">
+<meta property="og:title" content="DyorHQ — The RWA HQ for social trading">
+<meta property="og:description" content="Launch coins, copy traders, trade perps and swaps, and collect Moments — one clear view of your activity on Monad. Self-custodial. Your keys.">
+<meta property="og:image" content="assets/brand/monogram-512.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@DyorHQ_">
+<link rel="icon" href="assets/brand/favicon-32.png" sizes="32x32">
+<link rel="icon" href="assets/brand/favicon-64.png" sizes="64x64">
+<link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/manrope.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/phone.css">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ============================ NAV ============================ -->
+<header class="nav">
+  <div class="container nav__inner">
+    <a class="nav__brand" href="#top" aria-label="DyorHQ home">
+      <img src="assets/brand/wordmark.png" alt="DyorHQ" width="900" height="298">
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#markets">Markets</a>
+      <a href="#trade">Trade</a>
+      <a href="#launch">Launch</a>
+      <a href="#moments">Moments</a>
+      <a href="#strategy">Strategy</a>
+    </nav>
+    <div class="nav__actions">
+      <button class="icon-btn" data-theme-toggle type="button" aria-label="Toggle appearance">
+        <svg class="ic-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.7"/><path d="M12 2v2.4M12 19.6V22M4.2 4.2l1.7 1.7M18.1 18.1l1.7 1.7M2 12h2.4M19.6 12H22M4.2 19.8l1.7-1.7M18.1 5.9l1.7-1.7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        <svg class="ic-moon" aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+      </button>
+      <a class="btn btn--ink nav__cta" href="#get">Get the app <svg data-i="arrowRight" aria-hidden="true"></svg></a>
+      <button class="icon-btn nav__menu" data-menu-toggle type="button" aria-expanded="false" aria-controls="nav-drawer" aria-label="Open menu"><svg data-i="menu" aria-hidden="true"></svg></button>
+    </div>
+  </div>
+  <div class="nav__drawer" id="nav-drawer" hidden>
+    <a href="#markets">Markets</a>
+    <a href="#trade">Trade</a>
+    <a href="#launch">Launch</a>
+    <a href="#moments">Moments</a>
+    <a href="#strategy">Strategy</a>
+    <a href="#security">Security</a>
+    <a class="btn btn--primary" href="#get">Get the app</a>
+  </div>
+</header>
+
+<main id="main">
+<span id="top"></span>
+
+<!-- ============================ HERO ============================ -->
+<section class="hero" data-parallax>
+  <div class="hero__bg" aria-hidden="true"></div>
+  <div class="container hero__grid">
+    <div class="hero__copy">
+      <p class="eyebrow"><span class="live-dot" aria-hidden="true"></span> The RWA HQ for social trading</p>
+      <h1 class="display">Your markets.<br>Your keys.</h1>
+      <p class="lead">DyorHQ is a self-custodial app on <b>Monad</b> for launching stock-backed coins, copying on-chain traders, and trading perps and swaps. <b>One clear view</b> of everything you do on-chain — and no one else holds your funds.</p>
+      <div class="cta-row">
+        <a class="btn btn--primary btn--lg" href="#get">Get the app <svg data-i="arrowRight" aria-hidden="true"></svg></a>
+        <a class="btn btn--ghost btn--lg" href="#trade">See how it works</a>
+      </div>
+      <ul class="hero__facts">
+        <li>Self-custodial — your wallet, your keys</li>
+        <li>Spot &amp; perpetuals</li>
+        <li>Token launches</li>
+        <li>Copy trading</li>
+      </ul>
+    </div>
+
+    <div class="hero__stage" aria-hidden="true">
+      <div class="hero__glow" data-depth="0.4"></div>
+
+      <!-- Back phone: Perps -->
+      <div class="hero__phone hero__phone--back" data-depth="1.1">
+        <div class="phone phone--muted">
+          <div class="phone__body"><div class="phone__screen">
+            <div class="phone__island"></div>
+            <div class="ios-status"><span>12:37</span><div class="ios-status__icons"><svg viewBox="0 0 20 16" fill="currentColor"><rect x="0" y="10" width="3" height="6" rx="1"/><rect x="5" y="7" width="3" height="9" rx="1"/><rect x="10" y="4" width="3" height="12" rx="1"/><rect x="15" y="1" width="3" height="15" rx="1" opacity=".35"/></svg><svg viewBox="0 0 20 16" fill="currentColor"><path d="M10 4c2.5 0 4.8.9 6.5 2.4l-1.3 1.5A7.7 7.7 0 0 0 10 6a7.7 7.7 0 0 0-5.2 1.9L3.5 6.4A9.7 9.7 0 0 1 10 4Zm0 3.6c1.6 0 3.1.6 4.2 1.5l-1.3 1.5A4.3 4.3 0 0 0 10 9.6c-1.1 0-2.1.4-2.9 1L5.8 9.1A6.3 6.3 0 0 1 10 7.6Zm0 3.6c.7 0 1.4.3 1.9.7L10 13.8l-1.9-1.9c.5-.4 1.2-.7 1.9-.7Z"/></svg><span class="ios-status__battery"></span></div></div>
+            <div class="ios-body">
+              <div class="ios-switch"><span>Swap</span><span class="on">Perps</span></div>
+              <div class="ios-market">
+                <b><span class="ios-logo ios-logo--sm"><img src="assets/tokens/BTC.png" alt=""></span> BTC <svg data-i="chevDown" data-w="2.4"></svg></b>
+                <span class="price ios-num">US$76,369.70 <span class="neg">−0.11%</span></span>
+                <span class="meta">Funding (1h) <b class="pos">0.0031%</b> · Countdown <b>22:11</b></span>
+              </div>
+              <div class="ios-trade">
+                <div class="ios-ticket">
+                  <div class="ios-ticket__chips"><span><svg data-i="lock" data-w="2"></svg> Isolated</span><span class="lev">5x</span></div>
+                  <div class="ios-field"><span class="k">Available</span><b>58.28 AUSD <svg data-i="plus" data-w="2.4"></svg></b></div>
+                  <div class="ios-field"><span class="k">Order</span><b>Market <svg data-i="chevDown"></svg></b></div>
+                  <div class="ios-stepper"><span>−</span><b>0.0180 BTC</b><span>+</span></div>
+                  <div class="ios-slider" style="--pct:50%"><div class="ios-slider__track"></div><div class="ios-slider__fill"></div><div class="ios-slider__stops"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div><div class="ios-slider__thumb"></div></div>
+                  <div class="ios-side ios-side--long">Long</div>
+                  <div class="ios-side ios-side--short">Short</div>
+                </div>
+                <div class="ios-book">
+                  <div class="ios-book__head"><span>Price</span><span>Total</span></div>
+                  <div class="ios-book__row ask" style="--d:70%"><span>76,394.8</span><span>0.8514</span></div>
+                  <div class="ios-book__row ask" style="--d:40%"><span>76,385.1</span><span>0.4051</span></div>
+                  <div class="ios-book__row ask" style="--d:34%"><span>76,378.1</span><span>0.3551</span></div>
+                  <div class="ios-book__row ask" style="--d:33%"><span>76,375.0</span><span>0.3319</span></div>
+                  <div class="ios-book__mid"><b class="neg ios-num">76,369.7</b><span>Spread 5.2</span></div>
+                  <div class="ios-book__row bid" style="--d:8%"><span>76,364.5</span><span>0.0066</span></div>
+                  <div class="ios-book__row bid" style="--d:20%"><span>76,362.5</span><span>0.0300</span></div>
+                  <div class="ios-book__row bid" style="--d:28%"><span>76,358.3</span><span>0.0366</span></div>
+                  <div class="ios-book__row bid" style="--d:30%"><span>76,354.8</span><span>0.2840</span></div>
+                  <div class="ios-book__ratio"><i style="--b:50%"></i><i></i></div>
+                  <div class="ios-book__legend"><span class="pos">50%</span><span class="neg">50%</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="ios-tabbar">
+              <div class="ios-tab"><svg data-i="house"></svg>Home</div>
+              <div class="ios-tab"><svg data-i="flame"></svg>Launch</div>
+              <div class="ios-tab on"><svg data-i="swap"></svg>Trade</div>
+              <div class="ios-tab"><svg data-i="aperture"></svg>Moments</div>
+              <div class="ios-tab"><svg data-i="wand"></svg>Strategy</div>
+            </div>
+            <div class="ios-home-indicator"></div>
+          </div></div>
+        </div>
+      </div>
+
+      <!-- Front phone: Home -->
+      <div class="hero__phone hero__phone--front" data-depth="0.5">
+        <div class="phone">
+          <div class="phone__body"><div class="phone__screen">
+            <div class="phone__island"></div>
+            <div class="ios-status"><span>12:18</span><div class="ios-status__icons"><svg viewBox="0 0 20 16" fill="currentColor"><rect x="0" y="10" width="3" height="6" rx="1"/><rect x="5" y="7" width="3" height="9" rx="1"/><rect x="10" y="4" width="3" height="12" rx="1"/><rect x="15" y="1" width="3" height="15" rx="1"/></svg><svg viewBox="0 0 20 16" fill="currentColor"><path d="M10 4c2.5 0 4.8.9 6.5 2.4l-1.3 1.5A7.7 7.7 0 0 0 10 6a7.7 7.7 0 0 0-5.2 1.9L3.5 6.4A9.7 9.7 0 0 1 10 4Zm0 3.6c1.6 0 3.1.6 4.2 1.5l-1.3 1.5A4.3 4.3 0 0 0 10 9.6c-1.1 0-2.1.4-2.9 1L5.8 9.1A6.3 6.3 0 0 1 10 7.6Zm0 3.6c.7 0 1.4.3 1.9.7L10 13.8l-1.9-1.9c.5-.4 1.2-.7 1.9-.7Z"/></svg><span class="ios-status__battery"></span></div></div>
+            <div class="ios-body">
+              <div class="ios-topbar">
+                <div class="ios-circle ios-circle--purple"><svg data-i="menu"></svg></div>
+                <div class="ios-search"><svg data-i="search"></svg><span>Search tokens…</span><span class="ios-search__meta" data-live="refresh">11 sec</span></div>
+                <div class="ios-circle ios-circle--purple"><svg data-i="bell"></svg></div>
+                <div class="ios-circle"><svg data-i="eye"></svg></div>
+              </div>
+              <div class="ios-card">
+                <div class="ios-summary__top">
+                  <div>
+                    <div class="ios-balance ios-serif ios-num" data-live="balance">US$8,214.36</div>
+                    <div class="ios-delta pos" data-live="balance-delta"><span>+US$142.08</span><span class="ios-chip pos">+1.76%</span></div>
+                  </div>
+                  <div class="ios-summary__vol">
+                    <span class="ios-label">Total Volume</span>
+                    <strong class="ios-num">US$48,910</strong>
+                    <span class="ios-period"><svg data-i="clock"></svg> All <svg data-i="chevDown" data-w="2.4" style="width:9px;height:9px"></svg></span>
+                  </div>
+                </div>
+                <div class="ios-hr"></div>
+                <div class="ios-kv"><div><span class="ios-label">Avail. Balance</span><strong class="ios-num">US$6,180.44</strong></div><div class="right"><span class="ios-label">In Use</span><strong class="ios-num pos">US$2,033.92</strong></div></div>
+                <div class="ios-hr"></div>
+                <div class="ios-alloc">
+                  <span><span class="dot dot--spot"></span>Spot<strong class="ios-num">US$5.9k</strong></span>
+                  <span><span class="dot dot--perps"></span>Perps<strong class="ios-num">US$2.0k</strong></span>
+                  <span><span class="dot dot--launch"></span>Launch<strong class="ios-num">US$220</strong></span>
+                  <span><span class="dot dot--moments"></span>Moments<strong class="ios-num">US$95</strong></span>
+                </div>
+              </div>
+              <div class="ios-actions">
+                <div><svg data-i="cart"></svg>Buy</div>
+                <div><svg data-i="card"></svg>Deposit</div>
+                <div><svg data-i="arrowUp"></svg>Withdraw</div>
+                <div><svg data-i="swap"></svg>Transfer</div>
+              </div>
+              <div class="ios-card">
+                <div class="ios-h">Top Tokens</div>
+                <div class="ios-seg"><span class="on">Popular</span><span>Hot</span><span>Gainers</span><span>Losers</span></div>
+                <div class="ios-rows">
+                  <div class="ios-row"><span class="ios-row__rank">1</span><span class="ios-logo"><img src="assets/tokens/MON.png" alt=""></span><span class="ios-row__name"><b>MON</b><span>Monad</span></span><span class="ios-row__price"><span data-live="mon-price">US$0.0233</span><span class="ios-chip pos" data-live="mon-change">+3.26%</span></span></div>
+                  <div class="ios-row"><span class="ios-row__rank">2</span><span class="ios-logo"><img src="assets/tokens/ETH.png" alt=""></span><span class="ios-row__name"><b>ETH</b><span>Ethereum</span></span><span class="ios-row__price"><span>US$2,348.21</span><span class="ios-chip pos">+1.08%</span></span></div>
+                  <div class="ios-row"><span class="ios-row__rank">3</span><span class="ios-logo"><img src="assets/tokens/BTC.png" alt=""></span><span class="ios-row__name"><b>BTC</b><span>Bitcoin</span></span><span class="ios-row__price"><span>US$76,370</span><span class="ios-chip neg">−0.23%</span></span></div>
+                </div>
+              </div>
+            </div>
+            <div class="ios-tabbar">
+              <div class="ios-tab on"><svg data-i="house"></svg>Home</div>
+              <div class="ios-tab"><svg data-i="flame"></svg>Launch</div>
+              <div class="ios-tab"><svg data-i="swap"></svg>Trade</div>
+              <div class="ios-tab"><svg data-i="aperture"></svg>Moments</div>
+              <div class="ios-tab"><svg data-i="wand"></svg>Strategy</div>
+            </div>
+            <div class="ios-home-indicator"></div>
+          </div></div>
+        </div>
+      </div>
+
+      <!-- Floating cards -->
+      <div class="float float--fill" data-depth="1.6">
+        <div class="ios-notif">
+          <div class="ios-notif__icon"><img src="assets/brand/monogram-512.png" alt=""></div>
+          <div class="ios-notif__body"><b>Order filled <span>now</span></b><p>Long BTC-PERP · 5×</p></div>
+        </div>
+      </div>
+      <div class="float float--funding" data-depth="1.9">
+        <div class="float-card">
+          <small>Funding captured · 24h</small>
+          <b class="pos">+US$18.94</b>
+          <div class="row pos"><svg data-i="scale"></svg> Delta Neutral running</div>
+        </div>
+      </div>
+      <div class="float float--moment" data-depth="1.4">
+        <div class="float-card">
+          <small>Moment collected</small>
+          <b>Kyoto · #7</b>
+          <div class="row purple" style="color:var(--brand-ink)"><svg data-i="aperture"></svg> Edition 7 of 100</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ VENUE STRIP ============================ -->
+<section class="strip" aria-label="Built on Monad">
+  <div class="container strip__inner">
+    <span class="strip__label">One app, every venue on Monad</span>
+    <ul class="strip__list">
+      <li>Perpl <small>Perps</small></li>
+      <li>Uniswap <small>v3 · v4</small></li>
+      <li>Kuru <small>Flow</small></li>
+      <li>Monday <small>Trade</small></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================ FIVE TABS / MARKETS ============================ -->
+<section class="section" id="markets">
+  <div class="container">
+    <div class="section__head" data-reveal>
+      <p class="eyebrow">Five tabs. One account.</p>
+      <h2 class="display-2">Everything on-chain,<br><span class="muted">without leaving the app.</span></h2>
+      <p class="lead">The same five tabs the app opens with. Discover markets, launch a coin, trade spot and perps, collect Moments, and put your capital to work — all from a wallet only you control.</p>
+    </div>
+    <ul class="tabs-grid">
+      <li data-reveal><span class="tab-ic"><svg data-i="house"></svg></span><h3>Home</h3><p>Your balance, allocation and total volume across every section — one glance at where you stand.</p></li>
+      <li data-reveal data-reveal-delay="1"><span class="tab-ic"><svg data-i="flame"></svg></span><h3>Launch</h3><p>Launch a coin on a bonding curve and watch it graduate to a locked pool. Trade every launch on the curve.</p></li>
+      <li data-reveal data-reveal-delay="2"><span class="tab-ic"><svg data-i="swap"></svg></span><h3>Trade</h3><p>Swap spot across every venue and trade perpetuals with a live order book, leverage and one-tap Long / Short.</p></li>
+      <li data-reveal data-reveal-delay="1"><span class="tab-ic"><svg data-i="aperture"></svg></span><h3>Moments</h3><p>Publish a photo or video as an NFT on Monad. Share it with everyone and earn each time it's collected.</p></li>
+      <li data-reveal data-reveal-delay="2"><span class="tab-ic"><svg data-i="wand"></svg></span><h3>Strategy</h3><p>Earn funding delta-neutral, copy proven traders, or make markets and earn the spread. You stay in control.</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================ TRADE (Swap | Perps) ============================ -->
+<section class="section section--band" id="trade">
+  <div class="container">
+    <div class="feature__grid">
+      <div class="feature__copy" data-reveal>
+        <p class="eyebrow">Trade — Swap &amp; Perps</p>
+        <h2 class="display-2">Trade with clarity.<br><span class="muted">Every detail in view.</span></h2>
+        <p class="lead">Swap spot tokens quoted across Kuru, Uniswap and Monday in parallel, and trade perpetuals on Perpl with a real order book. The details stay in front of you, right up to the moment you sign.</p>
+        <ul class="checks">
+          <li><svg data-i="checkCircle"></svg><span><b>Best route, every swap.</b> Live quotes from every venue, side by side, so you always take the best out.</span></li>
+          <li><svg data-i="checkCircle"></svg><span><b>A real perps ticket.</b> Live order book, isolated margin, a drag-to-set leverage ruler and stacked Long / Short.</span></li>
+          <li><svg data-i="checkCircle"></svg><span><b>You sign every trade.</b> Orders leave your own wallet. DyorHQ never routes funds through a contract of its own.</span></li>
+        </ul>
+        <div class="seg" role="group" aria-label="Preview mode">
+          <button class="seg__btn" data-trade-mode="swap" aria-pressed="false" type="button">Swap</button>
+          <button class="seg__btn is-on" data-trade-mode="perps" aria-pressed="true" type="button">Perps</button>
+        </div>
+        <p class="lead" data-trade-copy="perps" style="margin-top:20px;font-size:1rem">Drag the leverage ruler on the phone — the ticket updates live.</p>
+        <p class="lead" data-trade-copy="swap" hidden style="margin-top:20px;font-size:1rem">Pick an amount and DyorHQ compares every venue for the best output.</p>
+      </div>
+
+      <div class="feature__stage" data-trade-stage data-mode="perps" data-reveal data-reveal-delay="1">
+        <!-- PERPS phone with interactive leverage sheet -->
+        <div class="stage__phone stage__phone--perps">
+          <div class="phone">
+            <div class="phone__body"><div class="phone__screen">
+              <div class="phone__island"></div>
+              <div class="ios-status"><span>12:37</span><div class="ios-status__icons"><svg viewBox="0 0 20 16" fill="currentColor"><rect x="0" y="10" width="3" height="6" rx="1"/><rect x="5" y="7" width="3" height="9" rx="1"/><rect x="10" y="4" width="3" height="12" rx="1"/><rect x="15" y="1" width="3" height="15" rx="1"/></svg><svg viewBox="0 0 20 16" fill="currentColor"><path d="M10 4c2.5 0 4.8.9 6.5 2.4l-1.3 1.5A7.7 7.7 0 0 0 10 6a7.7 7.7 0 0 0-5.2 1.9L3.5 6.4A9.7 9.7 0 0 1 10 4Zm0 3.6c1.6 0 3.1.6 4.2 1.5l-1.3 1.5A4.3 4.3 0 0 0 10 9.6c-1.1 0-2.1.4-2.9 1L5.8 9.1A6.3 6.3 0 0 1 10 7.6Zm0 3.6c.7 0 1.4.3 1.9.7L10 13.8l-1.9-1.9c.5-.4 1.2-.7 1.9-.7Z"/></svg><span class="ios-status__battery"></span></div></div>
+              <div class="ios-body">
+                <div class="ios-switch"><span>Swap</span><span class="on">Perps</span></div>
+                <div class="ios-market">
+                  <b><span class="ios-logo ios-logo--sm"><img src="assets/tokens/BTC.png" alt=""></span> BTC <svg data-i="chevDown" data-w="2.4"></svg></b>
+                  <span class="price ios-num">US$76,369.70 <span class="neg">−0.11%</span></span>
+                  <span class="meta">Funding (1h) <b class="pos">0.0031%</b> · Countdown <b>22:11</b></span>
+                </div>
+                <div class="ios-trade">
+                  <div class="ios-ticket">
+                    <div class="ios-ticket__chips"><span><svg data-i="lock" data-w="2"></svg> Isolated</span><span class="lev" data-leverage-out>5x</span></div>
+                    <div class="ios-field"><span class="k">Available</span><b>58.28 AUSD</b></div>
+                    <div class="ios-field"><span class="k">Order</span><b>Market <svg data-i="chevDown"></svg></b></div>
+                    <div class="ios-stepper"><span>−</span><b>0.0180 BTC</b><span>+</span></div>
+                    <div class="ios-side ios-side--long">Long</div>
+                    <div class="ios-side ios-side--short">Short</div>
+                  </div>
+                  <div class="ios-book">
+                    <div class="ios-book__head"><span>Price</span><span>Total</span></div>
+                    <div class="ios-book__row ask" style="--d:70%"><span>76,394.8</span><span>0.8514</span></div>
+                    <div class="ios-book__row ask" style="--d:40%"><span>76,385.1</span><span>0.4051</span></div>
+                    <div class="ios-book__row ask" style="--d:34%"><span>76,378.1</span><span>0.3551</span></div>
+                    <div class="ios-book__row ask" style="--d:33%"><span>76,375.0</span><span>0.3319</span></div>
+                    <div class="ios-book__mid"><b class="neg ios-num">76,369.7</b><span>5.2</span></div>
+                    <div class="ios-book__row bid" style="--d:8%"><span>76,364.5</span><span>0.0066</span></div>
+                    <div class="ios-book__row bid" style="--d:20%"><span>76,362.5</span><span>0.0300</span></div>
+                    <div class="ios-book__row bid" style="--d:28%"><span>76,358.3</span><span>0.0366</span></div>
+                    <div class="ios-book__row bid" style="--d:30%"><span>76,354.8</span><span>0.2840</span></div>
+                    <div class="ios-book__ratio"><i style="--b:50%"></i><i></i></div>
+                    <div class="ios-book__legend"><span class="pos">50%</span><span class="neg">50%</span></div>
+                  </div>
+                </div>
+              </div>
+              <!-- Adjust Leverage sheet (interactive) -->
+              <div class="ios-dim"></div>
+              <div class="ios-sheet" data-leverage>
+                <div class="ios-sheet__grab"></div>
+                <div class="ios-sheet__head"><h5>Adjust Leverage</h5><span class="lev-pill" data-leverage-out>5x</span></div>
+                <div class="lev-ruler" style="--pct:16%">
+                  <input type="range" min="1" max="25" step="1" value="5" aria-label="Leverage" style="--pct:16%">
+                  <div class="lev-ruler__labels"><span>1x</span><span>5x</span><span>10x</span><span>15x</span><span>20x</span><span>25x</span></div>
+                </div>
+                <div class="ios-field"><span class="k">Order value</span><b data-notional class="ios-num">58.28 AUSD</b></div>
+                <div class="ios-field"><span class="k">Margin required</span><b data-margin class="ios-num">11.66 AUSD</b></div>
+                <div class="ios-field"><span class="k">Est. liq. price</span><b>US$<span data-liq class="ios-num">70,373</span></b></div>
+                <div class="lev-chips">
+                  <button data-leverage-set="2" type="button">2x</button>
+                  <button data-leverage-set="5" type="button" class="is-on">5x</button>
+                  <button data-leverage-set="10" type="button">10x</button>
+                  <button data-leverage-set="25" type="button">Max</button>
+                </div>
+                <div class="ios-cta">Confirm</div>
+              </div>
+              <div class="ios-home-indicator"></div>
+            </div></div>
+          </div>
+        </div>
+
+        <!-- SWAP phone -->
+        <div class="stage__phone stage__phone--swap">
+          <div class="phone">
+            <div class="phone__body"><div class="phone__screen">
+              <div class="phone__island"></div>
+              <div class="ios-status"><span>12:21</span><div class="ios-status__icons"><svg viewBox="0 0 20 16" fill="currentColor"><rect x="0" y="10" width="3" height="6" rx="1"/><rect x="5" y="7" width="3" height="9" rx="1"/><rect x="10" y="4" width="3" height="12" rx="1"/><rect x="15" y="1" width="3" height="15" rx="1"/></svg><svg viewBox="0 0 20 16" fill="currentColor"><path d="M10 4c2.5 0 4.8.9 6.5 2.4l-1.3 1.5A7.7 7.7 0 0 0 10 6a7.7 7.7 0 0 0-5.2 1.9L3.5 6.4A9.7 9.7 0 0 1 10 4Zm0 3.6c1.6 0 3.1.6 4.2 1.5l-1.3 1.5A4.3 4.3 0 0 0 10 9.6c-1.1 0-2.1.4-2.9 1L5.8 9.1A6.3 6.3 0 0 1 10 7.6Zm0 3.6c.7 0 1.4.3 1.9.7L10 13.8l-1.9-1.9c.5-.4 1.2-.7 1.9-.7Z"/></svg><span class="ios-status__battery"></span></div></div>
+              <div class="ios-body">
+                <div class="ios-switch"><span class="on">Swap</span><span>Perps</span></div>
+                <div class="ios-swap-label" style="margin-top:6px">You Pay</div>
+                <div class="ios-card ios-card--tight">
+                  <div class="ios-token"><span class="ios-logo"><img src="assets/tokens/MON.png" alt=""></span><span class="ios-token__name"><b>MON</b><span>Monad</span></span><span class="ios-token__chev"><svg data-i="swapV" data-w="2"></svg></span></div>
+                  <div class="ios-amount"><b class="ios-num">120.0</b><span class="ios-max">Max</span></div>
+                  <div class="ios-pct"><span>25%</span><span>50%</span><span class="on">75%</span><span>100%</span></div>
+                </div>
+                <div class="ios-balance-row"><span>Balance: 160.00 MON</span><span>US$2.80</span></div>
+                <div class="ios-flip"><svg data-i="swapV" data-w="2"></svg></div>
+                <div class="ios-swap-label">You Receive</div>
+                <div class="ios-card ios-card--tight">
+                  <div class="ios-token"><span class="ios-logo"><img src="assets/tokens/USDC.png" alt=""></span><span class="ios-token__name"><b>USDC</b><span>USD Coin</span></span><span class="ios-token__chev"><svg data-i="swapV" data-w="2"></svg></span></div>
+                  <div class="ios-amount"><b class="ios-num">2.79</b></div>
+                </div>
+                <div class="ios-route">
+                  <div><span>Kuru Flow</span><b class="best">2.7912 USDC · best</b></div>
+                  <div><span>Uniswap v4</span><b>2.7889 USDC</b></div>
+                  <div><span>Monday Trade</span><b>2.7861 USDC</b></div>
+                </div>
+                <div class="ios-cta">Review swap</div>
+              </div>
+              <div class="ios-home-indicator"></div>
+            </div></div>
+          </div>
+        </div>
+        <div class="stage__hint" data-trade-copy="perps">Live example market · illustrative</div>
+        <div class="stage__hint" data-trade-copy="swap" hidden>Live example market · illustrative</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ LAUNCH + MOMENTS ============================ -->
+<section class="section" id="launch">
+  <div class="container">
+    <div class="section__head section__head--center" data-reveal>
+      <p class="eyebrow eyebrow--center">Create on Monad</p>
+      <h2 class="display-2">Launch a coin. Mint a moment.</h2>
+      <p class="lead">Two ways to create on DyorHQ — a token on a bonding curve, and a real-world moment that earns as people collect it.</p>
+    </div>
+    <div class="duo">
+      <!-- LAUNCH -->
+      <div class="duo__item" data-reveal>
+        <div class="duo__copy">
+          <span class="pill"><svg data-i="flame"></svg> Launchpad</span>
+          <h3>Launch a coin,<br>watch it graduate.</h3>
+          <p>Create a coin in a minute. It trades on a bonding curve, and once it raises enough it graduates to a locked liquidity pool on your chosen venue. Creator fees accrue as people trade.</p>
+          <ul class="duo__facts"><li>Bonding curve</li><li>Locked graduation pool</li><li>Creator fees</li><li>Holder rewards</li></ul>
+        </div>
+        <div class="duo__stage">
+          <div class="phone" style="--phone-w:280px">
+            <div class="phone__body"><div class="phone__screen">
+              <div class="phone__island"></div>
+              <div class="ios-status"><span>9:41</span><div class="ios-status__icons"><svg viewBox="0 0 20 16" fill="currentColor"><rect x="0" y="10" width="3" height="6" rx="1"/><rect x="5" y="7" width="3" height="9" rx="1"/><rect x="10" y="4" width="3" height="12" rx="1"/><rect x="15" y="1" width="3" height="15" rx="1"/></svg><span class="ios-status__battery"></span></div></div>
+              <div class="ios-body">
+                <div class="ios-titlebar"><div class="ios-circle" style="width:32px;height:32px"><svg data-i="chevRight" style="transform:scaleX(-1);width:16px;height:16px"></svg></div><div class="ios-largetitle">Launch</div><div class="ios-circle" style="width:32px;height:32px"><svg data-i="plus"></svg></div></div>
+                <div class="ios-filters"><span class="on">Live</span><span>New</span><span>Graduated</span></div>
+                <div class="ios-card">
+                  <div class="ios-launch">
+                    <div class="ios-launch__top"><span class="ios-logo"><span class="ios-mono" style="background:var(--asset-orange)">GK</span></span><span class="ios-row__name"><b>Gekko</b><span>$GKO</span></span><span class="ios-launch__cap"><span>Market cap</span><b class="ios-num">$14.8k</b></span></div>
+                    <div class="ios-progress"><i style="--p:74%"></i></div>
+                    <div class="ios-launch__foot"><span>74% to graduation</span><span class="ios-badge ios-badge--purple">2h ago</span></div>
+                  </div>
+                </div>
+                <div class="ios-card">
+                  <div class="ios-launch">
+                    <div class="ios-launch__top"><span class="ios-logo"><span class="ios-mono" style="background:var(--asset-teal)">MO</span></span><span class="ios-row__name"><b>Monadillo</b><span>$MDLO</span></span><span class="ios-launch__cap"><span>Market cap</span><b class="ios-num">$21.0k</b></span></div>
+                    <div class="ios-progress ios-progress--done"><i style="--p:100%"></i></div>
+                    <div class="ios-launch__foot"><span class="pos">Graduated · Uniswap v4</span><span class="ios-badge ios-badge--pos"><svg data-i="check" data-w="3"></svg> Locked</span></div>
+                  </div>
+                </div>
+                <div class="ios-card">
+                  <div class="ios-launch">
+                    <div class="ios-launch__top"><span class="ios-logo"><span class="ios-mono" style="background:var(--asset-violet)">PU</span></span><span class="ios-row__name"><b>Purple Pill</b><span>$PILL</span></span><span class="ios-launch__cap"><span>Market cap</span><b class="ios-num">$6.2k</b></span></div>
+                    <div class="ios-progress"><i style="--p:31%"></i></div>
+                    <div class="ios-launch__foot"><span>31% to graduation</span><span class="ios-badge ios-badge--purple">new</span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="ios-home-indicator"></div>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MOMENTS -->
+      <div class="duo__item" data-reveal data-reveal-delay="1" id="moments">
+        <div class="duo__copy">
+          <span class="pill"><svg data-i="aperture"></svg> Moments</span>
+          <h3>Make your moments<br>last forever, and earn.</h3>
+          <p>Publish a photo or video as an NFT on Monad. Share it with everyone, and earn every time it's collected. Each moment carries its place, its date and its early-collector rank on-chain.</p>
+          <ul class="duo__facts"><li>Photo or video</li><li>On-chain provenance</li><li>Collect &amp; earn</li><li>USDC settled</li></ul>
+        </div>
+        <div class="duo__stage">
+          <div class="phone" style="--phone-w:280px">
+            <div class="phone__body"><div class="phone__screen">
+              <div class="phone__island"></div>
+              <div class="ios-status"><span>9:41</span><div class="ios-status__icons"><svg viewBox="0 0 20 16" fill="currentColor"><rect x="0" y="10" width="3" height="6" rx="1"/><rect x="5" y="7" width="3" height="9" rx="1"/><rect x="10" y="4" width="3" height="12" rx="1"/><rect x="15" y="1" width="3" height="15" rx="1"/></svg><span class="ios-status__battery"></span></div></div>
+              <div class="ios-body">
+                <div class="ios-titlebar"><div></div><div class="ios-largetitle">Moments</div><div class="ios-circle" style="width:32px;height:32px"><svg data-i="plus"></svg></div></div>
+                <div class="ios-moments-head">
+                  <div class="ios-serif-title">Make your favorite moments last forever.</div>
+                  <p>Publish a photo or video as an NFT on Monad. Share it and earn every time it's collected.</p>
+                </div>
+                <div class="ios-grid">
+                  <div class="ios-moment"><div class="ios-moment__media m-1"><span>Kyoto · Japan</span></div><div class="ios-moment__body"><b>Fushimi Inari</b><small>$KYOTO</small><div class="ios-moment__stats"><span>Per edition<b class="ios-num">$0.50</b></span><span>Editions<b class="ios-num">62</b></span></div><div class="ios-progress"><i style="--p:62%"></i></div><div class="ios-moment__pct">62% to graduation</div></div></div>
+                  <div class="ios-moment"><div class="ios-moment__media m-2"><span>Lisbon · PT</span></div><div class="ios-moment__body"><b>Miradouro</b><small>$LX</small><div class="ios-moment__stats"><span>Per edition<b class="ios-num">$0.25</b></span><span>Editions<b class="ios-num">40</b></span></div><div class="ios-progress"><i style="--p:38%"></i></div><div class="ios-moment__pct">38% to graduation</div></div></div>
+                  <div class="ios-moment"><div class="ios-moment__media m-3"><span>NYC · USA</span></div><div class="ios-moment__body"><b>Skyline 3AM</b><small>$NYC</small><div class="ios-moment__stats"><span>FDV<b class="ios-num">$18.4k</b></span><span>Editions<b class="ios-num">100</b></span></div><div class="ios-progress ios-progress--done"><i style="--p:100%"></i></div><div class="ios-moment__pct pos">Graduated</div></div></div>
+                  <div class="ios-moment"><div class="ios-moment__media m-4"><span>Bali · ID</span></div><div class="ios-moment__body"><b>Rice Terraces</b><small>$BALI</small><div class="ios-moment__stats"><span>Per edition<b class="ios-num">$0.10</b></span><span>Editions<b class="ios-num">28</b></span></div><div class="ios-progress"><i style="--p:22%"></i></div><div class="ios-moment__pct">22% to graduation</div></div></div>
+                </div>
+              </div>
+              <div class="ios-home-indicator"></div>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ STRATEGY ============================ -->
+<section class="section section--band" id="strategy">
+  <div class="container">
+    <div class="strategy__grid">
+      <div class="strategy__stage" data-reveal>
+        <div class="phone" style="--phone-w:290px">
+          <div class="phone__body"><div class="phone__screen">
+            <div class="phone__island"></div>
+            <div class="ios-status"><span>9:41</span><div class="ios-status__icons"><svg viewBox="0 0 20 16" fill="currentColor"><rect x="0" y="10" width="3" height="6" rx="1"/><rect x="5" y="7" width="3" height="9" rx="1"/><rect x="10" y="4" width="3" height="12" rx="1"/><rect x="15" y="1" width="3" height="15" rx="1"/></svg><span class="ios-status__battery"></span></div></div>
+            <div class="ios-body">
+              <div class="ios-largetitle" style="margin-bottom:2px">Strategy</div>
+              <div>
+                <div class="ios-eyebrow">STRATEGIES</div>
+                <div class="ios-serif-title" style="margin-top:4px">What do you want your capital to do?</div>
+              </div>
+              <div class="ios-card ios-strat">
+                <div class="ios-strat__head"><div class="ios-strat__icon bg-perps"><svg data-i="scale"></svg></div><div class="ios-strat__cta tint-perps">Start earning <svg data-i="arrowRight"></svg></div></div>
+                <div><div class="ios-eyebrow tint-perps" style="letter-spacing:.12em">EARN FUNDING</div><h4>Delta Neutral</h4></div>
+                <p>Buy the asset, short the same size on Perpl, collect the hourly funding.</p>
+                <div class="ios-tags"><span>Live Perpl funding</span><span>Spot + Perps</span></div>
+              </div>
+              <div class="ios-card ios-strat">
+                <div class="ios-strat__head"><div class="ios-strat__icon bg-brand"><svg data-i="people"></svg></div><div class="ios-strat__cta tint-brand">Explore traders <svg data-i="arrowRight"></svg></div></div>
+                <div><div class="ios-eyebrow tint-brand" style="letter-spacing:.12em">COPY OR AUTOMATE</div><h4>Copy Trading</h4></div>
+                <p>Follow proven Perpl traders and top memecoin wallets. You confirm every trade.</p>
+                <div class="ios-tags"><span>Perps</span><span>Spot</span><span>You stay in control</span></div>
+              </div>
+            </div>
+            <div class="ios-home-indicator"></div>
+          </div></div>
+        </div>
+      </div>
+
+      <div class="strategy__cards" data-reveal data-reveal-delay="1">
+        <div class="section__head" style="margin-bottom:8px">
+          <p class="eyebrow">Strategy</p>
+          <h2 class="display-2">Put your capital<br><span class="muted">to work.</span></h2>
+          <p class="lead">Three ways to earn, each one confirm-based. You approve every action — nothing runs behind your back.</p>
+        </div>
+        <div class="scard">
+          <div class="scard__ic bg-perps"><svg data-i="scale"></svg></div>
+          <div>
+            <div class="scard__eyebrow tint-perps">Earn funding</div>
+            <h3>Delta Neutral</h3>
+            <p>Hold spot, short the same size on Perpl and collect the hourly funding. What it earns, costs and risks fit on one screen.</p>
+            <div class="scard__tags"><span>Spot + Perps</span><span>Breakeven shown</span></div>
+          </div>
+        </div>
+        <div class="scard">
+          <div class="scard__ic bg-brand"><svg data-i="people"></svg></div>
+          <div>
+            <div class="scard__eyebrow tint-brand">Copy or automate</div>
+            <h3>Copy Trading</h3>
+            <p>Follow proven Perpl traders and top memecoin wallets. You're alerted on every trade to confirm or decline.</p>
+            <div class="scard__tags"><span>You stay in control</span><span>Perps &amp; Spot</span></div>
+          </div>
+        </div>
+        <div class="scard">
+          <div class="scard__ic bg-spot"><svg data-i="bars"></svg></div>
+          <div>
+            <div class="scard__eyebrow tint-spot">Provide liquidity</div>
+            <h3>Market Making</h3>
+            <p>Quote both sides of a market and earn the spread as trades fill against your orders. Mid or grid.</p>
+            <div class="scard__tags"><span>Mid</span><span>Grid</span><span>Earn spread</span></div>
+          </div>
+        </div>
+        <div class="strategy__note"><svg data-i="shield"></svg><span>Every strategy runs on confirmation. DyorHQ signals a trade; you approve it from your own wallet. No custody, no discretionary control of your funds.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ SECURITY ============================ -->
+<section class="section" id="security">
+  <div class="container">
+    <div class="section__head section__head--center" data-reveal>
+      <p class="eyebrow eyebrow--center">Self-custodial by design</p>
+      <h2 class="display-2">Your wallet. Your keys.</h2>
+      <p class="lead">DyorHQ is a decentralized, permissionless app. It never holds your keys or your funds — every action is signed on your device.</p>
+    </div>
+    <div class="sec-grid">
+      <div class="sec-card" data-reveal><svg data-i="key"></svg><p>Your keys live on your device, in the Secure Enclave. DyorHQ can't move your funds — only you can sign.</p><h3>Non-custodial keys</h3></div>
+      <div class="sec-card" data-reveal data-reveal-delay="1"><svg data-i="faceid"></svg><p>Sign in with a passkey, email, or bring your own wallet by recovery phrase. Face ID gates every signature.</p><h3>Sign in your way</h3></div>
+      <div class="sec-card" data-reveal data-reveal-delay="2"><svg data-i="shield"></svg><p>Launchpad and Moments contracts are audited, invariant-tested and verified on-chain before anything ships.</p><h3>Audited &amp; verified</h3></div>
+      <div class="sec-card" data-reveal data-reveal-delay="3"><svg data-i="globe"></svg><p>Built on Monad and every venue on it — Perpl, Uniswap, Kuru and Monday. Permissionless from any wallet.</p><h3>Open on Monad</h3></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ RWA ============================ -->
+<section class="section section--band">
+  <div class="container">
+    <div class="rwa__grid">
+      <div data-reveal>
+        <span class="pill pill--soon"><svg data-i="clock"></svg> On the horizon</span>
+        <h2 class="display-2" style="margin-top:16px">Real-world assets.<br><span class="muted">A wider view.</span></h2>
+        <p class="lead">The RWA HQ, in full. Stock-market context sits alongside your on-chain positions today, and tokenised real-world asset trading is coming to DyorHQ on Monad.</p>
+        <div class="cta-row"><span class="pill pill--soon"><svg data-i="clock"></svg> RWA trading · coming soon</span></div>
+      </div>
+      <div class="watch" data-reveal data-reveal-delay="1">
+        <div class="watch__head"><img src="assets/brand/wordmark.png" alt="DyorHQ"><svg data-i="search" style="width:18px;height:18px;color:var(--faint)"></svg></div>
+        <div class="watch__tabs"><span class="on">Watchlist</span><span>Stocks</span><span>RWAs</span></div>
+        <table>
+          <thead><tr><th>Asset</th><th class="num">Price</th><th class="num">24h</th><th class="num"></th></tr></thead>
+          <tbody>
+            <tr><td><div class="asset"><i style="background:var(--asset-nvidia)">NV</i><div><b>NVDA</b><small>NVIDIA</small></div></div></td><td class="num">$875.28</td><td class="num up">+0.46%</td><td class="num"><span class="pill pill--soon">RWA soon</span></td></tr>
+            <tr><td><div class="asset"><i style="background:#111">AA</i><div><b>AAPL</b><small>Apple</small></div></div></td><td class="num">$189.32</td><td class="num down">−0.21%</td><td class="num"><span class="pill pill--soon">RWA soon</span></td></tr>
+            <tr><td><div class="asset"><i style="background:var(--asset-tesla)">TS</i><div><b>TSLA</b><small>Tesla</small></div></div></td><td class="num">$248.17</td><td class="num up">+1.34%</td><td class="num"><span class="pill pill--soon">RWA soon</span></td></tr>
+          </tbody>
+        </table>
+        <p class="watch__foot">Illustrative market data. Tokenised RWA trading is not yet live.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ GET THE APP ============================ -->
+<section class="section" id="get">
+  <div class="container">
+    <div class="get__card" data-reveal>
+      <div>
+        <p class="eyebrow">Get DyorHQ</p>
+        <h2 class="display-2">Make your next move.</h2>
+        <p class="lead">Download DyorHQ, create a self-custodial wallet in seconds, and explore every market on Monad from one app.</p>
+        <div class="cta-row">
+          <a class="btn btn--ink btn--lg" href="https://x.com/DyorHQ_" target="_blank" rel="noopener"><svg data-i="apple" data-solid="1"></svg> Get on iOS</a>
+          <a class="btn btn--ghost btn--lg" href="https://x.com/DyorHQ_" target="_blank" rel="noopener"><svg data-i="x"></svg> Follow @DyorHQ_</a>
+        </div>
+        <ol class="steps">
+          <li><b>Create a wallet</b> Passkey, email or import your own — keys never leave your device.</li>
+          <li><b>Fund it</b> Buy, deposit or transfer to move between Spot and Perps.</li>
+          <li><b>Make your move</b> Swap, trade perps, launch a coin or collect a moment.</li>
+        </ol>
+        <div class="support">
+          <span>Support</span>
+          <code>team@dyorhq.fun</code>
+          <button data-copy="team@dyorhq.fun" type="button">Copy</button>
+        </div>
+      </div>
+      <div class="get__visual">
+        <img class="appicon" src="assets/brand/monogram-512.png" alt="DyorHQ app icon" width="512" height="512">
+        <p class="appicon-caption"><b>DyorHQ</b>The RWA HQ for social trading · on Monad</p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <img src="assets/brand/wordmark.png" alt="DyorHQ">
+        <p>The RWA HQ for social trading. A self-custodial app on Monad — your wallet, your keys.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#markets">Markets</a></li>
+          <li><a href="#trade">Trade</a></li>
+          <li><a href="#launch">Launch</a></li>
+          <li><a href="#moments">Moments</a></li>
+          <li><a href="#strategy">Strategy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>DyorHQ</h4>
+        <ul>
+          <li><a href="#security">Security</a></li>
+          <li><a href="https://x.com/DyorHQ_" target="_blank" rel="noopener"><svg data-i="x"></svg> @DyorHQ_</a></li>
+          <li><a href="mailto:team@dyorhq.fun"><svg data-i="doc"></svg> team@dyorhq.fun</a></li>
+          <li><a href="#get">Get the app</a></li>
+        </ul>
+      </div>
+      <div class="footer__legal">
+        <p>© <span data-year>2026</span> DyorHQ. The RWA HQ for social trading, built on Monad.</p>
+        <p>Illustrative market data and app previews. Nothing here is investment advice or an offer to trade. Digital assets carry risk; only you control your keys and your funds.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/icons.js" defer></script>
+<script src="js/main.js" defer></script>
+</body>
+</html>
