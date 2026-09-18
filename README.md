@@ -42,6 +42,12 @@ and negative values always carry a sign, never colour alone. Fonts are bundled u
 Market data and app previews on the page are illustrative. Nothing here is investment advice
 or an offer to trade.
 
+## Typography
+
+Display type is **Archivo** (SIL OFL), instanced to a slightly condensed width (wdth 94)
+and subset to latin, giving an 18 KB variable font covering weights 100-900. Body text is
+Manrope; figures use IBM Plex Mono. All self-hosted, no runtime font requests.
+
 ## Hero photograph
 
 `assets/photo/hero-hand.jpg` is a composite: a photograph from Unsplash
