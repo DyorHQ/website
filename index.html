@@ -4,11 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>DyorHQ - The RWA HQ for social trading</title>
-<meta name="description" content="Swap tokens, trade perps, launch coins and collect moments on Monad. DyorHQ is self-custodial, so only you hold the keys.">
-<meta name="theme-color" content="#FFFFFF">
+<meta name="description" content="Swap tokens, trade perps, launch coins and collect moments on Monad. DyorHQ is one self-custodial app, so only you hold the keys.">
+<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme:light)">
+<meta name="theme-color" content="#100E20" media="(prefers-color-scheme:dark)">
 <meta property="og:type" content="website">
 <meta property="og:title" content="DyorHQ - The RWA HQ for social trading">
-<meta property="og:description" content="Swap tokens, trade perps, launch coins and collect moments on Monad. Your wallet, your keys.">
+<meta property="og:description" content="Swap, trade perps, launch coins and collect moments. One self-custodial app on Monad.">
 <meta property="og:url" content="https://dyorhq.fun/">
 <meta property="og:image" content="https://dyorhq.fun/assets/photo/hero-wide.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -19,29 +20,45 @@
 <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/manrope.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/photo/hero-wide.jpg" as="image" fetchpriority="high">
+<link rel="preload" href="assets/screens/home.png" as="image" fetchpriority="high">
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/site.css">
+<script>/* set theme before paint to avoid a flash */(function(){try{var t=localStorage.getItem('dyorhq.theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true"><symbol id="i-arrow-right" viewBox="0 0 256 256"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></symbol><symbol id="i-envelope" viewBox="0 0 256 256"><path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48Zm-96,85.15L52.57,64H203.43ZM98.71,128,40,181.81V74.19Zm11.84,10.85,12,11.05a8,8,0,0,0,10.82,0l12-11.05,58,53.15H52.57ZM157.29,128,216,74.18V181.82Z"/></symbol><symbol id="i-list" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"/></symbol><symbol id="i-x-logo" viewBox="0 0 256 256"><path d="M214.75,211.71l-62.6-98.38,61.77-67.95a8,8,0,0,0-11.84-10.76L143.24,99.34,102.75,35.71A8,8,0,0,0,96,32H48a8,8,0,0,0-6.75,12.3l62.6,98.37-61.77,68a8,8,0,1,0,11.84,10.76l58.84-64.72,40.49,63.63A8,8,0,0,0,160,224h48a8,8,0,0,0,6.75-12.29ZM164.39,208,62.57,48h29L193.43,208Z"/></symbol></svg>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+<symbol id="i-arrow-right" viewBox="0 0 256 256"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></symbol>
+<symbol id="i-arrow-up-right" viewBox="0 0 256 256"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"/></symbol>
+<symbol id="i-envelope" viewBox="0 0 256 256"><path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48Zm-96,85.15L52.57,64H203.43ZM98.71,128,40,181.81V74.19Zm11.84,10.85,12,11.05a8,8,0,0,0,10.82,0l12-11.05,58,53.15H52.57ZM157.29,128,216,74.18V181.82Z"/></symbol>
+<symbol id="i-list" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"/></symbol>
+<symbol id="i-x-logo" viewBox="0 0 256 256"><path d="M214.75,211.71l-62.6-98.38,61.77-67.95a8,8,0,0,0-11.84-10.76L143.24,99.34,102.75,35.71A8,8,0,0,0,96,32H48a8,8,0,0,0-6.75,12.3l62.6,98.37-61.77,68a8,8,0,1,0,11.84,10.76l58.84-64.72,40.49,63.63A8,8,0,0,0,160,224h48a8,8,0,0,0,6.75-12.29ZM164.39,208,62.57,48h29L193.43,208Z"/></symbol>
+<symbol id="i-sun" viewBox="0 0 256 256"><path d="M120,40V16a8,8,0,0,1,16,0V40a8,8,0,0,1-16,0Zm72,88a64,64,0,1,1-64-64A64.07,64.07,0,0,1,192,128Zm-16,0a48,48,0,1,0-48,48A48.05,48.05,0,0,0,176,128ZM58.34,69.66A8,8,0,0,0,69.66,58.34l-16-16A8,8,0,0,0,42.34,53.66Zm0,116.68-16,16a8,8,0,0,0,11.32,11.32l16-16a8,8,0,0,0-11.32-11.32ZM192,72a8,8,0,0,0,5.66-2.34l16-16a8,8,0,0,0-11.32-11.32l-16,16A8,8,0,0,0,192,72Zm5.66,114.34a8,8,0,0,0-11.32,11.32l16,16a8,8,0,0,0,11.32-11.32ZM48,128a8,8,0,0,0-8-8H16a8,8,0,0,0,0,16H40A8,8,0,0,0,48,128Zm80,80a8,8,0,0,0-8,8v24a8,8,0,0,0,16,0V216A8,8,0,0,0,128,208Zm112-88H216a8,8,0,0,0,0,16h24a8,8,0,0,0,0-16Z"/></symbol>
+<symbol id="i-moon" viewBox="0 0 256 256"><path d="M240,96a8,8,0,0,1-8,8H216v16a8,8,0,0,1-16,0V104H184a8,8,0,0,1,0-16h16V72a8,8,0,0,1,16,0V88h16A8,8,0,0,1,240,96ZM144,56h8v8a8,8,0,0,0,16,0V56h8a8,8,0,0,0,0-16h-8V32a8,8,0,0,0-16,0v8h-8a8,8,0,0,0,0,16Zm72.77,97a8,8,0,0,1,1.43,8A96,96,0,1,1,95.07,37.8a8,8,0,0,1,10.6,9.06A88.07,88.07,0,0,0,209.14,150.33,8,8,0,0,1,216.77,153Zm-19.39,14.88c-1.79.09-3.59.14-5.38.14A104.11,104.11,0,0,1,88,64c0-1.79,0-3.59.14-5.38A80,80,0,1,0,197.38,167.86Z"/></symbol>
+<symbol id="i-search" viewBox="0 0 256 256"><path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"/></symbol>
+<symbol id="i-shield" viewBox="0 0 256 256"><path d="M208,40H48A16,16,0,0,0,32,56v56c0,52.72,25.52,84.67,46.93,102.19,23.06,18.86,46,25.26,47,25.53a8,8,0,0,0,4.2,0c1-.27,23.91-6.67,47-25.53C198.48,196.67,224,164.72,224,112V56A16,16,0,0,0,208,40Zm0,72c0,37.07-13.66,67.16-40.6,89.42A129.3,129.3,0,0,1,128,223.62a128.25,128.25,0,0,1-38.92-21.81C61.82,179.51,48,149.3,48,112l0-56,160,0ZM82.34,141.66a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32l-56,56a8,8,0,0,1-11.32,0Z"/></symbol>
+<symbol id="i-bolt" viewBox="0 0 256 256"><path d="M215.79,118.17a8,8,0,0,0-5-5.66L153.18,90.9l14.66-73.33a8,8,0,0,0-13.69-7l-112,120a8,8,0,0,0,3,13l57.63,21.61L88.16,238.43a8,8,0,0,0,13.69,7l112-120A8,8,0,0,0,215.79,118.17Z"/></symbol>
+</svg>
 
 <div class="sheet">
   <header class="nav" id="nav">
     <div class="wrap toprail">
       <a href="#main" class="on">For traders</a>
-      <a href="#build">For builders</a>
+      <a href="#venues">For builders</a>
     </div>
     <div class="wrap nav__in" style="border-top:1px solid var(--line)">
       <a class="brand" href="#top" aria-label="DyorHQ home"><img src="assets/brand/wordmark.png" alt="DyorHQ" width="900" height="300"></a>
       <nav class="nav__links" aria-label="Primary">
         <a href="#explore">Discover DyorHQ</a>
         <a href="#trade">Trade</a>
-        <a href="#app">App</a>
+        <a href="#custody">Self-custody</a>
         <a href="#help">Help</a>
       </nav>
       <div class="nav__right">
+        <button class="iconbtn" data-theme-toggle type="button" aria-label="Switch color theme">
+          <svg class="ic ic-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+          <svg class="ic ic-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+        </button>
         <a class="btn btn-dark btn-sm" href="#get">Open app</a>
         <button class="iconbtn nav__burger" data-menu type="button" aria-expanded="false" aria-controls="drawer" aria-label="Open menu"><svg class="ic" aria-hidden="true"><use href="#i-list"/></svg></button>
       </div>
@@ -49,7 +66,7 @@
     <div id="drawer" hidden>
       <a href="#explore">Discover DyorHQ</a>
       <a href="#trade">Trade</a>
-      <a href="#app">App</a>
+      <a href="#custody">Self-custody</a>
       <a href="#help">Help</a>
       <a class="btn btn-dark" href="#get">Open app</a>
     </div>
@@ -58,18 +75,55 @@
 <main id="main">
 <span id="top"></span>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="wrap">
-    <div class="heroCard reveal in">
-      <img class="heroCard__img" src="assets/photo/hero-wide.jpg" alt="A hand holding a phone running the DyorHQ app" width="2400" height="940" fetchpriority="high" decoding="async">
-      <div class="heroCard__in">
-        <h1 class="dsp h-hero">Your keys.<br>Your markets.</h1>
-        <p class="heroCard__sub">Swap, trade perps, launch coins and collect moments. One self-custodial app on Monad.</p>
-        <div class="heroCard__cta">
-          <a class="btn btn-accent" href="#get">Open DyorHQ</a>
+<!-- HERO: living portfolio -->
+<section class="hero2">
+  <div class="wrap hero2__grid">
+    <div class="hero2__copy reveal in">
+      <h1 class="dsp h-hero">One home for everything on&nbsp;Monad</h1>
+      <p class="hero2__sub">Swap, trade perps, launch coins and collect moments &mdash; from one self-custodial account you actually own.</p>
+      <div class="hero2__cta">
+        <a class="btn btn-accent btn-lg" href="#get">Open DyorHQ <svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+      </div>
+      <p class="hero2__note">Self-custodial &middot; Built on Monad &middot; Your keys, always</p>
+    </div>
+
+    <div class="hero2__stage" data-parallax>
+      <div class="stage__grid" aria-hidden="true"></div>
+      <div class="stage__glow" aria-hidden="true"></div>
+      <div class="stage__inner">
+      <div class="device stage__phone" data-depth="6">
+        <img src="assets/screens/home.png" alt="The DyorHQ home screen showing a portfolio across spot, perps, launch and moments" width="660" height="1434" fetchpriority="high" decoding="async">
+      </div>
+
+      <div class="frag frag--pnl glass" aria-hidden="true">
+        <p class="frag__lbl">Portfolio &middot; today</p>
+        <p class="big">+US$0.98 <span class="chip">+3.96%</span></p>
+      </div>
+
+      <div class="frag frag--ring glass" aria-hidden="true">
+        <svg viewBox="0 0 44 44"><g transform="rotate(-90 22 22)" fill="none" stroke-width="7">
+          <circle cx="22" cy="22" r="16" stroke="#14B8A6" stroke-dasharray="90.7 100.5"/>
+          <circle cx="22" cy="22" r="16" stroke="var(--accent)" stroke-dasharray="9.8 100.5" stroke-dashoffset="-90.7"/>
+        </g></svg>
+        <div><p class="frag__lbl">Spot</p><b>90.2%</b></div>
+      </div>
+
+      <div class="frag frag--book glass" aria-hidden="true">
+        <p class="frag__lbl">BTC &middot; order book</p>
+        <div class="rows">
+          <span class="row dn" style="width:64%"></span>
+          <span class="row dn" style="width:40%"></span>
+          <span class="row up" style="width:88%"></span>
+          <span class="row up" style="width:56%"></span>
         </div>
-        <p class="heroCard__note">Built on Monad. Connected to your own wallet.</p>
+        <div class="mid"><span class="g">62% buy</span><span class="r">38% sell</span></div>
+      </div>
+
+      <div class="frag frag--tok glass" aria-hidden="true">
+        <span class="dot">M</span>
+        <div><b>MON</b></div>
+        <span class="up">+1.47%</span>
+      </div>
       </div>
     </div>
   </div>
@@ -80,15 +134,15 @@
   <div class="wrap trust reveal">
     <h2 class="trust__claim">Built for people who hold <span class="mark">their own keys</span></h2>
     <div class="stats">
-      <div class="stat"><b>1</b><span>app for all of Monad</span></div>
-      <div class="stat"><b>4</b><span>venues routed</span></div>
-      <div class="stat"><b>0</b><span>funds we ever hold</span></div>
-      <div class="stat"><b>100%</b><span>self-custodial</span></div>
+      <div class="stat"><b>4-in-1</b><span>spot, perps, launch &amp; moments</span></div>
+      <div class="stat"><b>4</b><span>venues routed for best price</span></div>
+      <div class="stat"><b>0</b><span>assets we ever custody</span></div>
+      <div class="stat"><b>24/7</b><span>on-chain and always open</span></div>
     </div>
   </div>
 </section>
 
-<!-- BIG WORD SWITCHER -->
+<!-- BIG-WORD SWITCHER -->
 <section class="sec" id="explore">
   <div class="wrap">
     <div class="center reveal">
@@ -97,13 +151,14 @@
     </div>
     <div class="switch reveal" data-d="1" data-switch>
       <figure class="switch__media" style="margin:0">
+        <span class="switch__glow" aria-hidden="true"></span>
         <div class="device"><img data-switch-img src="assets/screens/perps.png" alt="The DyorHQ app" width="660" height="1434" loading="lazy" decoding="async"></div>
-        <figcaption class="switch__tag" data-switch-tag>Trade perps</figcaption>
+        <figcaption class="switch__tag glass" data-switch-tag>Trade perps</figcaption>
       </figure>
       <div class="switch__list">
         <div>
           <button class="switch__item" aria-expanded="true" data-switch-btn data-img="assets/screens/perps.png" data-tag="Trade perps" type="button">Trade perps</button>
-          <div class="switch__panel"><p>A live order book, isolated margin and leverage, with one tap to go long or short on Perpl.</p></div>
+          <div class="switch__panel"><p>A live order book, isolated margin and leverage, with one tap to go long or short.</p></div>
         </div>
         <div>
           <button class="switch__item" aria-expanded="false" data-switch-btn data-img="assets/screens/swap.png" data-tag="Best-price swaps" type="button">Swap at the best price</button>
@@ -131,45 +186,92 @@
   <div class="wrap">
     <div class="center reveal">
       <h2 class="h-sec">Pick how you trade</h2>
-      <p class="sub">However you want to move, it is one account and one signature. Spot swaps routed for the best price, or perpetuals on a live book.</p>
+      <p class="sub">However you want to move, it is one account and one signature &mdash; spot swaps routed for the best price, or perpetuals on a live book.</p>
     </div>
     <div class="rail reveal" data-d="1" data-rail>
       <div class="tile" role="button" tabindex="0" aria-selected="false" data-tile>
-        <span class="tile__label">Swap</span>
+        <span class="tile__label glass">Swap</span>
         <div class="device"><img src="assets/screens/swap.png" alt="The DyorHQ swap screen" width="660" height="1434" loading="lazy" decoding="async"></div>
-        <div class="tile__bar"><b>Best price across four venues</b><a class="btn btn-light btn-sm" href="#get">Open</a></div>
+        <div class="tile__bar glass"><b>Best price across four venues</b><a class="btn btn-light btn-sm" href="#get">Open</a></div>
       </div>
       <div class="tile" role="button" tabindex="0" aria-selected="false" data-tile>
-        <span class="tile__label">Launch</span>
+        <span class="tile__label glass">Launch</span>
         <div class="device"><img src="assets/screens/launch-empty.png" alt="The DyorHQ launch screen" width="660" height="1434" loading="lazy" decoding="async"></div>
-        <div class="tile__bar"><b>A coin on a bonding curve</b><a class="btn btn-light btn-sm" href="#get">Open</a></div>
+        <div class="tile__bar glass"><b>A coin on a bonding curve</b><a class="btn btn-light btn-sm" href="#get">Open</a></div>
       </div>
       <div class="tile" role="button" tabindex="0" aria-selected="false" data-tile>
-        <span class="tile__label">Moments</span>
+        <span class="tile__label glass">Moments</span>
         <div class="device"><img src="assets/screens/moments.png" alt="The DyorHQ moments feed" width="660" height="1434" loading="lazy" decoding="async"></div>
-        <div class="tile__bar"><b>Mint a moment, earn as it spreads</b><a class="btn btn-light btn-sm" href="#get">Open</a></div>
+        <div class="tile__bar glass"><b>Mint a moment, earn as it spreads</b><a class="btn btn-light btn-sm" href="#get">Open</a></div>
       </div>
       <div class="tile" role="button" tabindex="0" aria-selected="true" data-tile>
-        <span class="tile__label">Perps</span>
+        <span class="tile__label glass">Perps</span>
         <div class="device"><img src="assets/screens/perps.png" alt="The DyorHQ perps screen with a live order book" width="660" height="1434" loading="lazy" decoding="async"></div>
-        <div class="tile__bar"><b>Live order book and leverage</b><a class="btn btn-light btn-sm" href="#get">Open</a></div>
+        <div class="tile__bar glass"><b>Live order book and leverage</b><a class="btn btn-light btn-sm" href="#get">Open</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CUSTODY SPLIT -->
+<section class="sec" id="custody">
+  <div class="wrap split">
+    <div class="split__copy reveal">
+      <p class="eyebrow">Self-custody</p>
+      <h2 class="h-sec">Your keys. Every time.</h2>
+      <p class="sub">DyorHQ is an interface, not a bank. Your funds stay in your own wallet, and every trade is a transaction you sign yourself.</p>
+      <ul class="split__pts">
+        <li><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg><span>We never take custody &mdash; assets never leave your wallet.</span></li>
+        <li><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg><span>Signed by you, settled on Monad, in seconds.</span></li>
+        <li><svg class="ic" aria-hidden="true"><use href="#i-arrow-up-right"/></svg><span>Permissionless &mdash; connect a wallet and you are in.</span></li>
+      </ul>
+      <a class="btn btn-dark" href="#get">Open DyorHQ <svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+    </div>
+    <div class="split__media reveal" data-d="1">
+      <div class="stage__grid" aria-hidden="true"></div>
+      <div class="device"><img src="assets/screens/home.png" alt="The DyorHQ portfolio, held in your own wallet" width="660" height="1434" loading="lazy" decoding="async"></div>
+      <div class="split__badge glass">
+        <svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg>
+        <div><b>Self-custodial</b><span>Only you hold the keys</span></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- VENUES -->
-<section class="sec" id="build">
+<section class="sec" id="venues">
   <div class="wrap">
     <div class="center reveal">
       <h2 class="h-sec">Routed across every venue on Monad</h2>
-      <div style="margin-top:22px"><a class="btn btn-dark" href="#get">Open DyorHQ</a></div>
+      <p class="sub">One app aggregates the ecosystem, so a swap always takes the best available price.</p>
+      <div style="margin-top:24px"><a class="btn btn-dark" href="#get">Open DyorHQ <svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></div>
     </div>
     <div class="venues reveal" data-d="1">
-      <div class="venue"><div class="venue__top" style="background:#12112A">P</div><div class="venue__foot"><b>Perpl</b><span>Perpetuals</span></div></div>
-      <div class="venue"><div class="venue__top" style="background:#FF007A">U</div><div class="venue__foot"><b>Uniswap</b><span>v3 and v4 pools</span></div></div>
-      <div class="venue"><div class="venue__top" style="background:#1B3A2E">K</div><div class="venue__foot"><b>Kuru</b><span>Flow aggregation</span></div></div>
-      <div class="venue"><div class="venue__top" style="background:#2E52F5">M</div><div class="venue__foot"><b>Monday</b><span>Spot trading</span></div></div>
+      <div class="venue"><div class="venue__top" style="--vc:#7C3AED"><span class="venue__mark">P</span></div><div class="venue__foot"><b>Perpl</b><span>Perpetuals</span></div></div>
+      <div class="venue"><div class="venue__top" style="--vc:#FF007A"><span class="venue__mark">U</span></div><div class="venue__foot"><b>Uniswap</b><span>v3 and v4 pools</span></div></div>
+      <div class="venue"><div class="venue__top" style="--vc:#E8622C"><span class="venue__mark">K</span></div><div class="venue__foot"><b>Kuru</b><span>Flow aggregation</span></div></div>
+      <div class="venue"><div class="venue__top" style="--vc:#2E7CF6"><span class="venue__mark">M</span></div><div class="venue__foot"><b>Monday</b><span>Spot trading</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TOKEN SEARCH -->
+<section class="sec search">
+  <div class="search__cloud" aria-hidden="true">
+    <span class="tok tok--1"><i>M</i>MON</span>
+    <span class="tok tok--2"><i>B</i>BTC</span>
+    <span class="tok tok--3"><i>$</i>USDC</span>
+    <span class="tok tok--4"><i>&Xi;</i>ETH</span>
+  </div>
+  <div class="wrap">
+    <div class="center reveal">
+      <h2 class="h-sec">Find any token, in one search</h2>
+      <p class="sub">Every market on Monad in a single place &mdash; search a name, see a live price, trade it in a tap.</p>
+    </div>
+    <div class="searchbar glass reveal" data-d="1">
+      <svg class="ic" aria-hidden="true"><use href="#i-search"/></svg>
+      <span>Search tokens on Monad&hellip;</span>
+      <a class="btn btn-accent btn-sm" href="#get">Open app</a>
     </div>
   </div>
 </section>
@@ -179,12 +281,12 @@
   <div class="wrap">
     <div class="cta reveal">
       <div>
-        <div class="cta__meta"><span>Self-custodial</span><span>No KYC</span><span>Free to use</span></div>
+        <div class="cta__meta"><span>Self-custodial</span><span>Permissionless</span><span>Free to use</span></div>
         <h2 class="h-sec">Get started in minutes</h2>
       </div>
       <div class="cta__side">
         <img class="cta__qr" src="assets/photo/qr-dyorhq.png" alt="QR code linking to the DyorHQ profile on X" width="640" height="640" loading="lazy" decoding="async">
-        <span>Get the app</span>
+        <span>Follow @DyorHQ_</span>
       </div>
     </div>
   </div>
@@ -201,7 +303,7 @@
         <ul>
           <li><a href="#explore">Discover DyorHQ</a></li>
           <li><a href="#trade">Trade</a></li>
-          <li><a href="#build">Venues</a></li>
+          <li><a href="#venues">Venues</a></li>
           <li><a href="#get">Open app</a></li>
         </ul>
       </div>
@@ -211,7 +313,7 @@
           <li><a href="#explore">Swap and perps</a></li>
           <li><a href="#explore">Launchpad</a></li>
           <li><a href="#explore">Moments</a></li>
-          <li><a href="#explore">Self-custody</a></li>
+          <li><a href="#custody">Self-custody</a></li>
         </ul>
       </div>
       <div>
