@@ -124,12 +124,12 @@ svg.ic{width:1em;height:1em;fill:currentColor;flex:none;vertical-align:middle}
 .frag *{margin:0}
 .frag__lbl{font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3)}
 .frag--pnl{top:6%;left:-40%;text-align:left;--k:26px;animation:floatA 7.5s var(--ease) infinite}
-.frag--pnl .big{font-family:var(--display);font-weight:800;font-size:1.5rem;letter-spacing:-.02em;color:var(--up);display:flex;align-items:center;gap:7px;margin-top:3px}
-.frag--pnl .chip{font-size:.72rem;font-weight:700;color:var(--up);background:var(--up-soft);padding:2px 7px;border-radius:999px}
-.frag--tok{bottom:4%;right:-30%;display:flex;align-items:center;gap:10px;--k:22px;animation:floatA 8.5s var(--ease) infinite .8s}
-.frag--tok .dot{width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;font-family:var(--display);font-weight:800;font-size:.8rem;display:grid;place-items:center;flex:none}
-.frag--tok b{font-family:var(--display);font-weight:800;font-size:.98rem;letter-spacing:-.01em}
-.frag--tok .up{color:var(--up);font-family:var(--mono);font-size:.74rem;font-weight:600}
+.frag--pnl .big{font-family:var(--display);font-weight:800;font-size:1.5rem;letter-spacing:-.02em;color:var(--ink);margin-top:4px}
+.frag--tok{bottom:4%;right:-32%;display:flex;align-items:center;gap:10px;--k:22px;animation:floatA 8.5s var(--ease) infinite .8s}
+.frag--tok .dot{width:30px;height:30px;border-radius:50%;background:var(--accent);color:#fff;font-family:var(--display);font-weight:800;font-size:.9rem;display:grid;place-items:center;flex:none}
+.frag--tok b{display:block;font-family:var(--display);font-weight:800;font-size:1rem;letter-spacing:-.01em;line-height:1.05}
+.frag__sub{display:block;font-family:var(--sans);font-size:.66rem;color:var(--text-3);font-weight:600}
+.frag--tok .price{margin-left:4px;color:var(--text-2);font-family:var(--mono);font-size:.82rem;font-weight:600}
 
 @keyframes floatA{0%,100%{transform:translateY(0) rotate(-.4deg)}50%{transform:translateY(-13px) rotate(.4deg)}}
 @keyframes floatB{0%,100%{transform:translateY(0) rotate(.5deg)}50%{transform:translateY(11px) rotate(-.5deg)}}
@@ -215,7 +215,7 @@ svg.ic{width:1em;height:1em;fill:currentColor;flex:none;vertical-align:middle}
 @media (max-width:900px){.foot__cols{grid-template-columns:1fr 1fr}.foot__social{grid-column:1/-1}}
 
 /* ---------- device frame (real app screenshot, iPhone-Pro style) ---------- */
-.device{position:relative;width:var(--dw,260px);aspect-ratio:1179/2556;flex:none;border-radius:16.5%/7.6%;
+.device{position:relative;width:var(--dw,260px);aspect-ratio:1178/2560;flex:none;border-radius:16.5%/7.6%;
   padding:2.5%;
   background:linear-gradient(150deg,#54545c 0%,#1b1b20 20%,#141418 50%,#1b1b20 80%,#44444c 100%);
   box-shadow:var(--shadow-device),inset 0 0 0 1px rgb(255 255 255 / .09)}

@@ -20,7 +20,7 @@
 <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/manrope.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/screens/home.png" as="image" fetchpriority="high">
+<link rel="preload" href="assets/screens/hero.png" as="image" fetchpriority="high">
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/site.css">
 <script>/* set theme before paint to avoid a flash */(function(){try{var t=localStorage.getItem('dyorhq.theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
@@ -97,16 +97,16 @@
       <div class="stage__inner">
         <!-- HERO DEVICE: placeholder using the real app screen; will be replaced by the premium iPhone mockup you send. -->
         <div class="device stage__phone" data-hero-device>
-          <img src="assets/screens/home.png" alt="The DyorHQ home screen showing a portfolio across spot, perps, launch and moments" width="660" height="1434" fetchpriority="high" decoding="async">
+          <img src="assets/screens/hero.png" alt="The DyorHQ home screen showing a portfolio across spot, perps, launch and moments" width="1178" height="2560" fetchpriority="high" decoding="async">
         </div>
         <div class="frag frag--pnl glass" aria-hidden="true">
-          <p class="frag__lbl">Portfolio &middot; today</p>
-          <p class="big">+US$0.98 <span class="chip">+3.96%</span></p>
+          <p class="frag__lbl">Total volume</p>
+          <p class="big">US$2,831.65</p>
         </div>
         <div class="frag frag--tok glass" aria-hidden="true">
           <span class="dot">M</span>
-          <div><b>MON</b></div>
-          <span class="up">+1.47%</span>
+          <div><b>MON</b><span class="frag__sub">Monad</span></div>
+          <span class="price">US$0.0235</span>
         </div>
       </div>
     </div>
