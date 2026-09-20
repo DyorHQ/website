@@ -155,7 +155,10 @@ svg.ic{width:1em;height:1em;fill:currentColor;flex:none;vertical-align:middle}
 .eco__row{display:flex;justify-content:center;gap:clamp(20px,4vw,56px);flex-wrap:wrap;align-items:center}
 .eco__item{display:inline-flex;align-items:center;gap:10px;font-family:var(--display);font-weight:800;font-size:clamp(1.05rem,1.7vw,1.4rem);letter-spacing:-.01em;color:var(--text-2);transition:color .2s,transform .2s}
 .eco__item:hover{color:var(--ink);transform:translateY(-2px)}
-.eco__mark{width:32px;height:32px;border-radius:9px;display:grid;place-items:center;color:#fff;background:var(--vc);font-size:.95rem;flex:none;box-shadow:0 8px 18px -8px var(--vc)}
+.eco__logo{width:36px;height:36px;border-radius:10px;overflow:hidden;flex:none;display:grid;place-items:center;box-shadow:var(--shadow-sm),inset 0 0 0 1px var(--line)}
+.eco__logo img{width:100%;height:100%;object-fit:cover;display:block}
+.eco__logo--pad{background:#fff}
+.eco__logo--pad img{object-fit:contain;padding:7px}
 
 /* ---------- feature cards ---------- */
 .feat{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,1.6vw,20px)}
