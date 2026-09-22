@@ -7,7 +7,7 @@
 /* ---------- grid: 3 equal columns, 5 shared rows, areas t1…t7 ----------
    Column stacks: col1 = t1 62% / t2 38%, col2 = t3 22% / t4 56% / t5 22%, col3 = t6 40% / t7 60%.
    Height = --bento-ratio × grid width (reference frames measure ≈ .61; .74 leaves room for the real screens). */
-.bento{--bento-ratio:.74;display:grid;gap:14px;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:22fr 18fr 22fr 16fr 22fr;grid-template-areas:"t1 t3 t6" "t1 t4 t6" "t1 t4 t7" "t2 t4 t7" "t2 t5 t7";min-height:min(calc(var(--maxw) * var(--bento-ratio)),calc((100vw - 48px) * var(--bento-ratio)))}
+.bento{--bento-ratio:.66;display:grid;gap:14px;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:22fr 18fr 22fr 16fr 22fr;grid-template-areas:"t1 t3 t6" "t1 t4 t6" "t1 t4 t7" "t2 t4 t7" "t2 t5 t7";min-height:min(calc(var(--maxw) * var(--bento-ratio)),calc((100vw - 48px) * var(--bento-ratio)))}
 .tile--t1{grid-area:t1}
 .tile--t2{grid-area:t2}
 .tile--t3{grid-area:t3}

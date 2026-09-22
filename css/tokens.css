@@ -17,7 +17,6 @@
 
   /* canvas + ink */
   --canvas:#F3F3F6;          /* cool off-white page ground */
-  --canvas-2:#E9E9EE;        /* slightly deeper ground */
   --surface:#FFFFFF;
   --ink:#0F0F14;
   --text:#0F0F14;
@@ -27,7 +26,9 @@
   --line-2:rgb(15 15 20 / .22);
   --chip-bg:rgb(255 255 255 / .5);      /* chip + outline button fill */
   --input-bg:rgb(255 255 255 / .6);
+  --input-border:rgb(15 15 20 / .5);    /* ≥3:1 against the canvas (non-text contrast) */
   --input-focus-bg:#FFFFFF;
+  --mark-filter:none;                   /* the wordmark PNG is dark; inverted in dark mode */
   --giant-cover:#F3F3F6;     /* the canvas-coloured plate the giant letters are cut from */
 
   /* dark 3D scenes (the same in both themes) */
@@ -51,8 +52,6 @@
   --holo-ice:#DCE7FF;
 
   /* frosted glass */
-  --glass-bg:rgb(255 255 255 / .46);
-  --glass-border:rgb(255 255 255 / .85);
   --glass-hi:rgb(255 255 255 / .95);
   --glass-blur:18px;
 
@@ -73,7 +72,6 @@
   /* shadows */
   --shadow-sm:0 1px 2px rgb(15 15 20 / .06);
   --shadow-card:0 2px 6px rgb(15 15 20 / .06),0 34px 70px -34px rgb(15 15 20 / .38);
-  --shadow-float:0 4px 10px rgb(15 15 20 / .06),0 60px 120px -44px rgb(15 15 20 / .5);
   --shadow-device:0 2px 6px rgb(0 0 0 / .25),0 50px 90px -34px rgb(0 0 0 / .7);
 }
 
@@ -82,7 +80,6 @@
   :root:not([data-theme="light"]){
     color-scheme:dark;
     --canvas:#0F0E17;
-    --canvas-2:#0A0912;
     --surface:#17162A;
     --ink:#F1F0FA;
     --text:#F1F0FA;
@@ -92,15 +89,16 @@
     --line-2:rgb(255 255 255 / .24);
     --chip-bg:rgb(255 255 255 / .06);
     --input-bg:rgb(255 255 255 / .06);
+    --input-border:rgb(255 255 255 / .45);
     --input-focus-bg:#1C1B30;
+    --mark-filter:brightness(0) invert(1);
     --pill-bg:#F1F0FA;
     --pill-fg:#0F0F14;
     --shadow-sm:0 1px 2px rgb(0 0 0 / .35);
     --shadow-card:0 2px 6px rgb(0 0 0 / .3),0 34px 70px -34px rgb(0 0 0 / .75);
-    --shadow-float:0 4px 10px rgb(0 0 0 / .3),0 60px 120px -44px rgb(0 0 0 / .85);
   }
   /* glass surfaces keep dark ink on a white face */
-  :root:not([data-theme="light"]) .holo:not(.holo--deep){--ink:#0F0F14;--text-3:#6E6E7C;--surface:#FFFFFF;--glass-bg:rgb(255 255 255 / .84)}
+  :root:not([data-theme="light"]) .holo:not(.holo--deep){--ink:#0F0F14;--text-3:#6E6E7C;--surface:#FFFFFF}
   :root:not([data-theme="light"]) .tile{--surface:#FFFFFF}
   :root:not([data-theme="light"]) .tile--holo-light{--ink:#0F0F14;--text-3:#6E6E7C}
 }
@@ -109,7 +107,6 @@
 :root[data-theme="dark"]{
   color-scheme:dark;
   --canvas:#0F0E17;
-  --canvas-2:#0A0912;
   --surface:#17162A;
   --ink:#F1F0FA;
   --text:#F1F0FA;
@@ -119,13 +116,14 @@
   --line-2:rgb(255 255 255 / .24);
   --chip-bg:rgb(255 255 255 / .06);
   --input-bg:rgb(255 255 255 / .06);
+  --input-border:rgb(255 255 255 / .45);
   --input-focus-bg:#1C1B30;
+  --mark-filter:brightness(0) invert(1);
   --pill-bg:#F1F0FA;
   --pill-fg:#0F0F14;
   --shadow-sm:0 1px 2px rgb(0 0 0 / .35);
   --shadow-card:0 2px 6px rgb(0 0 0 / .3),0 34px 70px -34px rgb(0 0 0 / .75);
-  --shadow-float:0 4px 10px rgb(0 0 0 / .3),0 60px 120px -44px rgb(0 0 0 / .85);
 }
-:root[data-theme="dark"] .holo:not(.holo--deep){--ink:#0F0F14;--text-3:#6E6E7C;--surface:#FFFFFF;--glass-bg:rgb(255 255 255 / .84)}
+:root[data-theme="dark"] .holo:not(.holo--deep){--ink:#0F0F14;--text-3:#6E6E7C;--surface:#FFFFFF}
 :root[data-theme="dark"] .tile{--surface:#FFFFFF}
 :root[data-theme="dark"] .tile--holo-light{--ink:#0F0F14;--text-3:#6E6E7C}

@@ -83,8 +83,10 @@
     const from = n === 5 ? { translate: '34% 70%', rotate: '-12deg' }
       : drop ? { translate: '0 -90%', rotate: (n === 6 ? -10 : 8) + 'deg' }
         : { translate: '40% -50%', rotate: '18deg' };
-    card.animate([{ offset: 0, opacity: 0, scale: drop ? '1' : '1.08', filter: 'blur(6px)', ...from }],
+    const coarse = window.matchMedia('(pointer: coarse)').matches;       /* phones: no blur keyframe, no endless float */
+    card.animate([{ offset: 0, opacity: 0, scale: drop ? '1' : '1.08', ...(coarse ? {} : { filter: 'blur(6px)' }), ...from }],
       { delay, duration: 1100, easing: EASE_OUT, fill: 'backwards' });          /* `to` = the cascade, untouched */
+    if (coarse) return;
     const amp = (n % 2 ? -1 : 1) * (6 + (n % 3));                       /* ±6–8px, alternating direction */
     const tilt = (n % 2 ? 1 : -1) * (0.6 + (n % 3) * 0.2);              /* ±0.6–1deg */
     card.animate([
@@ -100,6 +102,8 @@
     if (el.classList.contains('in')) return;
     el.classList.add('in');
     el.querySelectorAll('[data-fly]').forEach(fly);
+    /* a dark scene reveals as one unit: its pinned phone/slab may never reach 20% on their own */
+    if (el.matches('.scene')) el.querySelectorAll('[data-anim]').forEach((c) => { io.unobserve(c); reveal(c); });
     if (el.dataset.anim === 'morph') {
       Array.from(el.parentElement.children).forEach((s) => { if (s.dataset.anim === 'fade') { io.unobserve(s); reveal(s); } });
     }
@@ -116,6 +120,7 @@
   const targets = new Set();
   document.querySelectorAll('[data-anim]').forEach((el) => { if (!inHero(el)) targets.add(el); });
   document.querySelectorAll('[data-fly]').forEach((card) => { if (!inHero(card)) targets.add(card.parentElement); });
+  document.querySelectorAll('.scene').forEach((s) => targets.add(s));
   targets.forEach((t) => io.observe(t));
 
   /* Hero: plays on load as one sequence (delays live in motion.css). Waits for the webfont, 250ms at most. */
@@ -180,6 +185,8 @@
       btn.style.minWidth = btn.offsetWidth + 'px';                       /* no layout jump while the label swaps */
       btn.textContent = 'Opening mail…';
       live.textContent = 'Opening your mail app with a message to team@dyorhq.fun.';
+      const note = document.querySelector('[data-capture-note]');
+      if (note) note.textContent = 'If nothing opened, email team@dyorhq.fun and we will add you.';
       clearTimeout(timer);
       timer = setTimeout(() => { btn.textContent = label; btn.style.minWidth = ''; }, 2000);
       window.location.href = 'mailto:team@dyorhq.fun?subject=DyorHQ%20updates&body=' + encodeURIComponent(email);
@@ -188,13 +195,42 @@
 
   /* ---- 9. Theme toggle: light ⇄ dark, persisted; the inline script in <head> re-applies it before paint. ---- */
   const toggle = document.querySelector('[data-theme-toggle]');
+  const isDark = () => (root.getAttribute('data-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')) === 'dark';
+  const labelToggle = () => { if (toggle) toggle.setAttribute('aria-label', isDark() ? 'Switch to light theme' : 'Switch to dark theme'); };
   if (toggle) {
+    labelToggle();
     toggle.addEventListener('click', () => {
-      const cur = root.getAttribute('data-theme');
-      const next = cur ? (cur === 'dark' ? 'light' : 'dark')
-        : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'light' : 'dark');
+      const next = isDark() ? 'light' : 'dark';
       root.setAttribute('data-theme', next);
       try { localStorage.setItem('dyorhq.theme', next); } catch (e) { /* storage unavailable */ }
+      labelToggle();
     });
+  }
+
+  /* ---- 10. Nav colour follows what is under it: white over the dark scenes, dark ink over the light
+          giant plate, otherwise the theme. Observes only the 76px band the nav occupies (no scroll listener). ---- */
+  const nav = document.querySelector('.nav');
+  const learn = document.querySelector('.scene--learn');
+  const pinScene = document.querySelector('.pin__scene');
+  const giant = document.querySelector('.pin__giant');
+  if (nav && learn && pinScene && giant) {
+    const under = new Map();
+    let bandIO = null;
+    const apply = () => {
+      const g = under.get(giant), s = under.get(learn) || under.get(pinScene);
+      nav.classList.toggle('nav--light', !!g);
+      nav.classList.toggle('nav--dark', !g && !!s);
+    };
+    const watch = () => {
+      if (bandIO) bandIO.disconnect();
+      const band = Math.max(0, window.innerHeight - 76);
+      bandIO = new IntersectionObserver((entries) => {
+        entries.forEach((en) => under.set(en.target, en.isIntersecting));
+        apply();
+      }, { rootMargin: '0px 0px -' + band + 'px 0px', threshold: 0 });
+      [learn, pinScene, giant].forEach((el) => bandIO.observe(el));
+    };
+    watch();
+    window.addEventListener('resize', watch, { passive: true });
   }
 })();

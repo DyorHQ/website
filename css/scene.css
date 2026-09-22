@@ -38,7 +38,7 @@
     linear-gradient(180deg,var(--dark-2),var(--tile));
   background-size:auto,auto,var(--t) var(--t),var(--t) var(--t),auto}
 .scene__floor--wide::after{content:"";position:absolute;left:50%;bottom:0;width:170%;height:160%;margin-left:-85%;z-index:0;transform-origin:50% 100%;transform:rotateX(58deg);
-  background-color:color-mix(in srgb,var(--arrow) 52%,var(--floor-hi));
+  background-color:color-mix(in srgb,var(--arrow) 30%,var(--floor-hi));   /* closer to the reference's darker concrete; keeps the text ≥3:1 */
   background-image:radial-gradient(48% 40% at 72% 88%,rgb(255 255 255 / .2),transparent 70%),
     radial-gradient(60% 50% at 12% 55%,rgb(0 0 0 / .16),transparent 70%),
     linear-gradient(180deg,rgb(0 0 0 / .3),transparent 45%),
@@ -109,7 +109,7 @@
 .giant__svg{position:absolute;inset:0;width:100%;height:100%;display:block;transform-origin:50% 50%}
 .giant__cover{fill:var(--giant-cover,var(--canvas))}   /* stays light in dark mode so the masked letters still read */
 .giant__text{font-family:var(--display);font-weight:700;font-size:420px;letter-spacing:-.04em;transform:translateY(-80px)}   /* ink 1448 of 1600 units wide, cap top y≈171, descenders y≈581 */
-@media (max-aspect-ratio:1/1){.giant__text{font-size:150px;transform:translateY(-160px)}}   /* portrait: the whole word fits the visible slice on tablets, ~4 letters on phones */
+@media (max-aspect-ratio:1/1){.giant__text{font-size:90px;transform:translateY(-178px)}}   /* portrait: the whole word fits the visible slice, phones included */
 @supports (animation-timeline:view()){
   .pin{view-timeline:--pin block}
   .giant__svg{animation:giant-settle linear both;animation-timeline:--pin;animation-range:contain}

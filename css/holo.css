@@ -53,10 +53,10 @@
 .holo--deep .holo__num{color:rgb(255 255 255 / .1);-webkit-text-stroke-color:rgb(255 255 255 / .85);opacity:.72}
 .holo__meta{position:absolute;left:8%;bottom:9%;z-index:3;max-width:54%;display:flex;flex-direction:column;gap:.18em}
 .holo__meta b{font-weight:700;font-size:1.06em;letter-spacing:-.015em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.holo__meta span{font-family:var(--mono);font-size:.6em;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.holo__meta span{font-family:var(--mono);font-size:max(.6em,8px);letter-spacing:.12em;text-transform:uppercase;color:var(--text-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .holo__row{position:absolute;right:8%;bottom:9%;z-index:3;max-width:44%;display:flex;flex-direction:column;align-items:flex-end;gap:.18em;text-align:right}
 .holo__row .mono{font-size:.94em;font-weight:600;letter-spacing:-.01em;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.holo__row span:last-child{font-family:var(--mono);font-size:.58em;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3);white-space:nowrap}
+.holo__row span:last-child{font-family:var(--mono);font-size:max(.58em,8px);letter-spacing:.12em;text-transform:uppercase;color:var(--text-3);white-space:nowrap}
 .holo--deep .holo__meta span,.holo--deep .holo__row span:last-child{color:var(--on-dark-2)}
 
 /* ---------- .hs: the iridescent objects (positions in % of the card, shading in em) ---------- */

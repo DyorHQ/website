@@ -28,7 +28,7 @@ svg.ic{width:1em;height:1em;fill:currentColor;flex:none;vertical-align:middle}
 .h-hero b,.h-sec b,.scene__text b,.tile__h b{font-weight:700}
 .star{display:inline-block;font-style:normal;font-weight:400;color:var(--ink);line-height:1}
 .star--in{font-size:.66em;vertical-align:.08em;margin:0 .02em;opacity:.9}
-.chip{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.68rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3);border:1px solid var(--line);border-radius:var(--r-pill);padding:8px 14px;margin:0 0 18px;background:var(--chip-bg)}
+.chip{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.7rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3);border:1px solid var(--line);border-radius:var(--r-pill);padding:8px 14px;margin:0 0 18px;background:var(--chip-bg)}
 .chip .star{font-size:.9em;color:var(--text-3)}
 
 /* ---------- buttons ---------- */
@@ -42,23 +42,29 @@ svg.ic{width:1em;height:1em;fill:currentColor;flex:none;vertical-align:middle}
 .iconbtn{width:40px;height:40px;border-radius:var(--r-pill);display:grid;place-items:center;color:inherit;box-shadow:inset 0 0 0 1px var(--line-2);transition:background .16s,transform .16s}
 .iconbtn:hover{background:var(--chip-bg);transform:translateY(-1px)}
 .iconbtn .ic{font-size:1.1rem}
-/* theme toggle: show the icon of the mode you'd switch TO */
+/* theme toggle: show the icon of the mode you'd switch TO; hidden when JS can't run it */
+html:not(.js) [data-theme-toggle]{display:none}
 [data-theme-toggle] .ic-sun{display:none}[data-theme-toggle] .ic-moon{display:block}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) [data-theme-toggle] .ic-sun{display:block}:root:not([data-theme="light"]) [data-theme-toggle] .ic-moon{display:none}}
 :root[data-theme="dark"] [data-theme-toggle] .ic-sun{display:block}:root[data-theme="dark"] [data-theme-toggle] .ic-moon{display:none}
 :root[data-theme="light"] [data-theme-toggle] .ic-sun{display:none}:root[data-theme="light"] [data-theme-toggle] .ic-moon{display:block}
 
-/* ---------- nav: sits over light AND dark screens, so it auto-inverts ---------- */
-.nav{position:fixed;inset:0 0 auto 0;z-index:50;pointer-events:none;mix-blend-mode:difference;color:#fff}
+/* ---------- nav: sits over light AND dark screens; motion.js sets .nav--dark / .nav--light
+   from what is under it (IntersectionObserver), otherwise it follows the theme ---------- */
+.nav{position:fixed;inset:0 0 auto 0;z-index:50;pointer-events:none;color:var(--ink);transition:color .25s var(--ease)}
+.nav--dark{color:#fff}
+.nav--light{color:#0F0F14}
 .nav__in{display:flex;align-items:center;justify-content:space-between;height:76px}
 .nav .brand,.nav .btn,.nav .iconbtn{pointer-events:auto}
 .nav__right{display:flex;align-items:center;gap:10px}
-.nav .iconbtn{color:#fff;box-shadow:inset 0 0 0 1px rgb(255 255 255 / .55)}   /* white under the difference blend → dark on light, light on dark */
-.nav .iconbtn:hover{background:rgb(255 255 255 / .12);transform:none}
+.nav .iconbtn{color:inherit;box-shadow:inset 0 0 0 1px color-mix(in srgb,currentColor 45%,transparent)}
+.nav .iconbtn:hover{background:color-mix(in srgb,currentColor 12%,transparent);transform:none}
 .brand img{height:24px;width:auto}
-.nav .brand img{filter:brightness(0) invert(1)}          /* white → difference makes it dark on light, light on dark */
-.nav .btn-outline{background:transparent;color:#fff;box-shadow:inset 0 0 0 1px rgb(255 255 255 / .55)}
-.nav .btn-outline:hover{background:rgb(255 255 255 / .12);transform:none}
+.nav .brand img{filter:var(--mark-filter);transition:filter .25s}
+.nav--dark .brand img{filter:brightness(0) invert(1)}
+.nav--light .brand img{filter:none}
+.nav .btn-outline{background:transparent;color:inherit;box-shadow:inset 0 0 0 1px color-mix(in srgb,currentColor 45%,transparent)}
+.nav .btn-outline:hover{background:color-mix(in srgb,currentColor 12%,transparent);transform:none}
 
 /* ---------- screen 1: hero ---------- */
 .hero{position:relative;min-height:100svh;display:flex;align-items:center;padding:96px 0 40px;overflow:clip}
@@ -66,7 +72,7 @@ svg.ic{width:1em;height:1em;fill:currentColor;flex:none;vertical-align:middle}
 .hero__wm{position:absolute;right:-2%;top:6%;font-family:var(--display);font-weight:700;font-size:clamp(8rem,22vw,20rem);line-height:.8;letter-spacing:-.04em;color:var(--ink);opacity:.028;writing-mode:vertical-rl;transform:rotate(180deg);pointer-events:none;user-select:none}
 .hero__copy{grid-column:1 / -1;grid-row:1;align-self:end;position:relative;z-index:3;padding-bottom:28px;max-width:46rem}   /* spans both columns so the bold line runs in front of the fan, like the reference */
 .hero__feats{grid-column:1 / -1;grid-row:2;list-style:none;margin:8px 0 0;padding:26px 0 0 64px;display:flex;gap:clamp(24px,4vw,56px);flex-wrap:wrap}
-.hero__feats li{display:flex;align-items:center;gap:12px;font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3);line-height:1.5}
+.hero__feats li{display:flex;align-items:center;gap:12px;font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3);line-height:1.5}
 .scroll-cue{position:absolute;left:0;bottom:-2px;width:40px;height:40px;display:grid;place-items:center;color:var(--text-3);border-radius:50%;transition:transform .2s}   /* sits on the feature row's baseline, left of it */
 .scroll-cue:hover{transform:translateY(3px)}
 .scroll-cue .ic{font-size:1.25rem}
@@ -74,22 +80,26 @@ svg.ic{width:1em;height:1em;fill:currentColor;flex:none;vertical-align:middle}
 /* the card fan: five holographic cards from upper-left to lower-right, tilted in 3D.
    Placement is owned here; the card's LOOK is holo.css */
 .hero__stack{grid-column:2;grid-row:1 / 3;position:relative;height:100%;min-height:520px;perspective:1600px;transform-style:preserve-3d}
-.hero__stack .holo{position:absolute;width:clamp(200px,20vw,286px);aspect-ratio:1.6;left:50%;top:50%;transform:translate(-50%,-50%) translate3d(var(--x,0),var(--y,0),var(--z,0)) rotate(var(--rz,0)) rotateX(var(--rx,0)) rotateY(var(--ry,0))}
-.holo--1{--x:-46%;--y:-70%;--rz:-24deg;--ry:-8deg;--z:-40px}
-.holo--2{--x:-8%;--y:-38%;--rz:-14deg;--ry:-4deg;--z:0}
-.holo--3{--x:26%;--y:-4%;--rz:-6deg;--z:20px}
-.holo--4{--x:54%;--y:28%;--rz:8deg;--ry:6deg;--z:40px}
-.holo--5{--x:84%;--y:58%;--rz:22deg;--ry:10deg;--z:60px}
+.hero__stack .holo{position:absolute;width:clamp(220px,23vw,330px);aspect-ratio:1.6;left:50%;top:50%;transform:translate(-50%,-50%) translate3d(var(--x,0),var(--y,0),var(--z,0)) rotate(var(--rz,0)) rotateX(var(--rx,0)) rotateY(var(--ry,0))}
+.holo--1{--x:-83%;--y:-80%;--rz:-24deg;--ry:-8deg;--z:-40px}
+.holo--2{--x:-47%;--y:-46%;--rz:-14deg;--ry:-4deg;--z:0}
+.holo--3{--x:-15%;--y:-10%;--rz:-6deg;--z:20px}
+.holo--4{--x:13%;--y:26%;--rz:8deg;--ry:6deg;--z:40px}
+.holo--5{--x:41%;--y:56%;--rz:22deg;--ry:10deg;--z:60px}
 @media (max-width:1000px){
   .hero{padding-top:84px}
   .hero__in{grid-template-columns:1fr;grid-template-rows:auto auto auto;gap:18px}
   .hero__stack{grid-column:1;grid-row:1;min-height:clamp(300px,64vw,440px)}
   .hero__stack .holo{width:clamp(170px,44vw,250px)}
-  .holo--1{--x:-70%;--y:-40%}.holo--2{--x:-34%;--y:-14%}.holo--3{--x:2%;--y:10%}.holo--4{--x:36%;--y:36%}.holo--5{--x:70%;--y:62%}
+  .holo--1{--x:-74%;--y:-40%}.holo--2{--x:-40%;--y:-14%}.holo--3{--x:-6%;--y:10%}.holo--4{--x:26%;--y:36%}.holo--5{--x:52%;--y:62%}   /* keeps the last card inside a 768px viewport */
   .hero__copy{grid-row:2;padding-bottom:0}
-  .hero__feats{grid-row:3;padding-top:8px}
+  .hero__feats{grid-row:3;padding:8px 0 0}   /* no cue to make room for on small screens */
   .hero__wm{display:none}
   .scroll-cue{display:none}
+}
+@media (max-width:520px){
+  .hero__stack .holo{width:clamp(150px,42vw,250px)}
+  .holo--1{--x:-92%}.holo--2{--x:-58%}.holo--3{--x:-24%}.holo--4{--x:8%}.holo--5{--x:34%}   /* the whole fan inside a phone-width viewport */
 }
 
 /* ---------- screens 2 & 4: dark scene shells (environment art is scene.css) ---------- */
@@ -103,7 +113,8 @@ svg.ic{width:1em;height:1em;fill:currentColor;flex:none;vertical-align:middle}
 .scene__text--l{align-items:flex-start;padding-left:4%}
 .scene__text--r{align-items:flex-end;text-align:right;padding-right:4%}
 .scene__stage{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;min-height:520px}
-.scene__phone{--dw:clamp(240px,26vw,340px);position:relative;z-index:2;margin-bottom:-24%}   /* phone stands on the floor, cropped by the section bottom */
+.scene__phone{z-index:2}
+.scene--learn .scene__phone{--dw:clamp(300px,34vw,500px);position:absolute;left:50%;bottom:-10%;transform:translateX(-50%);margin:0}   /* rises from the ledge; its top is cropped by the section, like the reference */
 .scene--learn .glass-bar{position:absolute;z-index:4;top:2%;left:50%;transform:translateX(-50%)}
 @media (max-width:900px){
   .scene--learn{padding-top:92px}
@@ -112,6 +123,7 @@ svg.ic{width:1em;height:1em;fill:currentColor;flex:none;vertical-align:middle}
   .scene__text--l{grid-column:1;grid-row:1}
   .scene__text--r{grid-column:2;grid-row:1}
   .scene__stage{grid-column:1 / -1;grid-row:2;min-height:440px;margin-top:20px}
+  .scene--learn .scene__phone{--dw:clamp(230px,58vw,320px);position:relative;left:auto;bottom:auto;transform:none;margin-bottom:-24%}   /* back in flow under the text on small screens */
 }
 
 /* ---------- screen 3: bento shell (grid + tile look is bento.css) ---------- */
@@ -142,7 +154,7 @@ svg.ic{width:1em;height:1em;fill:currentColor;flex:none;vertical-align:middle}
 .holo-pill--wide{grid-column:2;grid-row:2;height:clamp(64px,8vw,96px);width:100%;justify-self:stretch}
 .holo-pill--sm{grid-column:1;grid-row:3;height:clamp(64px,8vw,96px);width:120%;margin-left:-20%}
 .capture__form{grid-column:2;grid-row:3;display:flex;align-items:center;gap:18px;justify-self:center;width:min(100%,560px)}
-.capture__form input{flex:1;height:52px;border-radius:var(--r-pill);border:1px solid var(--line-2);background:var(--input-bg);padding:0 22px;font-size:.98rem;color:var(--ink);outline:0;transition:border-color .2s,box-shadow .2s,background .2s}
+.capture__form input{flex:1;height:52px;border-radius:var(--r-pill);border:1px solid var(--input-border);background:var(--input-bg);padding:0 22px;font-size:.98rem;color:var(--ink);outline:0;transition:border-color .2s,box-shadow .2s,background .2s}
 .capture__form input::placeholder{color:var(--text-3)}
 .capture__form input:focus{border-color:var(--ink);background:var(--input-focus-bg);box-shadow:0 0 0 4px var(--line)}
 .capture__form .star{color:var(--text-3);font-size:1.1rem}
@@ -156,6 +168,7 @@ svg.ic{width:1em;height:1em;fill:currentColor;flex:none;vertical-align:middle}
   .holo-pill--wide{grid-column:1;grid-row:3;height:64px}
   .capture__form{grid-column:1;grid-row:4;width:100%;flex-wrap:wrap}
   .capture__form input{min-width:0;flex:1 1 200px}
+  .capture__form .star{display:none}
   .holo-pill--sm{grid-column:1;grid-row:5;width:70%;margin-left:-14%;height:56px}
   .capture__note{grid-column:1;grid-row:6;justify-self:start}
 }
@@ -165,8 +178,9 @@ svg.ic{width:1em;height:1em;fill:currentColor;flex:none;vertical-align:middle}
 .foot__in{display:flex;align-items:center;justify-content:space-between;gap:18px 32px;flex-wrap:wrap}
 .foot .brand img{height:20px}
 .foot__links{display:flex;gap:22px;flex-wrap:wrap;font-size:.9rem;color:var(--text-2)}
+.foot__links a{display:inline-flex;align-items:center;gap:6px;padding:10px 0}   /* comfortable tap targets */
 .foot__links a:hover{color:var(--ink)}
-.foot__legal{margin:0;width:100%;font-size:.74rem;color:var(--text-3);line-height:1.5}
+.foot__legal{margin:0;width:100%;font-size:.76rem;color:var(--text-3);line-height:1.5}
 
 /* ---------- device frame (real app screenshot, iPhone-Pro style) ---------- */
 .device{position:relative;width:var(--dw,260px);aspect-ratio:1178/2560;flex:none;border-radius:var(--r-frame)/7.6%;padding:2.5%;
