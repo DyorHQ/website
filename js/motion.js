@@ -185,4 +185,16 @@
       window.location.href = 'mailto:team@dyorhq.fun?subject=DyorHQ%20updates&body=' + encodeURIComponent(email);
     });
   }
+
+  /* ---- 9. Theme toggle: light ⇄ dark, persisted; the inline script in <head> re-applies it before paint. ---- */
+  const toggle = document.querySelector('[data-theme-toggle]');
+  if (toggle) {
+    toggle.addEventListener('click', () => {
+      const cur = root.getAttribute('data-theme');
+      const next = cur ? (cur === 'dark' ? 'light' : 'dark')
+        : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'light' : 'dark');
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('dyorhq.theme', next); } catch (e) { /* storage unavailable */ }
+    });
+  }
 })();

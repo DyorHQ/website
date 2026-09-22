@@ -1,6 +1,9 @@
 /* DyorHQ foundation. Single source for color, type and scale.
    Concept: cool off-white canvas, frosted holographic glass cards, dark 3D tiled scenes,
-   geometric sans mixing LIGHT (300) and BOLD (700) in one headline, near-black pills. */
+   geometric sans mixing LIGHT (300) and BOLD (700) in one headline, near-black pills.
+   Adaptive: light by default; dark via prefers-color-scheme or the [data-theme] toggle.
+   In dark mode the page inverts but the glass surfaces (white cards, frosted tiles) keep
+   their dark ink, and the giant-type cover stays light so the masked "DyorHQ" still reads. */
 
 @font-face{font-family:"Manrope";src:url("../assets/fonts/manrope.woff2") format("woff2");font-weight:200 800;font-style:normal;font-display:swap}
 @font-face{font-family:"IBM Plex Mono";src:url("../assets/fonts/ibm-plex-mono.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
@@ -22,8 +25,12 @@
   --text-3:#6E6E7C;          /* small caps labels, AA on canvas */
   --line:rgb(15 15 20 / .12);
   --line-2:rgb(15 15 20 / .22);
+  --chip-bg:rgb(255 255 255 / .5);      /* chip + outline button fill */
+  --input-bg:rgb(255 255 255 / .6);
+  --input-focus-bg:#FFFFFF;
+  --giant-cover:#F3F3F6;     /* the canvas-coloured plate the giant letters are cut from */
 
-  /* dark 3D scenes */
+  /* dark 3D scenes (the same in both themes) */
   --dark:#0D0D11;            /* scene ground */
   --dark-2:#15151A;
   --tile:#1A1A20;            /* wall tiles */
@@ -69,3 +76,56 @@
   --shadow-float:0 4px 10px rgb(15 15 20 / .06),0 60px 120px -44px rgb(15 15 20 / .5);
   --shadow-device:0 2px 6px rgb(0 0 0 / .25),0 50px 90px -34px rgb(0 0 0 / .7);
 }
+
+/* ---- dark: follow the OS unless the visitor forced light ---- */
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --canvas:#0F0E17;
+    --canvas-2:#0A0912;
+    --surface:#17162A;
+    --ink:#F1F0FA;
+    --text:#F1F0FA;
+    --text-2:#B9B7CE;
+    --text-3:#928FA9;
+    --line:rgb(255 255 255 / .12);
+    --line-2:rgb(255 255 255 / .24);
+    --chip-bg:rgb(255 255 255 / .06);
+    --input-bg:rgb(255 255 255 / .06);
+    --input-focus-bg:#1C1B30;
+    --pill-bg:#F1F0FA;
+    --pill-fg:#0F0F14;
+    --shadow-sm:0 1px 2px rgb(0 0 0 / .35);
+    --shadow-card:0 2px 6px rgb(0 0 0 / .3),0 34px 70px -34px rgb(0 0 0 / .75);
+    --shadow-float:0 4px 10px rgb(0 0 0 / .3),0 60px 120px -44px rgb(0 0 0 / .85);
+  }
+  /* glass surfaces keep dark ink on a white face */
+  :root:not([data-theme="light"]) .holo:not(.holo--deep){--ink:#0F0F14;--text-3:#6E6E7C;--surface:#FFFFFF;--glass-bg:rgb(255 255 255 / .84)}
+  :root:not([data-theme="light"]) .tile{--surface:#FFFFFF}
+  :root:not([data-theme="light"]) .tile--holo-light{--ink:#0F0F14;--text-3:#6E6E7C}
+}
+
+/* ---- dark: forced by the toggle ---- */
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --canvas:#0F0E17;
+  --canvas-2:#0A0912;
+  --surface:#17162A;
+  --ink:#F1F0FA;
+  --text:#F1F0FA;
+  --text-2:#B9B7CE;
+  --text-3:#928FA9;
+  --line:rgb(255 255 255 / .12);
+  --line-2:rgb(255 255 255 / .24);
+  --chip-bg:rgb(255 255 255 / .06);
+  --input-bg:rgb(255 255 255 / .06);
+  --input-focus-bg:#1C1B30;
+  --pill-bg:#F1F0FA;
+  --pill-fg:#0F0F14;
+  --shadow-sm:0 1px 2px rgb(0 0 0 / .35);
+  --shadow-card:0 2px 6px rgb(0 0 0 / .3),0 34px 70px -34px rgb(0 0 0 / .75);
+  --shadow-float:0 4px 10px rgb(0 0 0 / .3),0 60px 120px -44px rgb(0 0 0 / .85);
+}
+:root[data-theme="dark"] .holo:not(.holo--deep){--ink:#0F0F14;--text-3:#6E6E7C;--surface:#FFFFFF;--glass-bg:rgb(255 255 255 / .84)}
+:root[data-theme="dark"] .tile{--surface:#FFFFFF}
+:root[data-theme="dark"] .tile--holo-light{--ink:#0F0F14;--text-3:#6E6E7C}
