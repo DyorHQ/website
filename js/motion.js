@@ -225,7 +225,7 @@
       if (bandIO) bandIO.disconnect();
       const band = Math.max(0, window.innerHeight - 76);
       bandIO = new IntersectionObserver((entries) => {
-        entries.forEach((en) => under.set(en.target, en.isIntersecting));
+        entries.forEach((en) => under.set(en.target, en.isIntersecting && en.intersectionRect.height > 0));   /* edge-adjacent ≠ under the nav */
         apply();
       }, { rootMargin: '0px 0px -' + band + 'px 0px', threshold: 0 });
       [learn, pinScene, giant].forEach((el) => bandIO.observe(el));
