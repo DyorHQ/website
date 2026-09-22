@@ -1,26 +1,35 @@
 # DyorHQ — website
 
-The official landing page for **DyorHQ**, the RWA HQ for social trading: a self-custodial
-mobile app on Monad for launching stock-backed coins, copying on-chain traders, and trading
-perps and swaps.
+The landing page for **DyorHQ**, the RWA HQ for social trading: a self-custodial app on Monad
+for swapping tokens, trading perps, launching coins and collecting moments.
 
 ## What this is
 
-A single-page, dependency-free static site. Every visual is built from the DyorHQ design
-system and the real iOS app UI — the same Home, Trade (Swap / Perps), Launch, Moments and
-Strategy screens the app ships, rendered as interactive iPhone mockups.
+A single-page, dependency-free static site — no build step, no runtime network requests
+(fonts are self-hosted, icons are inline SVG). Every product visual is a real screenshot of the
+DyorHQ iOS app; everything else (the frosted holographic glass cards, the dark 3D rooms, the
+chrome-ribbon pill, the giant masked type) is drawn in plain CSS.
 
-- **`index.html`** — the page.
-- **`css/tokens.css`** — the design tokens (mirrors the app's `design-tokens.css`): monochrome
-  canvas, Bodoni Moda / Manrope / IBM Plex Mono, and the Monad-purple accent the iOS app uses.
-- **`css/site.css`** — landing-page layout and components.
-- **`css/phone.css`** — the iPhone mockups that reproduce the app screens.
-- **`js/main.js`** — theme (system default, choice persisted locally), navigation, scroll
-  reveals, the Swap/Perps toggle and the interactive leverage ruler.
-- **`js/icons.js`** — inline SVG icon set.
-- **`assets/`** — brand wordmark and monogram, bundled OFL fonts, and token logos.
+Six screens, in order: light hero with a fan of glass cards → dark tiled room with the phone →
+bento grid of the four products → dark floor scene with the positions slab → giant "DyorHQ"
+type that reveals the scene through its letters as you scroll → email capture.
 
-No build step and no runtime network requests: fonts are self-hosted, icons are inline.
+## Files
+
+- **`index.html`** — the page. All copy and content live here.
+- **`css/tokens.css`** — colours, holographic palette, glass, radii, easing, shadows, fonts.
+- **`css/site.css`** — base layer: reset, type (light 300 / bold 700 mixing), nav, section
+  layouts and card placement, footer, the iPhone frame.
+- **`css/holo.css`** — the frosted glass cards and the 3D-looking shapes inside them, the
+  holographic pills, the dark glass bar, the small glass glyphs.
+- **`css/scene.css`** — the dark rooms (tiled wall, concrete floor, arrow sculptures), the
+  tilted slab device, and the pinned scene + masked giant type.
+- **`css/bento.css`** — the bento grid and its four tile looks.
+- **`css/motion.css` + `js/motion.js`** — word-by-word headline, card fly-ins and idle float,
+  staggered reveals, the pill morph, mouse parallax and the email form. IntersectionObserver
+  only (no scroll listeners); everything is visible without JS and under reduced motion.
+- **`assets/`** — brand wordmark, real app screens (`screens/`), venue logos (`brand/venues/`),
+  bundled OFL fonts (Manrope, IBM Plex Mono).
 
 ## Run locally
 
@@ -30,29 +39,10 @@ python3 -m http.server 4173
 
 Then open http://127.0.0.1:4173.
 
-## Design system
-
-The identity is the editorial DyorHQ wordmark and D/Q monogram, a monochrome palette
-(`#F7F7F5` / `#18191B`), and a single interactive accent — Monad purple `#836EF9`. Positive
-and negative values always carry a sign, never colour alone. Fonts are bundled under
-`assets/fonts` with their SIL Open Font License files.
-
 ## Notes
 
-Market data and app previews on the page are illustrative. Nothing here is investment advice
-or an offer to trade.
-
-## Typography
-
-Display type is **Archivo** (SIL OFL), instanced to a slightly condensed width (wdth 94)
-and subset to latin, giving an 18 KB variable font covering weights 100-900. Body text is
-Manrope; figures use IBM Plex Mono. All self-hosted, no runtime font requests.
-
-## Hero photograph
-
-`assets/photo/hero-hand.jpg` is a composite: a photograph from Unsplash
-(photo id `1717390758666-97dc77ef7a8c`, free for commercial use under the Unsplash
-License) with a real screenshot of the DyorHQ iOS app perspective-mapped onto the
-phone's screen. The screen inherits the photograph's own light falloff, so it reads
-as a real photo of the app rather than a pasted mockup. The photo's background is
-warmed to `#F2EEE7` to match the hero card exactly, which is why there is no seam.
+- The email form has no backend yet: Submit opens the visitor's mail client with a message to
+  team@dyorhq.fun. Swap `[data-capture]` in `js/motion.js` for a real endpoint when there is one.
+- "Open app" links to the in-page scene until there is an App Store / web-app URL.
+- App screens show the real app with example market data. Nothing here is investment advice or
+  an offer to trade. DyorHQ is self-custodial: only you hold your keys.

@@ -5,248 +5,276 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>DyorHQ - The RWA HQ for social trading</title>
 <meta name="description" content="Swap tokens, trade perps, launch coins and collect moments on Monad. DyorHQ is one self-custodial app, so only you hold the keys.">
-<meta name="theme-color" content="#F5F0E8" media="(prefers-color-scheme:light)">
-<meta name="theme-color" content="#0E0D1C" media="(prefers-color-scheme:dark)">
+<meta name="theme-color" content="#F3F3F6">
 <meta property="og:type" content="website">
 <meta property="og:title" content="DyorHQ - The RWA HQ for social trading">
-<meta property="og:description" content="Swap, trade perps, launch coins and collect moments. One self-custodial app on Monad.">
+<meta property="og:description" content="Everything on Monad, in one app. Swap, trade perps, launch coins and collect moments from one self-custodial account.">
 <meta property="og:url" content="https://dyorhq.fun/">
 <meta property="og:image" content="https://dyorhq.fun/assets/photo/hero-wide.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@DyorHQ_">
-<meta name="twitter:image" content="https://dyorhq.fun/assets/photo/hero-wide.jpg">
 <link rel="icon" href="assets/brand/favicon-32.png" sizes="32x32">
 <link rel="icon" href="assets/brand/favicon-64.png" sizes="64x64">
 <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
-<link rel="preload" href="assets/fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/manrope.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/screens/hero.png" as="image" fetchpriority="high">
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/site.css">
-<script>/* set theme before paint to avoid a flash */(function(){try{var t=localStorage.getItem('dyorhq.theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<link rel="stylesheet" href="css/holo.css">
+<link rel="stylesheet" href="css/scene.css">
+<link rel="stylesheet" href="css/bento.css">
+<link rel="stylesheet" href="css/motion.css">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
 <symbol id="i-arrow-right" viewBox="0 0 256 256"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></symbol>
 <symbol id="i-arrow-up-right" viewBox="0 0 256 256"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"/></symbol>
-<symbol id="i-envelope" viewBox="0 0 256 256"><path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48Zm-96,85.15L52.57,64H203.43ZM98.71,128,40,181.81V74.19Zm11.84,10.85,12,11.05a8,8,0,0,0,10.82,0l12-11.05,58,53.15H52.57ZM157.29,128,216,74.18V181.82Z"/></symbol>
-<symbol id="i-list" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"/></symbol>
+<symbol id="i-arrow-down" viewBox="0 0 256 256"><path d="M205.66,149.66l-72,72a8,8,0,0,1-11.32,0l-72-72a8,8,0,0,1,11.32-11.32L120,196.69V40a8,8,0,0,1,16,0V196.69l58.34-58.35a8,8,0,0,1,11.32,11.32Z"/></symbol>
+<symbol id="i-arrow-up" viewBox="0 0 256 256"><path d="M205.66,117.66a8,8,0,0,1-11.32,0L136,59.31V216a8,8,0,0,1-16,0V59.31L61.66,117.66a8,8,0,0,1-11.32-11.32l72-72a8,8,0,0,1,11.32,0l72,72A8,8,0,0,1,205.66,117.66Z"/></symbol>
 <symbol id="i-x-logo" viewBox="0 0 256 256"><path d="M214.75,211.71l-62.6-98.38,61.77-67.95a8,8,0,0,0-11.84-10.76L143.24,99.34,102.75,35.71A8,8,0,0,0,96,32H48a8,8,0,0,0-6.75,12.3l62.6,98.37-61.77,68a8,8,0,1,0,11.84,10.76l58.84-64.72,40.49,63.63A8,8,0,0,0,160,224h48a8,8,0,0,0,6.75-12.29ZM164.39,208,62.57,48h29L193.43,208Z"/></symbol>
-<symbol id="i-sun" viewBox="0 0 256 256"><path d="M120,40V16a8,8,0,0,1,16,0V40a8,8,0,0,1-16,0Zm72,88a64,64,0,1,1-64-64A64.07,64.07,0,0,1,192,128Zm-16,0a48,48,0,1,0-48,48A48.05,48.05,0,0,0,176,128ZM58.34,69.66A8,8,0,0,0,69.66,58.34l-16-16A8,8,0,0,0,42.34,53.66Zm0,116.68-16,16a8,8,0,0,0,11.32,11.32l16-16a8,8,0,0,0-11.32-11.32ZM192,72a8,8,0,0,0,5.66-2.34l16-16a8,8,0,0,0-11.32-11.32l-16,16A8,8,0,0,0,192,72Zm5.66,114.34a8,8,0,0,0-11.32,11.32l16,16a8,8,0,0,0,11.32-11.32ZM48,128a8,8,0,0,0-8-8H16a8,8,0,0,0,0,16H40A8,8,0,0,0,48,128Zm80,80a8,8,0,0,0-8,8v24a8,8,0,0,0,16,0V216A8,8,0,0,0,128,208Zm112-88H216a8,8,0,0,0,0,16h24a8,8,0,0,0,0-16Z"/></symbol>
-<symbol id="i-moon" viewBox="0 0 256 256"><path d="M240,96a8,8,0,0,1-8,8H216v16a8,8,0,0,1-16,0V104H184a8,8,0,0,1,0-16h16V72a8,8,0,0,1,16,0V88h16A8,8,0,0,1,240,96ZM144,56h8v8a8,8,0,0,0,16,0V56h8a8,8,0,0,0,0-16h-8V32a8,8,0,0,0-16,0v8h-8a8,8,0,0,0,0,16Zm72.77,97a8,8,0,0,1,1.43,8A96,96,0,1,1,95.07,37.8a8,8,0,0,1,10.6,9.06A88.07,88.07,0,0,0,209.14,150.33,8,8,0,0,1,216.77,153Zm-19.39,14.88c-1.79.09-3.59.14-5.38.14A104.11,104.11,0,0,1,88,64c0-1.79,0-3.59.14-5.38A80,80,0,1,0,197.38,167.86Z"/></symbol>
-<symbol id="i-search" viewBox="0 0 256 256"><path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"/></symbol>
-<symbol id="i-shield" viewBox="0 0 256 256"><path d="M208,40H48A16,16,0,0,0,32,56v56c0,52.72,25.52,84.67,46.93,102.19,23.06,18.86,46,25.26,47,25.53a8,8,0,0,0,4.2,0c1-.27,23.91-6.67,47-25.53C198.48,196.67,224,164.72,224,112V56A16,16,0,0,0,208,40Zm0,72c0,37.07-13.66,67.16-40.6,89.42A129.3,129.3,0,0,1,128,223.62a128.25,128.25,0,0,1-38.92-21.81C61.82,179.51,48,149.3,48,112l0-56,160,0ZM82.34,141.66a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32l-56,56a8,8,0,0,1-11.32,0Z"/></symbol>
-<symbol id="i-bolt" viewBox="0 0 256 256"><path d="M215.79,118.17a8,8,0,0,0-5-5.66L153.18,90.9l14.66-73.33a8,8,0,0,0-13.69-7l-112,120a8,8,0,0,0,3,13l57.63,21.61L88.16,238.43a8,8,0,0,0,13.69,7l112-120A8,8,0,0,0,215.79,118.17Z"/></symbol>
-<symbol id="i-swap" viewBox="0 0 256 256"><path d="M213.66,181.66l-32,32a8,8,0,0,1-11.32-11.32L188.69,184H48a8,8,0,0,1,0-16H188.69l-18.35-18.34a8,8,0,0,1,11.32-11.32l32,32A8,8,0,0,1,213.66,181.66Zm-139.32-64a8,8,0,0,0,11.32-11.32L67.31,88H208a8,8,0,0,0,0-16H67.31L85.66,53.66A8,8,0,0,0,74.34,42.34l-32,32a8,8,0,0,0,0,11.32Z"/></symbol>
-<symbol id="i-chart" viewBox="0 0 256 256"><path d="M232,208a8,8,0,0,1-8,8H32a8,8,0,0,1-8-8V48a8,8,0,0,1,16,0V156.69l50.34-50.35a8,8,0,0,1,11.32,0L128,132.69,180.69,80H160a8,8,0,0,1,0-16h40a8,8,0,0,1,8,8v40a8,8,0,0,1-16,0V91.31l-58.34,58.35a8,8,0,0,1-11.32,0L96,123.31l-56,56V200H224A8,8,0,0,1,232,208Z"/></symbol>
-<symbol id="i-flame" viewBox="0 0 256 256"><path d="M173.79,51.48a221.25,221.25,0,0,0-41.67-34.34,8,8,0,0,0-8.24,0A221.25,221.25,0,0,0,82.21,51.48C54.59,80.48,40,112.47,40,144a88,88,0,0,0,176,0C216,112.47,201.41,80.48,173.79,51.48ZM96,184c0-27.67,22.53-47.28,32-54.3,9.48,7,32,26.63,32,54.3a32,32,0,0,1-64,0Zm77.27,15.93A47.8,47.8,0,0,0,176,184c0-44-42.09-69.79-43.88-70.86a8,8,0,0,0-8.24,0C122.09,114.21,80,140,80,184a47.8,47.8,0,0,0,2.73,15.93A71.88,71.88,0,0,1,56,144c0-34.41,20.4-63.15,37.52-81.19A216.21,216.21,0,0,1,128,33.54a215.77,215.77,0,0,1,34.48,29.27C193.49,95.5,200,125,200,144A71.88,71.88,0,0,1,173.27,199.93Z"/></symbol>
-<symbol id="i-aperture" viewBox="0 0 256 256"><path d="M201.54,54.46A104,104,0,0,0,54.46,201.54,104,104,0,0,0,201.54,54.46ZM190.23,65.78a88.18,88.18,0,0,1,11,13.48L167.55,119,139.63,40.78A87.34,87.34,0,0,1,190.23,65.78ZM155.59,133l-18.16,21.37-27.59-5L100.41,123l18.16-21.37,27.59,5ZM65.77,65.78a87.34,87.34,0,0,1,56.66-25.59l17.51,49L58.3,74.32A88,88,0,0,1,65.77,65.78ZM46.65,161.54a88.41,88.41,0,0,1,2.53-72.62l51.21,9.35Zm19.12,28.68a88.18,88.18,0,0,1-11-13.48L88.45,137l27.92,78.18A87.34,87.34,0,0,1,65.77,190.22Zm124.46,0a87.34,87.34,0,0,1-56.66,25.59l-17.51-49,81.64,14.91A88,88,0,0,1,190.23,190.22Zm-34.62-32.49,53.74-63.27a88.41,88.41,0,0,1-2.53,72.62Z"/></symbol>
+<symbol id="i-dots" viewBox="0 0 256 256"><path d="M140,128a12,12,0,1,1-12-12A12,12,0,0,1,140,128ZM60,116a12,12,0,1,0,12,12A12,12,0,0,0,60,116Zm136,0a12,12,0,1,0,12,12A12,12,0,0,0,196,116Z"/></symbol>
 </svg>
 
 <header class="nav" id="nav">
   <div class="wrap nav__in">
     <a class="brand" href="#top" aria-label="DyorHQ home"><img src="assets/brand/wordmark.png" alt="DyorHQ" width="900" height="300"></a>
-    <nav class="nav__links" aria-label="Primary">
-      <a href="#features">Product</a>
-      <a href="#ecosystem">Ecosystem</a>
-      <a href="#custody">Self-custody</a>
-      <a href="#help">Help</a>
-    </nav>
-    <div class="nav__right">
-      <button class="iconbtn" data-theme-toggle type="button" aria-label="Switch color theme">
-        <svg class="ic ic-sun" aria-hidden="true"><use href="#i-sun"/></svg>
-        <svg class="ic ic-moon" aria-hidden="true"><use href="#i-moon"/></svg>
-      </button>
-      <a class="btn btn-accent btn-sm nav__cta" href="#get">Open app</a>
-      <button class="iconbtn nav__burger" data-menu type="button" aria-expanded="false" aria-controls="drawer" aria-label="Open menu"><svg class="ic" aria-hidden="true"><use href="#i-list"/></svg></button>
-    </div>
-  </div>
-  <div id="drawer" hidden>
-    <a href="#features">Product</a>
-    <a href="#ecosystem">Ecosystem</a>
-    <a href="#custody">Self-custody</a>
-    <a href="#help">Help</a>
-    <a class="btn btn-accent" href="#get">Open app</a>
+    <a class="btn btn-outline btn-sm" href="#open">Open app</a>
   </div>
 </header>
 
 <main id="main">
-<span id="top"></span>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="wrap hero__grid">
-    <div class="hero__copy reveal in">
-      <p class="eyebrow">The RWA HQ for social trading</p>
-      <h1 class="dsp h-hero">One home for everything on&nbsp;Monad</h1>
-      <p class="hero__sub">Swap, trade perps, launch coins and collect moments &mdash; from one self-custodial account you actually own.</p>
-      <div class="hero__cta">
-        <a class="btn btn-accent btn-lg" href="#get">Open DyorHQ <svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
-        <a class="btn btn-ghost btn-lg" href="#features">See how it works</a>
-      </div>
-      <p class="hero__note">Self-custodial &middot; Built on Monad &middot; Your keys, always</p>
+<!-- SCREEN 1: HERO — fanned holographic glass cards, light/bold headline -->
+<section class="hero" id="top">
+  <div class="wrap hero__in">
+    <span class="hero__wm" aria-hidden="true">DYOR</span>
+
+    <div class="hero__stack" data-parallax aria-hidden="true">
+      <article class="holo holo--1" data-fly="1">
+        <span class="holo__shapes"><i class="hs hs--cubes"></i><i class="hs hs--orb"></i><i class="hs hs--lines"></i></span>
+        <span class="holo__num">28.68</span>
+        <div class="holo__meta"><b>Your portfolio</b><span>DyorHQ</span></div>
+        <div class="holo__row"><span class="mono">US$28.68</span><span>total</span></div>
+      </article>
+      <article class="holo holo--2" data-fly="2">
+        <span class="holo__shapes"><i class="hs hs--ring"></i><i class="hs hs--orb hs--orb-b"></i><i class="hs hs--dots"></i></span>
+        <span class="holo__num">2470</span>
+        <div class="holo__meta"><b>Perps</b><span>BTC · 2x isolated</span></div>
+        <div class="holo__row"><span class="mono">76,584.5</span><span>mark</span></div>
+      </article>
+      <article class="holo holo--3" data-fly="3">
+        <span class="holo__shapes"><i class="hs hs--stripe"></i><i class="hs hs--cubes hs--cubes-b"></i></span>
+        <span class="holo__num">4090</span>
+        <div class="holo__meta"><b>Swap</b><span>MON → USDC</span></div>
+        <div class="holo__row"><span class="mono">53.76 → 1.2434</span><span>best price</span></div>
+      </article>
+      <article class="holo holo--4" data-fly="4">
+        <span class="holo__shapes"><i class="hs hs--blocks"></i><i class="hs hs--orb hs--orb-c"></i></span>
+        <span class="holo__num">7631</span>
+        <div class="holo__meta"><b>Launch</b><span>bonding curve</span></div>
+        <div class="holo__row"><span class="mono">3% → 100%</span><span>to graduation</span></div>
+      </article>
+      <article class="holo holo--5 holo--deep" data-fly="5">
+        <span class="holo__shapes"><i class="hs hs--panel"></i><i class="hs hs--lines hs--lines-b"></i></span>
+        <span class="holo__num">0235</span>
+        <div class="holo__meta"><b>Moments</b><span>collect · earn</span></div>
+        <div class="holo__row"><span class="mono">US$0.10</span><span>per edition</span></div>
+      </article>
     </div>
 
-    <div class="hero__stage" data-parallax>
-      <div class="stage__grid" aria-hidden="true"></div>
-      <div class="stage__glow" aria-hidden="true"></div>
-      <span class="orb orb--1" aria-hidden="true"></span>
-      <span class="orb orb--2" aria-hidden="true"></span>
-      <span class="ring ring--1" aria-hidden="true"></span>
-      <div class="stage__inner">
-        <!-- HERO DEVICE: placeholder using the real app screen; will be replaced by the premium iPhone mockup you send. -->
-        <div class="device stage__phone" data-hero-device>
-          <img src="assets/screens/hero.png" alt="The DyorHQ home screen showing a portfolio across spot, perps, launch and moments" width="1178" height="2560" fetchpriority="high" decoding="async">
+    <div class="hero__copy">
+      <p class="chip" data-anim="fade"><i class="star" aria-hidden="true">✱</i> Spot · Perps · Launch · Moments</p>
+      <h1 class="h-hero" data-anim="words"><span class="lt">Everything on Monad,</span><br><b>in <i class="star star--in" aria-hidden="true">✱</i><span class="sr-only">o</span>ne app.</b></h1>
+    </div>
+
+    <ul class="hero__feats" data-anim="stagger">
+      <li><i class="glyph glyph--cube" aria-hidden="true"></i><span>Self-<br>custodial</span></li>
+      <li><i class="glyph glyph--orb" aria-hidden="true"></i><span>Best-price<br>routing</span></li>
+      <li><i class="glyph glyph--ribbon" aria-hidden="true"></i><span>One<br>account</span></li>
+    </ul>
+
+    <a class="scroll-cue" href="#learn" aria-label="Scroll to learn more" data-anim="fade"><svg class="ic" aria-hidden="true"><use href="#i-arrow-down"/></svg></a>
+  </div>
+</section>
+
+<!-- SCREEN 2: DARK SCENE — "Let's learn more / about DyorHQ", real phone standing in a tiled 3D room -->
+<section class="scene scene--learn" id="learn">
+  <div class="scene__env" aria-hidden="true">
+    <div class="scene__wall"></div>
+    <div class="scene__floor"></div>
+    <i class="scene__arrow scene__arrow--l"></i>
+    <i class="scene__arrow scene__arrow--r"></i>
+  </div>
+  <div class="wrap scene__in">
+    <p class="scene__text scene__text--l" data-anim="lines"><span class="lt">Let's</span><span class="lt">learn</span><b>more</b></p>
+
+    <div class="scene__stage">
+      <div class="glass-bar" data-anim="rise" aria-hidden="true">
+        <span><svg class="ic"><use href="#i-arrow-up"/></svg> Swap</span>
+        <span><svg class="ic"><use href="#i-arrow-down"/></svg> Perps</span>
+        <span class="glass-bar__more"><svg class="ic"><use href="#i-dots"/></svg></span>
+      </div>
+      <article class="holo holo--float" data-anim="rise" aria-hidden="true">
+        <span class="holo__shapes"><i class="hs hs--orb"></i><i class="hs hs--lines"></i></span>
+        <div class="holo__meta"><b>Your portfolio</b><span>DyorHQ</span></div>
+        <div class="holo__row"><span class="mono">US$28.68</span><span>total</span></div>
+      </article>
+      <div class="device scene__phone" data-anim="rise">
+        <img src="assets/screens/hero.png" alt="The DyorHQ home screen: portfolio across spot, perps, launch and moments" width="1178" height="2560" loading="lazy" decoding="async">
+      </div>
+    </div>
+
+    <p class="scene__text scene__text--r" data-anim="lines"><i class="star" aria-hidden="true">✱</i><span class="lt">about</span><b>DyorHQ</b></p>
+  </div>
+</section>
+
+<!-- SCREEN 3: BENTO — real app screens in mixed dark / holographic / grey tiles -->
+<section class="bento-wrap" id="product">
+  <div class="wrap">
+    <div class="bento" data-anim="stagger">
+      <article class="tile tile--holo-dark tile--t1">
+        <div class="tile__body">
+          <p class="tile__big">+4</p>
+          <p class="tile__h"><b>venues</b><span class="lt">routed.</span></p>
+          <ul class="tile__logos" aria-label="Venues">
+            <li><img src="assets/brand/venues/kuru.png" alt="Kuru" width="28" height="28" loading="lazy"></li>
+            <li><img src="assets/brand/venues/uniswap.png" alt="Uniswap" width="28" height="28" loading="lazy"></li>
+            <li><img src="assets/brand/venues/monday.png" alt="Monday" width="28" height="28" loading="lazy"></li>
+            <li class="tile__logo--pad"><img src="assets/brand/venues/perpl.svg" alt="Perpl" width="28" height="28" loading="lazy"></li>
+          </ul>
         </div>
-        <div class="frag frag--pnl glass" aria-hidden="true">
-          <p class="frag__lbl">Total volume</p>
-          <p class="big">US$2,831.65</p>
+      </article>
+
+      <article class="tile tile--dark tile--t2">
+        <div class="tile__body">
+          <p class="tile__h"><b>Launch</b><span class="lt">a coin.</span></p>
         </div>
-        <div class="frag frag--tok glass" aria-hidden="true">
-          <span class="dot">M</span>
-          <div><b>MON</b><span class="frag__sub">Monad</span></div>
-          <span class="price">US$0.0235</span>
+        <div class="device tile__phone tile__phone--corner"><img src="assets/screens/launch-empty.png" alt="The DyorHQ launch screen" width="660" height="1434" loading="lazy" decoding="async"></div>
+      </article>
+
+      <article class="tile tile--holo-light tile--t3">
+        <div class="tile__body tile__body--center">
+          <p class="tile__h tile__h--inline"><span class="lt">Best-price</span> <b>swaps</b></p>
+        </div>
+      </article>
+
+      <article class="tile tile--dark tile--t4">
+        <div class="tile__body tile__body--bottom">
+          <p class="tile__h tile__h--sm"><span class="lt">Perps on a</span> <b>live book</b></p>
+        </div>
+        <div class="device tile__phone tile__phone--center"><img src="assets/screens/perps.png" alt="The DyorHQ perps screen with a live order book" width="660" height="1434" loading="lazy" decoding="async"></div>
+      </article>
+
+      <article class="tile tile--holo-light tile--t5">
+        <div class="tile__body tile__body--center">
+          <p class="tile__h tile__h--inline"><b>Self</b><span class="lt">-custodial</span></p>
+        </div>
+      </article>
+
+      <article class="tile tile--dark tile--t6">
+        <div class="tile__body">
+          <p class="tile__big">4-in-1</p>
+          <p class="tile__h tile__h--sm"><b>One</b> <span class="lt">account</span></p>
+        </div>
+        <div class="device tile__phone tile__phone--corner"><img src="assets/screens/swap.png" alt="The DyorHQ swap screen" width="660" height="1434" loading="lazy" decoding="async"></div>
+      </article>
+
+      <article class="tile tile--grey tile--t7">
+        <div class="tile__body">
+          <p class="tile__h"><b>Moments</b><span class="lt">collect &amp; earn.</span></p>
+        </div>
+        <span class="tile__shapes" aria-hidden="true"><i class="hs hs--orb hs--orb-b"></i><i class="hs hs--panel"></i></span>
+        <div class="device tile__phone tile__phone--low"><img src="assets/screens/moments.png" alt="The DyorHQ moments feed" width="660" height="1434" loading="lazy" decoding="async"></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SCREEN 4 + 5: pinned dark scene, then giant "DyorHQ" type that masks it as you scroll -->
+<div class="pin" id="open">
+  <section class="scene scene--open pin__scene">
+    <div class="scene__env" aria-hidden="true">
+      <div class="scene__floor scene__floor--wide"></div>
+    </div>
+    <div class="wrap scene__in">
+      <p class="scene__text scene__text--bl" data-anim="lines"><span class="lt">Open</span><b>DyorHQ</b></p>
+
+      <div class="slab" data-anim="rise" aria-hidden="true">
+        <div class="slab__screen">
+          <p class="slab__h">Positions <svg class="ic"><use href="#i-arrow-right"/></svg></p>
+          <ul class="slab__list">
+            <li><i class="slab__dot" style="--c:var(--holo-orange)"></i><span>BTC · 2x isolated</span><em>76,584.5</em></li>
+            <li><i class="slab__dot" style="--c:var(--holo-purple)"></i><span>MON → USDC</span><em>1.2434</em></li>
+            <li><i class="slab__dot" style="--c:var(--holo-blue)"></i><span>Spot · 77.9%</span><em>US$22.34</em></li>
+            <li><i class="slab__dot" style="--c:var(--holo-pink)"></i><span>Moments · 2 editions</span><em>US$0.20</em></li>
+          </ul>
+          <p class="slab__h slab__h--2">Activity <svg class="ic"><use href="#i-arrow-right"/></svg></p>
         </div>
       </div>
-    </div>
-  </div>
-</section>
 
-<!-- ECOSYSTEM -->
-<section class="eco" id="ecosystem">
-  <div class="wrap">
-    <p class="eco__label reveal">One app, routed across the Monad ecosystem</p>
-    <div class="eco__row reveal" data-d="1">
-      <span class="eco__item"><span class="eco__logo"><img src="assets/brand/venues/monad.png" alt="" width="36" height="36" loading="lazy" decoding="async"></span>Monad</span>
-      <span class="eco__item"><span class="eco__logo eco__logo--pad"><img src="assets/brand/venues/perpl.svg" alt="" width="36" height="36" loading="lazy" decoding="async"></span>Perpl</span>
-      <span class="eco__item"><span class="eco__logo"><img src="assets/brand/venues/uniswap.png" alt="" width="36" height="36" loading="lazy" decoding="async"></span>Uniswap</span>
-      <span class="eco__item"><span class="eco__logo"><img src="assets/brand/venues/kuru.png" alt="" width="36" height="36" loading="lazy" decoding="async"></span>Kuru</span>
-      <span class="eco__item"><span class="eco__logo"><img src="assets/brand/venues/monday.png" alt="" width="36" height="36" loading="lazy" decoding="async"></span>Monday</span>
-    </div>
-  </div>
-</section>
-
-<!-- FEATURES -->
-<section class="sec" id="features">
-  <div class="wrap">
-    <div class="sechead reveal">
-      <p class="eyebrow">Everything, in one app</p>
-      <h2 class="h-sec">One account. Every market. Zero custody.</h2>
-      <p class="sub">Four things that normally live in four apps, together on Monad &mdash; valued live from your own on-chain history.</p>
-    </div>
-    <div class="feat">
-      <article class="card reveal" data-d="1" style="--tint:var(--tint-mint);--ic:var(--ic-mint)">
-        <span class="card__ic"><svg class="ic" aria-hidden="true"><use href="#i-swap"/></svg></span>
-        <h3>Best-price swaps</h3>
-        <p>Live quotes from Kuru, Uniswap and Monday, compared side by side before you sign.</p>
-      </article>
-      <article class="card reveal" data-d="2" style="--tint:var(--tint-lilac);--ic:var(--ic-lilac)">
-        <span class="card__ic"><svg class="ic" aria-hidden="true"><use href="#i-chart"/></svg></span>
-        <h3>Perps on a live book</h3>
-        <p>Isolated margin and leverage, with one tap to go long or short on a real order book.</p>
-      </article>
-      <article class="card reveal" data-d="3" style="--tint:var(--tint-peach);--ic:var(--ic-peach)">
-        <span class="card__ic"><svg class="ic" aria-hidden="true"><use href="#i-flame"/></svg></span>
-        <h3>Launch a coin</h3>
-        <p>Create a coin in a minute. It trades on a bonding curve and graduates to a locked pool.</p>
-      </article>
-      <article class="card reveal" data-d="4" style="--tint:var(--tint-sky);--ic:var(--ic-sky)">
-        <span class="card__ic"><svg class="ic" aria-hidden="true"><use href="#i-aperture"/></svg></span>
-        <h3>Collect moments</h3>
-        <p>Mint a photo or video as an NFT on Monad and earn every time it is collected.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- CUSTODY -->
-<section class="sec" id="custody">
-  <div class="wrap">
-    <div class="panel reveal">
-      <div class="panel__copy">
-        <p class="eyebrow">Self-custody</p>
-        <h2 class="h-sec">Your keys. Every time.</h2>
-        <p class="sub">DyorHQ is an interface, not a bank. Your funds stay in your own wallet, and every trade is a transaction you sign yourself.</p>
-        <ul class="pts">
-          <li><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg><span>We never take custody &mdash; assets never leave your wallet.</span></li>
-          <li><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg><span>Signed by you, settled on Monad, in seconds.</span></li>
-          <li><svg class="ic" aria-hidden="true"><use href="#i-arrow-up-right"/></svg><span>Permissionless &mdash; connect a wallet and you are in.</span></li>
-        </ul>
-        <a class="btn btn-dark" href="#get">Open DyorHQ <svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
-      </div>
-      <div class="panel__art" aria-hidden="true">
-        <span class="ring ring--2"></span>
-        <span class="panel__shield"><svg class="ic"><use href="#i-shield"/></svg></span>
+      <div class="device scene__phone scene__phone--r" data-anim="rise">
+        <img src="assets/screens/hero.png" alt="" width="1178" height="2560" loading="lazy" decoding="async">
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- CTA -->
-<section class="sec" id="get">
-  <div class="wrap">
-    <div class="cta reveal">
-      <div>
-        <div class="cta__meta"><span>Self-custodial</span><span>Permissionless</span><span>Free to use</span></div>
-        <h2 class="h-sec">Get started in minutes</h2>
-      </div>
-      <div class="cta__side">
-        <img class="cta__qr" src="assets/photo/qr-dyorhq.png" alt="QR code linking to the DyorHQ profile on X" width="640" height="640" loading="lazy" decoding="async">
-        <span>Follow @DyorHQ_</span>
-      </div>
+  <section class="giant pin__giant" aria-hidden="true">
+    <svg class="giant__svg" viewBox="0 0 1600 700" preserveAspectRatio="xMidYMid slice" focusable="false">
+      <defs>
+        <mask id="giant-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="1600" height="700">
+          <rect width="1600" height="700" fill="#fff"/>
+          <text class="giant__text" x="800" y="560" text-anchor="middle" fill="#000">DyorHQ</text>
+        </mask>
+      </defs>
+      <rect class="giant__cover" width="1600" height="700" mask="url(#giant-mask)"/>
+    </svg>
+  </section>
+</div>
+
+<!-- SCREEN 6: EMAIL CAPTURE — holographic pill, cards fanning at top -->
+<section class="capture" id="updates">
+  <div class="wrap capture__in">
+    <div class="capture__cards" data-parallax aria-hidden="true">
+      <article class="holo holo--c1" data-fly="6">
+        <span class="holo__shapes"><i class="hs hs--stripe"></i><i class="hs hs--cubes"></i></span>
+        <span class="holo__num">4090</span>
+        <div class="holo__meta"><b>Swap</b><span>MON → USDC</span></div>
+      </article>
+      <article class="holo holo--c2" data-fly="7">
+        <span class="holo__shapes"><i class="hs hs--orb"></i><i class="hs hs--lines"></i></span>
+        <span class="holo__num">2470</span>
+        <div class="holo__meta"><b>Perps</b><span>BTC · 2x</span></div>
+      </article>
     </div>
+
+    <h2 class="h-sec capture__title" data-anim="lines"><span class="lt">Enter</span><b>your mail</b></h2>
+    <div class="holo-pill holo-pill--wide" data-anim="morph" aria-hidden="true"></div>
+    <div class="holo-pill holo-pill--sm" data-anim="fade" aria-hidden="true"></div>
+
+    <form class="capture__form" data-capture data-anim="fade" action="mailto:team@dyorhq.fun" method="post" enctype="text/plain">
+      <label class="sr-only" for="email">Email address</label>
+      <input id="email" name="email" type="email" placeholder="you@dyorhq.fun" autocomplete="email" required>
+      <i class="star" aria-hidden="true">✱</i>
+      <button class="btn btn-dark" type="submit">Submit</button>
+    </form>
+    <p class="capture__note">Get launch updates. No spam, no custody, ever.</p>
   </div>
 </section>
 </main>
 
-<footer class="foot" id="help">
-  <div class="wrap">
-    <div class="foot__cols">
-      <div><span class="foot__chip">Monad mainnet <svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg></span></div>
-      <div>
-        <h4>Product</h4>
-        <ul>
-          <li><a href="#features">Swap</a></li>
-          <li><a href="#features">Perps</a></li>
-          <li><a href="#features">Launch</a></li>
-          <li><a href="#features">Moments</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Learn</h4>
-        <ul>
-          <li><a href="#ecosystem">Ecosystem</a></li>
-          <li><a href="#custody">Self-custody</a></li>
-          <li><a href="#get">Open app</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Support</h4>
-        <ul>
-          <li><a href="mailto:team@dyorhq.fun">Contact us</a></li>
-          <li><a href="https://x.com/DyorHQ_" target="_blank" rel="noopener">Status and updates</a></li>
-        </ul>
-      </div>
-      <div class="foot__social">
-        <a href="https://x.com/DyorHQ_" target="_blank" rel="noopener" aria-label="DyorHQ on X"><svg class="ic" aria-hidden="true"><use href="#i-x-logo"/></svg></a>
-        <a href="mailto:team@dyorhq.fun" aria-label="Email DyorHQ"><svg class="ic" aria-hidden="true"><use href="#i-envelope"/></svg></a>
-      </div>
-    </div>
-    <img class="foot__mark" src="assets/brand/wordmark.png" alt="DyorHQ" width="900" height="300" loading="lazy" decoding="async">
-    <div class="foot__legal">
-      <p>App screens show the real DyorHQ app with example market data. Nothing here is investment advice or an offer to trade. Digital assets carry risk, and only you control your keys and your funds. DyorHQ is a self-custodial interface and never takes custody of user assets.</p>
-      <nav>
-        <a href="#help">Terms</a>
-        <a href="#help">Privacy</a>
-        <a href="mailto:team@dyorhq.fun">team@dyorhq.fun</a>
-      </nav>
-    </div>
+<footer class="foot">
+  <div class="wrap foot__in">
+    <a class="brand" href="#top" aria-label="DyorHQ home"><img src="assets/brand/wordmark.png" alt="DyorHQ" width="900" height="300"></a>
+    <nav class="foot__links" aria-label="Footer">
+      <a href="#product">Product</a>
+      <a href="#learn">About</a>
+      <a href="https://x.com/DyorHQ_" target="_blank" rel="noopener">X <svg class="ic" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></a>
+      <a href="mailto:team@dyorhq.fun">team@dyorhq.fun</a>
+    </nav>
+    <p class="foot__legal">&copy; 2026 DyorHQ &middot; App screens show the real app with example market data. Not investment advice. Self-custodial: only you hold your keys.</p>
   </div>
 </footer>
 
-<a class="fab" href="https://x.com/DyorHQ_" target="_blank" rel="noopener" aria-label="Follow DyorHQ on X"><svg class="ic" aria-hidden="true"><use href="#i-x-logo"/></svg></a>
-
-<script src="js/main.js" defer></script>
+<script src="js/motion.js" defer></script>
 </body>
 </html>

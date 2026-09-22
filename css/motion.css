@@ -1,0 +1,51 @@
+/* DyorHQ landing — motion layer (owned by the motion specialist; pairs with js/motion.js).
+   Every hidden state lives under html.js (set by motion.js on its first line) AND inside
+   prefers-reduced-motion:no-preference, so the page is fully visible if JS fails or the visitor
+   asks for less motion. Reveals are one-shot animations with a backwards fill and NO forwards
+   fill: once they end the cascade is back in charge, and motion.js adds .done on animationend so
+   the `animation` property never lingers on tiles/pills/slabs that may animate themselves.
+   Card fly-in + idle float and the mouse parallax run in motion.js on the independent
+   translate/rotate/scale properties, composing with the placement transforms in site.css. */
+
+.m-word{display:inline-block}   /* word spans created by motion.js inside [data-anim="words"] */
+
+@media (prefers-reduced-motion:no-preference){
+  /* ---------- initial (hidden) states; .in starts the reveal ---------- */
+  html.js [data-anim="fade"]:not(.in),
+  html.js [data-anim="rise"]:not(.in),
+  html.js [data-anim="pop"]:not(.in),
+  html.js [data-anim="lines"]:not(.in)>*,
+  html.js [data-anim="stagger"]:not(.in)>*,
+  html.js [data-anim="words"]:not(.in) .m-word,
+  html.js [data-fly]:not(.in){opacity:0}
+  html.js [data-anim="morph"]:not(.in){width:var(--mw0,80px)}          /* a circle: --mw0 = its height, measured by motion.js */
+
+  /* ---------- reveals (IntersectionObserver adds .in; hero elements get it on load) ---------- */
+  html.js [data-anim="fade"].in:not(.done){animation:m-fade .9s var(--ease-out) backwards}
+  html.js [data-anim="rise"].in:not(.done){animation:m-rise .9s var(--ease-out) backwards}
+  html.js [data-anim="pop"].in:not(.done){animation:m-pop .9s var(--ease-out) backwards}
+  html.js [data-anim="lines"].in>:not(.done),
+  html.js [data-anim="stagger"].in>:not(.done){animation:m-rise .9s var(--ease-out) calc(var(--i,0)*90ms) backwards}   /* --i = child index */
+  html.js .bento[data-anim="stagger"].in>:not(.done){animation-name:m-tile;animation-duration:.8s}                      /* tiles pop with a touch of scale */
+  html.js [data-anim="words"].in .m-word:not(.done){animation:m-word .7s var(--ease-out) calc(.2s + var(--i,0)*70ms) backwards}
+  html.js [data-anim="morph"].in:not(.done){animation:m-morph .9s var(--ease-out) backwards}
+
+  /* ---------- choreography: the hero plays as one sequence on load; the form follows the morph ---------- */
+  html.js .hero .chip[data-anim="fade"].in:not(.done){animation-delay:.1s}
+  html.js .hero [data-anim="stagger"].in>:not(.done){animation-delay:calc(1.15s + var(--i,0)*90ms)}   /* feature row lands after the cards */
+  html.js .hero .scroll-cue[data-anim="fade"].in:not(.done){animation-delay:1.7s}
+  html.js [data-capture][data-anim="fade"].in:not(.done){animation-delay:.5s}                          /* input + Submit, 500ms into the pill */
+  html.js .holo-pill--sm[data-anim="fade"].in:not(.done){animation-delay:.3s}
+
+  /* ---------- the scroll cue breathes (JS or not) ---------- */
+  .scroll-cue .ic{animation:m-cue 2s var(--ease-in-out) infinite}
+
+  /* ---------- keyframes: only a `from`; the `to` is whatever the cascade says ---------- */
+  @keyframes m-fade{from{opacity:0}}
+  @keyframes m-rise{from{opacity:0;translate:0 40px}}
+  @keyframes m-pop{from{opacity:0;scale:.94}}
+  @keyframes m-tile{from{opacity:0;translate:0 32px;scale:.96}}
+  @keyframes m-word{from{opacity:0;translate:0 14px}}
+  @keyframes m-morph{from{width:var(--mw0,80px)}}
+  @keyframes m-cue{50%{translate:0 6px}}
+}

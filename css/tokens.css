@@ -1,179 +1,71 @@
 /* DyorHQ foundation. Single source for color, type and scale.
-   Bloccpay-style system: warm cream canvas, big navy grotesque headlines, one
-   saturated accent (Monad purple), soft pastel feature cards, generous whitespace,
-   pill actions. Adaptive: light by default, dark via prefers-color-scheme / [data-theme]. */
+   Concept: cool off-white canvas, frosted holographic glass cards, dark 3D tiled scenes,
+   geometric sans mixing LIGHT (300) and BOLD (700) in one headline, near-black pills. */
 
-@font-face{font-family:"Archivo";src:url("../assets/fonts/archivo.woff2") format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
 @font-face{font-family:"Manrope";src:url("../assets/fonts/manrope.woff2") format("woff2");font-weight:200 800;font-style:normal;font-display:swap}
 @font-face{font-family:"IBM Plex Mono";src:url("../assets/fonts/ibm-plex-mono.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
 @font-face{font-family:"IBM Plex Mono";src:url("../assets/fonts/ibm-plex-mono-medium.woff2") format("woff2");font-weight:500 600;font-style:normal;font-display:swap}
 
 :root{
-  --display:"Archivo",system-ui,-apple-system,"Helvetica Neue",sans-serif;
+  color-scheme:light;
+  --display:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;   /* geometric sans, light+bold mix */
   --sans:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
 
-  --r-card:26px;     /* soft feature cards */
-  --r-panel:34px;    /* large panels */
-  --r-cta:120px;     /* the big rounded call-to-action panel */
+  /* canvas + ink */
+  --canvas:#F3F3F6;          /* cool off-white page ground */
+  --canvas-2:#E9E9EE;        /* slightly deeper ground */
+  --surface:#FFFFFF;
+  --ink:#0F0F14;
+  --text:#0F0F14;
+  --text-2:#4A4A56;          /* body, AA on canvas */
+  --text-3:#6E6E7C;          /* small caps labels, AA on canvas */
+  --line:rgb(15 15 20 / .12);
+  --line-2:rgb(15 15 20 / .22);
+
+  /* dark 3D scenes */
+  --dark:#0D0D11;            /* scene ground */
+  --dark-2:#15151A;
+  --tile:#1A1A20;            /* wall tiles */
+  --tile-hi:#262630;         /* tile lit edge */
+  --floor:#2A2A31;           /* concrete floor */
+  --floor-hi:#3A3A43;
+  --on-dark:#F4F4F8;
+  --on-dark-2:rgb(244 244 248 / .7);
+  --arrow:#B9B9C4;           /* the big pale arrow sculptures */
+
+  /* holographic palette (the iridescent shapes inside the glass) */
+  --holo-pink:#FF5C9C;
+  --holo-blue:#4F7BFF;
+  --holo-deep:#1E3CFF;
+  --holo-orange:#FF7A2F;
+  --holo-purple:#9B7BFF;
+  --holo-cyan:#3AD8F6;
+  --holo-ice:#DCE7FF;
+
+  /* frosted glass */
+  --glass-bg:rgb(255 255 255 / .46);
+  --glass-border:rgb(255 255 255 / .85);
+  --glass-hi:rgb(255 255 255 / .95);
+  --glass-blur:18px;
+
+  /* pills */
+  --pill-bg:#0F0F14;
+  --pill-fg:#FFFFFF;
+
+  /* radii + scale */
+  --r-card:22px;   /* holographic cards */
+  --r-tile:24px;   /* bento tiles */
   --r-pill:999px;
-  --r-frame:12.5%;   /* phone bezel */
-  --maxw:1240px;
-  --ease:cubic-bezier(.2,.8,.2,1);--ease-out:cubic-bezier(.16,1,.3,1);
+  --r-frame:16.5%; /* phone bezel */
+  --maxw:1280px;
+  --ease:cubic-bezier(.2,.8,.2,1);
+  --ease-out:cubic-bezier(.16,1,.3,1);
+  --ease-in-out:cubic-bezier(.65,0,.35,1);
 
-  /* ---- light (default) ---- */
-  color-scheme:light;
-  --bg:#F5F0E8;              /* warm cream canvas (full-bleed) */
-  --bg-2:#EDE7DC;            /* slightly deeper band */
-  --paper:#EFE9DE;           /* media ground */
-  --surface:#FFFFFF;         /* white cards */
-  --surface-2:#F3EFE7;       /* insets, hover fills */
-  --chip-bg:rgb(255 255 255 / .9);
-  --line:rgb(20 23 43 / .12);
-  --line-2:rgb(20 23 43 / .20);
-
-  --ink:#14172B;             /* deep navy-indigo: primary text */
-  --text:#14172B;
-  --text-2:#4A4E63;          /* body, AA on cream/white */
-  --text-3:#5F6377;          /* labels, AA */
-  --ghost:#8A889E;           /* muted */
-
-  --btn-dark-bg:#14172B;     /* high-contrast button */
-  --btn-dark-fg:#FFFFFF;
-
-  --accent:#836EF9;          /* Monad purple, the signature colour */
-  --accent-soft:#EDE9FE;
-  --accent-ink:#5A46D4;      /* purple text on light, AA */
-  --accent-2:#B9AEFF;
-  --cta:#6B57E0;             /* accent fill that passes AA with white text */
-  --on-accent:#14172B;
-  --on-cta:#FFFFFF;
-
-  --up:#0F7A54;--down:#B02F49;
-  --up-soft:rgb(15 122 84 / .14);--down-soft:rgb(176 47 73 / .14);
-
-  /* soft pastel feature-card grounds + their saturated icon colour */
-  --tint-mint:#D8EDE3;--ic-mint:#0FA37F;
-  --tint-lilac:#E7E1FB;--ic-lilac:#7C5CF0;
-  --tint-peach:#F9E5D7;--ic-peach:#E06A3C;
-  --tint-sky:#DCE8FB;--ic-sky:#2E6FF0;
-
-  --foot-bg:#14172B;
-  --mark-filter:brightness(0) invert(1);   /* white wordmark on the dark footer */
-  --grid-dot:rgb(20 23 43 / .09);          /* hero backdrop grid */
-
-  /* liquid glass */
-  --glass-bg:rgb(255 255 255 / .6);
-  --glass-border:rgb(255 255 255 / .8);
-  --glass-hi:rgb(255 255 255 / .9);
-  --glass-blur:16px;
-  --glass-shadow:0 1px 2px rgb(20 23 43 / .06),0 22px 44px -26px rgb(20 23 43 / .4);
-
-  --shadow-sm:0 1px 2px rgb(20 23 43 / .05);
-  --shadow-card:0 1px 2px rgb(20 23 43 / .05),0 24px 48px -30px rgb(20 23 43 / .28);
-  --shadow-device:0 2px 6px rgb(20 23 43 / .10),0 50px 90px -34px rgb(20 23 43 / .5);
-}
-
-/* ---- dark: follow the OS unless the user forced light ---- */
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    color-scheme:dark;
-    --bg:#0E0D1C;
-    --bg-2:#0A0916;
-    --paper:#181633;
-    --surface:#161428;
-    --surface-2:#1F1D38;
-    --chip-bg:rgb(38 35 66 / .92);
-    --line:rgb(255 255 255 / .12);
-    --line-2:rgb(255 255 255 / .22);
-
-    --ink:#F1F0FA;
-    --text:#F1F0FA;
-    --text-2:#B9B7CE;
-    --text-3:#928FA9;
-    --ghost:#6F6D88;
-
-    --btn-dark-bg:#FFFFFF;
-    --btn-dark-fg:#14172B;
-
-    --accent:#836EF9;
-    --accent-soft:rgb(131 110 249 / .16);
-    --accent-ink:#B9AEFF;
-    --accent-2:#B9AEFF;
-    --cta:#836EF9;
-    --on-accent:#0C0B1A;
-    --on-cta:#0C0B1A;
-
-    --up:#34D399;--down:#F87171;
-    --up-soft:rgb(52 211 153 / .16);--down-soft:rgb(248 113 113 / .16);
-
-    --tint-mint:#132A24;--ic-mint:#2FBE96;
-    --tint-lilac:#211C3B;--ic-lilac:#9E88FF;
-    --tint-peach:#2A1F19;--ic-peach:#F0895E;
-    --tint-sky:#15223B;--ic-sky:#5B8DF7;
-
-    --foot-bg:#0A0917;
-    --mark-filter:brightness(0) invert(1);
-    --grid-dot:rgb(255 255 255 / .08);
-
-    --glass-bg:rgb(30 28 54 / .55);
-    --glass-border:rgb(255 255 255 / .14);
-    --glass-hi:rgb(255 255 255 / .22);
-    --glass-shadow:0 1px 2px rgb(0 0 0 / .3),0 24px 48px -26px rgb(0 0 0 / .7);
-
-    --shadow-sm:0 1px 2px rgb(0 0 0 / .3);
-    --shadow-card:0 1px 2px rgb(0 0 0 / .3),0 24px 48px -30px rgb(0 0 0 / .6);
-    --shadow-device:0 2px 6px rgb(0 0 0 / .4),0 50px 90px -34px rgb(0 0 0 / .85);
-  }
-}
-
-/* ---- dark: forced by the toggle ---- */
-:root[data-theme="dark"]{
-  color-scheme:dark;
-  --bg:#0E0D1C;
-  --bg-2:#0A0916;
-  --paper:#181633;
-  --surface:#161428;
-  --surface-2:#1F1D38;
-  --chip-bg:rgb(38 35 66 / .92);
-  --line:rgb(255 255 255 / .12);
-  --line-2:rgb(255 255 255 / .22);
-
-  --ink:#F1F0FA;
-  --text:#F1F0FA;
-  --text-2:#B9B7CE;
-  --text-3:#928FA9;
-  --ghost:#6F6D88;
-
-  --btn-dark-bg:#FFFFFF;
-  --btn-dark-fg:#14172B;
-
-  --accent:#836EF9;
-  --accent-soft:rgb(131 110 249 / .16);
-  --accent-ink:#B9AEFF;
-  --accent-2:#B9AEFF;
-  --cta:#836EF9;
-  --on-accent:#0C0B1A;
-  --on-cta:#0C0B1A;
-
-  --up:#34D399;--down:#F87171;
-  --up-soft:rgb(52 211 153 / .16);--down-soft:rgb(248 113 113 / .16);
-
-  --tint-mint:#132A24;--ic-mint:#2FBE96;
-  --tint-lilac:#211C3B;--ic-lilac:#9E88FF;
-  --tint-peach:#2A1F19;--ic-peach:#F0895E;
-  --tint-sky:#15223B;--ic-sky:#5B8DF7;
-
-  --foot-bg:#0A0917;
-  --mark-filter:brightness(0) invert(1);
-  --grid-dot:rgb(255 255 255 / .08);
-
-  --glass-bg:rgb(30 28 54 / .55);
-  --glass-border:rgb(255 255 255 / .14);
-  --glass-hi:rgb(255 255 255 / .22);
-  --glass-shadow:0 1px 2px rgb(0 0 0 / .3),0 24px 48px -26px rgb(0 0 0 / .7);
-
-  --shadow-sm:0 1px 2px rgb(0 0 0 / .3);
-  --shadow-card:0 1px 2px rgb(0 0 0 / .3),0 24px 48px -30px rgb(0 0 0 / .6);
-  --shadow-device:0 2px 6px rgb(0 0 0 / .4),0 50px 90px -34px rgb(0 0 0 / .85);
+  /* shadows */
+  --shadow-sm:0 1px 2px rgb(15 15 20 / .06);
+  --shadow-card:0 2px 6px rgb(15 15 20 / .06),0 34px 70px -34px rgb(15 15 20 / .38);
+  --shadow-float:0 4px 10px rgb(15 15 20 / .06),0 60px 120px -44px rgb(15 15 20 / .5);
+  --shadow-device:0 2px 6px rgb(0 0 0 / .25),0 50px 90px -34px rgb(0 0 0 / .7);
 }

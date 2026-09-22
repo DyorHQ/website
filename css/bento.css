@@ -1,0 +1,92 @@
+/* DyorHQ landing — screen 3, the bento grid (owned by the bento builder).
+   Grid + areas, the four tile looks (dark / holo-dark / holo-light / grey), tile text,
+   logo row, phone crops, hover, responsive. The `.device` frame itself is site.css; the glass
+   shapes inside `.tile__shapes` are holo.css; entrance motion is motion.css.
+   Stacking inside a tile: art pseudo-elements 0–1 · .tile__shapes (auto) · phone 2 · scrim 3 · text 4. */
+
+/* ---------- grid: 3 equal columns, 5 shared rows, areas t1…t7 ----------
+   Column stacks: col1 = t1 62% / t2 38%, col2 = t3 22% / t4 56% / t5 22%, col3 = t6 40% / t7 60%.
+   Height = --bento-ratio × grid width (reference frames measure ≈ .61; .74 leaves room for the real screens). */
+.bento{--bento-ratio:.74;display:grid;gap:14px;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:22fr 18fr 22fr 16fr 22fr;grid-template-areas:"t1 t3 t6" "t1 t4 t6" "t1 t4 t7" "t2 t4 t7" "t2 t5 t7";min-height:min(calc(var(--maxw) * var(--bento-ratio)),calc((100vw - 48px) * var(--bento-ratio)))}
+.tile--t1{grid-area:t1}
+.tile--t2{grid-area:t2}
+.tile--t3{grid-area:t3}
+.tile--t4{grid-area:t4}
+.tile--t5{grid-area:t5}
+.tile--t6{grid-area:t6}
+.tile--t7{grid-area:t7}
+
+/* ---------- tile shell: clips its art, lifts on hover (pointer devices only) ---------- */
+.tile{--tile-ring:rgb(255 255 255 / .08);--tile-shadow:var(--shadow-sm);position:relative;display:flex;flex-direction:column;overflow:hidden;isolation:isolate;border-radius:var(--r-tile);color:var(--on-dark);box-shadow:inset 0 0 0 1px var(--tile-ring),var(--tile-shadow);transition:translate .3s var(--ease),box-shadow .3s var(--ease)}
+@media (hover:hover) and (pointer:fine){.tile:hover{translate:0 -4px;--tile-shadow:var(--shadow-card)}}
+@media (prefers-reduced-motion:reduce){.tile{transition:none}.tile:hover{translate:none}}
+
+/* ---------- dark: near-black, lit from the top-left, faint bevelled wall tiles fading to the bottom-right ---------- */
+.tile--dark{--tile-ring:rgb(255 255 255 / .07);background:radial-gradient(90% 70% at 0% 0%,rgb(255 255 255 / .12),transparent 60%),linear-gradient(160deg,var(--dark-2),var(--dark) 70%)}
+.tile--dark::before{content:"";position:absolute;inset:-40%;z-index:0;transform:rotate(-12deg);opacity:.6;pointer-events:none;
+  background:repeating-linear-gradient(180deg,var(--tile-hi) 0 1px,transparent 1px 78px,rgb(0 0 0 / .6) 78px 79px),repeating-linear-gradient(90deg,var(--tile-hi) 0 1px,transparent 1px 78px,rgb(0 0 0 / .6) 78px 79px);
+  -webkit-mask:linear-gradient(165deg,#000 25%,transparent 78%);mask:linear-gradient(165deg,#000 25%,transparent 78%)}
+.tile--t4::after{content:"";position:absolute;inset:auto 0 0 0;height:52%;z-index:3;pointer-events:none;background:linear-gradient(180deg,transparent,color-mix(in srgb,var(--dark) 92%,transparent) 60%,var(--dark))}   /* scrim: the bottom caption reads over the light phone screen */
+
+/* ---------- holo-dark: deep blue, a stack of lit translucent glass slabs top-right, cyan glow ---------- */
+.tile--holo-dark{--tile-ring:rgb(255 255 255 / .18);
+  --slab:linear-gradient(180deg,rgb(255 255 255 / .92) 0,rgb(255 255 255 / .45) 3px,color-mix(in srgb,var(--holo-ice) 34%,transparent) 16%,color-mix(in srgb,var(--holo-ice) 16%,transparent) 70%,rgb(255 255 255 / .6) 70%,rgb(255 255 255 / .6) 72%,color-mix(in srgb,var(--holo-deep) 62%,transparent) 72%,color-mix(in oklab,var(--holo-deep) 70%,var(--dark)) 98%,rgb(255 255 255 / .35) 100%);   /* top rim · translucent face · front edge · darker side face */
+  background:linear-gradient(115deg,transparent 40%,rgb(255 255 255 / .09) 52%,transparent 64%),linear-gradient(165deg,var(--holo-blue) 0%,var(--holo-deep) 42%,color-mix(in oklab,var(--holo-deep) 72%,var(--dark)) 100%)}
+.tile--holo-dark::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;filter:blur(22px);background:radial-gradient(50% 44% at 82% 16%,color-mix(in srgb,var(--holo-cyan) 65%,transparent),transparent 70%),radial-gradient(40% 36% at 60% 50%,color-mix(in srgb,var(--holo-ice) 40%,transparent),transparent 70%)}
+.tile--holo-dark::before{content:"";position:absolute;z-index:1;left:30%;top:-9%;width:96%;aspect-ratio:1;pointer-events:none;transform:rotate(-30deg) skewX(-8deg);   /* 4 blocks piled vertically at the top-right, each tilted, top one cropped */
+  background-image:var(--slab),var(--slab),var(--slab),var(--slab);background-size:64% 22%;background-repeat:no-repeat;background-position:100% 0%,67% 33%,33% 67%,0% 100%;
+  -webkit-mask:linear-gradient(190deg,#000 62%,transparent 100%);mask:linear-gradient(190deg,#000 62%,transparent 100%)}
+
+/* ---------- holo-light: frosted white, an iridescent chrome ring sweeps behind the text, dark type ---------- */
+.tile--holo-light{--tile-ring:rgb(255 255 255 / .9);color:var(--ink);background:radial-gradient(60% 90% at 8% 0%,color-mix(in srgb,var(--holo-pink) 30%,transparent),transparent 60%),radial-gradient(55% 80% at 96% 6%,color-mix(in srgb,var(--holo-blue) 30%,transparent),transparent 60%),linear-gradient(180deg,var(--surface),var(--holo-ice))}
+.tile--holo-light::before{content:"";position:absolute;z-index:0;left:50%;top:0;width:156%;aspect-ratio:1;border-radius:50%;pointer-events:none;transform:translate(-50%,-55%) rotate(-10deg) scaleY(.58);filter:blur(2px);   /* tilted torus; only its lower arc crosses the tile */
+  background:radial-gradient(circle,transparent 50%,rgb(255 255 255 / .6) 55%,transparent 62%,rgb(0 0 0 / .16) 84%,transparent 88%),conic-gradient(from 90deg,var(--holo-blue),var(--holo-purple) 18%,var(--holo-pink) 36%,var(--holo-orange) 50%,var(--holo-pink) 64%,var(--holo-purple) 82%,var(--holo-blue));
+  -webkit-mask:radial-gradient(circle,transparent 49%,#000 51%,#000 87%,transparent 89%);mask:radial-gradient(circle,transparent 49%,#000 51%,#000 87%,transparent 89%)}
+.tile--holo-light::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;-webkit-backdrop-filter:blur(4px) saturate(1.4);backdrop-filter:blur(4px) saturate(1.4);
+  background:radial-gradient(46% 58% at 50% 52%,rgb(255 255 255 / .4),transparent 72%),linear-gradient(105deg,transparent 30%,rgb(255 255 255 / .45) 44%,rgb(255 255 255 / .9) 47%,rgb(255 255 255 / .4) 50%,transparent 64%),rgb(255 255 255 / .1)}   /* veil + specular streak + light pool under the text */
+.tile--t5::before{left:-12%;top:-55%;width:124%;height:210%;aspect-ratio:auto;border-radius:0;transform:rotate(-16deg);filter:blur(1px);-webkit-mask:none;mask:none;
+  background:repeating-linear-gradient(90deg,rgb(255 255 255 / .85) 0 2px,color-mix(in srgb,var(--holo-ice) 72%,transparent) 2px 18%,color-mix(in srgb,var(--holo-blue) 32%,transparent) 18% 24%,transparent 24% 32%),radial-gradient(42% 40% at 30% 68%,color-mix(in srgb,var(--holo-blue) 70%,transparent),transparent 70%),radial-gradient(34% 32% at 76% 28%,color-mix(in srgb,var(--holo-pink) 38%,transparent),transparent 70%)}   /* "AI Assistant" look: diagonal blue glass panels */
+
+/* ---------- grey: dark-mid concrete grey with soft blurred colour behind the holo shapes ---------- */
+.tile--grey{--tile-ring:rgb(255 255 255 / .12);background:radial-gradient(80% 60% at 0% 0%,rgb(255 255 255 / .06),transparent 60%),linear-gradient(155deg,color-mix(in oklab,var(--text-3) 40%,var(--floor-hi)),var(--floor-hi) 60%,var(--floor) 100%)}
+.tile--grey::before{content:"";position:absolute;inset:-10%;z-index:0;pointer-events:none;filter:blur(26px);background:radial-gradient(38% 30% at 82% 24%,color-mix(in srgb,var(--holo-blue) 45%,transparent),transparent 70%),radial-gradient(30% 26% at 22% 82%,color-mix(in srgb,var(--holo-orange) 40%,transparent),transparent 70%),radial-gradient(50% 40% at 55% 55%,rgb(255 255 255 / .14),transparent 70%)}
+.tile--grey .tile__shapes{position:absolute;inset:0;pointer-events:none}   /* container only — the shapes are holo.css */
+
+/* ---------- text ---------- */
+.tile__body{position:relative;z-index:4;flex:1 1 auto;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:6px;padding:clamp(20px,2.4vw,28px)}
+.tile__body--center{align-items:center;justify-content:center;text-align:center}
+.tile__body--bottom{justify-content:flex-end}
+.tile--t1 .tile__body{justify-content:flex-end}                          /* "+10 companies" sits bottom-left under the slabs */
+.tile__big{margin:0;font-family:var(--display);font-weight:700;font-size:clamp(2.4rem,4vw,3.6rem);line-height:.95;letter-spacing:-.03em}
+.tile__h{margin:0;font-family:var(--display);font-weight:300;font-size:clamp(1.5rem,2vw,1.9rem);line-height:1.08;letter-spacing:-.02em}
+.tile__h b,.tile__h .lt{display:block}
+.tile__h--inline b,.tile__h--inline .lt{display:inline}
+.tile__h--sm{font-size:clamp(1.15rem,1.4vw,1.35rem)}
+
+/* ---------- venue logos: 28px white rounded tiles with a hairline ---------- */
+.tile__logos{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.tile__logos li{width:28px;height:28px;border-radius:8px;background:var(--surface);overflow:hidden;display:grid;place-items:center;box-shadow:0 0 0 1px rgb(255 255 255 / .35),0 8px 16px -8px rgb(0 0 0 / .45)}
+.tile__logos img{width:100%;height:100%;object-fit:cover}
+.tile__logo--pad{padding:6px}                                             /* monochrome perpl mark gets breathing room on white */
+
+/* ---------- phones: the .device frame is site.css, we only size + place it (overflow:hidden crops) ---------- */
+.tile__phone{position:absolute;z-index:2;margin:0;pointer-events:none}
+.tile__phone--corner{--dw:84%;--tilt:-10deg;left:44%;top:40%;transform-origin:0 0;transform:rotate(var(--tilt))}   /* big phone, top-left corner + island visible, rest cropped bottom-right */
+.tile__phone--center{--dw:74%;left:50%;top:28%;transform:translateX(-50%)}                                       /* centred, top ~28% down, cropped by the tile bottom */
+.tile__phone--low{--dw:66%;left:50%;bottom:0;transform:translate(-50%,42%)}                                        /* bottom-centre, ~58% visible */
+
+/* ---------- ≤ 900px: two columns, t1 stays tall ---------- */
+@media (max-width:900px){
+  .bento{min-height:0;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:clamp(140px,20vw,170px) clamp(200px,30vw,260px) clamp(200px,30vw,260px) clamp(140px,20vw,170px) clamp(300px,42vw,380px);grid-template-areas:"t1 t3" "t1 t4" "t2 t4" "t2 t5" "t6 t7"}
+  .tile--t7 .tile__phone--low{--dw:50%}
+}
+
+/* ---------- ≤ 560px: one column, fixed sensible heights ---------- */
+@media (max-width:560px){
+  .bento{gap:12px;grid-template-columns:minmax(0,1fr);grid-template-rows:none;grid-auto-rows:auto;grid-template-areas:"t1" "t3" "t4" "t5" "t2" "t7" "t6"}
+  .tile{min-height:340px}
+  .tile--holo-light{min-height:160px}
+  .tile--t1{min-height:380px}
+  .tile--t7{min-height:400px}
+  .tile--t7 .tile__phone--low{--dw:56%}
+}

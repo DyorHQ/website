@@ -1,0 +1,123 @@
+/* DyorHQ landing — dark 3D scenes (owned by the scene builder).
+   Environment art for screens 2 and 4 (tiled wall, concrete ledge, receding floor, arrow
+   sculptures), the tilted glossy slab, and the pinned "giant type" masked transition.
+   Section shells (.scene sizing, .scene__in grid, text/phone/slab placement) are site.css. */
+
+/* ---------- screen 2: wall of big square charcoal tiles, lit from the top-left ----------
+   One element, six background layers (top first): vignette · floor-side shadow · key light ·
+   horizontal grout+bevel · vertical grout+bevel · per-tile face sheen. --t is the tile pitch. */
+.scene__wall{--t:clamp(150px,16vw,250px);position:absolute;inset:0;z-index:0;background-color:var(--tile);
+  background-image:radial-gradient(130% 100% at 50% 42%,transparent 46%,rgb(0 0 0 / .6) 100%),
+    linear-gradient(180deg,transparent 62%,rgb(0 0 0 / .55) 100%),
+    radial-gradient(72% 56% at 30% -8%,rgb(255 255 255 / .15),transparent 70%),
+    linear-gradient(180deg,rgb(0 0 0 / .62) 0 2px,rgb(255 255 255 / .13) 2px 3px,var(--tile-hi) 3px 5px,transparent 9px,transparent calc(100% - 3px),rgb(0 0 0 / .28) calc(100% - 3px) 100%),
+    linear-gradient(90deg,rgb(0 0 0 / .55) 0 2px,rgb(255 255 255 / .07) 2px 3px,var(--tile-hi) 3px 4px,transparent 7px,transparent calc(100% - 3px),rgb(0 0 0 / .22) calc(100% - 3px) 100%),
+    linear-gradient(180deg,rgb(255 255 255 / .05),transparent 42%,rgb(0 0 0 / .12) 100%);
+  background-size:auto,auto,auto,var(--t) var(--t),var(--t) var(--t),var(--t) var(--t)}
+
+/* ---------- screen 2: the concrete ledge along the bottom (a 3D step) ----------
+   Element = the darker front face (block seams, lip shadow, bottom occlusion);
+   ::before = the lighter top surface, darker at the wall, lit at its front edge. */
+.scene__floor{--t:clamp(150px,16vw,250px);position:absolute;left:0;right:0;bottom:0;height:20%;z-index:1;background-color:color-mix(in srgb,var(--floor) 72%,var(--floor-hi));
+  background-image:linear-gradient(180deg,transparent 32%,rgb(0 0 0 / .42) 32%,transparent 50%,transparent 84%,rgb(0 0 0 / .45) 100%),
+    linear-gradient(90deg,rgb(0 0 0 / .5) 0 2px,rgb(255 255 255 / .06) 2px 3px,transparent 3px calc(100% - 2px),rgb(0 0 0 / .22) calc(100% - 2px) 100%);
+  background-size:auto,var(--t) 100%;background-position:0 0,calc(var(--t) / 2) 0}
+.scene__floor::before{content:"";position:absolute;left:0;right:0;top:0;height:32%;
+  background:linear-gradient(180deg,rgb(0 0 0 / .55) 0 1px,color-mix(in srgb,var(--floor-hi) 80%,var(--dark)) 1px,color-mix(in srgb,var(--floor-hi) 92%,var(--arrow)) 58%,color-mix(in srgb,var(--floor-hi) 84%,var(--arrow)) calc(100% - 2px),rgb(255 255 255 / .26) calc(100% - 2px) 100%)}
+
+/* ---------- screen 4: a big receding concrete floor under a dim tiled wall ----------
+   The element fills the section: its own background is the faint far wall (top ~44%);
+   ::after is the floor plane — a real 3D plane (rotateX under a long perspective, so it reads
+   isometric like f19) carrying two diagonal seam families; ::before is the flat overlay:
+   the wall's shadow across the far floor, corner falloff, a light pool where the phone rests. */
+.scene__floor--wide{--t:clamp(120px,12vw,190px);--ft:clamp(220px,34vw,520px);top:0;height:auto;perspective:300vh;perspective:300svh;perspective-origin:50% 100%;background-color:var(--dark);
+  background-image:linear-gradient(180deg,transparent 30%,rgb(0 0 0 / .7) 44%,var(--dark) 46%),
+    radial-gradient(120% 90% at 50% 30%,transparent 40%,rgb(0 0 0 / .7) 100%),
+    linear-gradient(180deg,rgb(0 0 0 / .55) 0 2px,rgb(255 255 255 / .08) 2px 3px,transparent 6px,transparent calc(100% - 2px),rgb(0 0 0 / .25) calc(100% - 2px) 100%),
+    linear-gradient(90deg,rgb(0 0 0 / .5) 0 2px,rgb(255 255 255 / .05) 2px 3px,transparent 6px,transparent calc(100% - 2px),rgb(0 0 0 / .2) calc(100% - 2px) 100%),
+    linear-gradient(180deg,var(--dark-2),var(--tile));
+  background-size:auto,auto,var(--t) var(--t),var(--t) var(--t),auto}
+.scene__floor--wide::after{content:"";position:absolute;left:50%;bottom:0;width:170%;height:160%;margin-left:-85%;z-index:0;transform-origin:50% 100%;transform:rotateX(58deg);
+  background-color:color-mix(in srgb,var(--arrow) 52%,var(--floor-hi));
+  background-image:radial-gradient(48% 40% at 72% 88%,rgb(255 255 255 / .2),transparent 70%),
+    radial-gradient(60% 50% at 12% 55%,rgb(0 0 0 / .16),transparent 70%),
+    linear-gradient(180deg,rgb(0 0 0 / .3),transparent 45%),
+    repeating-linear-gradient(28deg,rgb(0 0 0 / .45) 0 3px,rgb(255 255 255 / .12) 3px 5px,transparent 5px var(--ft)),
+    repeating-linear-gradient(118deg,rgb(0 0 0 / .45) 0 3px,rgb(255 255 255 / .12) 3px 5px,transparent 5px var(--ft))}
+.scene__floor--wide::before{content:"";position:absolute;inset:0;height:auto;z-index:1;
+  background:linear-gradient(180deg,transparent 39%,rgb(0 0 0 / .62) 44%,rgb(0 0 0 / .3) 52%,transparent 70%),
+    radial-gradient(60% 40% at 78% 96%,rgb(255 255 255 / .08),transparent 70%),
+    radial-gradient(90% 60% at 50% 100%,transparent 55%,rgb(0 0 0 / .38) 100%)}
+
+/* ---------- screen 2: the two pale arrow sculptures standing in front of the ledge ----------
+   Box = --aw wide, 1.05×--aw tall, bottom-anchored. Element background = the stem (fades into
+   the wall at its top, lit left edge). ::before/::after = the two wings of the head: a flat bar
+   whose underside is carved by one quarter-ellipse bite each (mask), so the head sweeps
+   down to the flat tip like the reference. One drop-shadow on the whole silhouette. */
+.scene__arrow{--aw:clamp(120px,24vw,340px);--sw:calc(var(--aw) * .145);--hh:calc(var(--aw) * .45);
+  --head:linear-gradient(180deg,color-mix(in srgb,var(--arrow) 78%,var(--on-dark)) 0,var(--arrow) 38%,color-mix(in srgb,var(--arrow) 74%,var(--floor)) 100%);
+  position:absolute;bottom:2%;z-index:2;width:var(--aw);height:calc(var(--aw) * 1.05);opacity:.9;pointer-events:none;
+  filter:drop-shadow(14px 16px 14px rgb(0 0 0 / .5));
+  background:var(--head) 50% 100% / var(--sw) var(--hh) no-repeat,
+    linear-gradient(90deg,rgb(255 255 255 / .3) 0 1px,transparent 1px calc(100% - 1px),rgb(0 0 0 / .18) calc(100% - 1px) 100%) 50% 0 / var(--sw) calc(100% - var(--hh)) no-repeat,
+    linear-gradient(180deg,transparent 0,color-mix(in srgb,var(--arrow) 45%,transparent) 34%,color-mix(in srgb,var(--arrow) 88%,var(--on-dark)) 100%) 50% 0 / var(--sw) calc(100% - var(--hh) + 1px) no-repeat}
+.scene__arrow::before,.scene__arrow::after{content:"";position:absolute;bottom:0;width:calc((100% - var(--sw)) / 2);height:var(--hh);background:var(--head);box-shadow:inset 0 1px 0 rgb(255 255 255 / .38)}
+.scene__arrow::before{left:0;background:linear-gradient(90deg,rgb(255 255 255 / .16),transparent 70%),var(--head);-webkit-mask:radial-gradient(100% 70% at 0 100%,transparent 99.4%,#000 100%);mask:radial-gradient(100% 70% at 0 100%,transparent 99.4%,#000 100%)}
+.scene__arrow::after{right:0;background:linear-gradient(90deg,transparent 30%,rgb(0 0 0 / .16)),var(--head);-webkit-mask:radial-gradient(100% 70% at 100% 100%,transparent 99.4%,#000 100%);mask:radial-gradient(100% 70% at 100% 100%,transparent 99.4%,#000 100%)}
+.scene__arrow--l{left:calc(max(24px,(100% - var(--maxw)) / 2) + clamp(60px,7vw,120px));transform:translateX(-50%)}   /* centred under the left text column */
+.scene__arrow--r{right:calc(max(24px,(100% - var(--maxw)) / 2) + clamp(60px,7vw,120px));transform:translateX(50%)}
+@media (max-width:900px){.scene__arrow{--aw:clamp(110px,30vw,200px);opacity:.8}}
+
+/* ---------- screen 4: the dark glossy slab lying on the floor, tilted in 3D ----------
+   .slab (placed by site.css, also carries data-anim="rise") only supplies the perspective and
+   a blurred contact shadow, so motion.css can transform .slab freely. The tilt lives on
+   .slab__screen: rotateX (top edge away) then rotateZ (in-plane turn), preserve-3d so ::after
+   can sit 18px beneath as the slab's lit side face. ::before is the glass glare. */
+.slab{perspective:1400px;perspective-origin:50% 30%}
+.slab::after{content:"";position:absolute;left:8%;right:-8%;top:24%;bottom:-18%;z-index:-1;border-radius:45%;background:rgb(0 0 0 / .6);filter:blur(22px);transform:rotate(-10deg)}
+.slab__screen{position:relative;display:flex;flex-direction:column;aspect-ratio:1.5;padding:clamp(18px,4.2%,30px) clamp(20px,4.8%,34px);border-radius:clamp(18px,4vw,34px);color:var(--on-dark);font-size:clamp(.78rem,.55vw + .45rem,1rem);line-height:1.3;
+  transform-origin:50% 50%;transform-style:preserve-3d;transform:rotateX(36deg) rotateZ(-12deg);
+  background:linear-gradient(112deg,transparent 24%,rgb(255 255 255 / .09) 33%,rgb(255 255 255 / .025) 45%,transparent 58%),radial-gradient(90% 60% at 18% 0%,rgb(255 255 255 / .07),transparent 60%),linear-gradient(160deg,var(--dark-2),var(--dark) 62%);
+  box-shadow:inset 0 1px 0 rgb(255 255 255 / .18),inset 0 0 0 1px rgb(255 255 255 / .06),inset 0 -1px 0 rgb(0 0 0 / .7)}
+.slab__screen::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(100deg,transparent 42%,rgb(255 255 255 / .05) 48%,rgb(255 255 255 / .13) 50%,rgb(255 255 255 / .05) 52%,transparent 58%)}   /* thin specular sweep */
+.slab__screen::after{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;transform:translateZ(-18px);background:linear-gradient(180deg,var(--floor),var(--floor-hi) 55%,color-mix(in srgb,var(--floor-hi) 55%,var(--arrow)))}   /* the slab's thickness */
+.slab__h{position:relative;margin:0 0 .45em;display:flex;align-items:center;gap:.35em;font-family:var(--display);font-weight:700;font-size:1.3em;line-height:1.1;letter-spacing:-.02em}
+.slab__h .ic{font-size:.8em;opacity:.75}
+.slab__h--2{margin:auto 0 0;padding-top:.9em}
+.slab__list{list-style:none;margin:0;padding:0}
+.slab__list li{display:flex;align-items:center;gap:.8em;padding:.62em 0;border-top:1px solid rgb(255 255 255 / .09)}
+.slab__list li:first-child{border-top:0}
+.slab__list li span{flex:1;min-width:0;font-weight:500;font-size:.95em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.slab__list li em{font-style:normal;font-family:var(--mono);font-size:.84em;font-variant-numeric:tabular-nums;color:var(--on-dark-2);white-space:nowrap}
+.slab__dot{flex:none;display:grid;place-items:center;width:2em;height:2em;border-radius:50%;background:rgb(255 255 255 / .06);box-shadow:inset 0 0 0 1px rgb(255 255 255 / .09)}   /* icon well */
+.slab__dot::before{content:"";width:.7em;height:.7em;border-radius:50%;background:var(--c,var(--on-dark));box-shadow:0 0 10px color-mix(in srgb,var(--c,var(--on-dark)) 70%,transparent)}
+@media (max-width:900px){.slab__screen{transform:rotateX(30deg) rotateZ(-8deg);font-size:.78rem}}
+
+/* ---------- screens 4 + 5: pinned scene, giant "DyorHQ" window sliding over it ----------
+   Mechanics need no JS and no feature check: .pin is 200svh; the scene is sticky at top:0
+   and 100svh tall, so it stays put for the first 100svh of scrolling through .pin while the
+   giant (in normal flow right after it, 100svh, z above) scrolls up over it 1:1 with the
+   thumb — translateY 100% → 0 driven by the scroll itself. When the giant reaches the top
+   the pin ends and both leave together, so nothing ever overlaps .capture. The SVG cover
+   is canvas-coloured and masked by #giant-mask, so the scene shows through the letters.
+   Where scroll-driven animations exist, a view timeline on .pin (range "contain" = exactly the
+   stuck stretch) adds polish: the letters settle from 1.12→1 and the scene dims slightly. */
+.pin{height:200vh;height:200svh;isolation:isolate}
+.pin__scene{position:sticky;top:0;height:100vh;height:100svh;min-height:0;z-index:1}
+.pin__giant{position:relative;z-index:2}
+.giant{position:relative;height:100vh;height:100svh;overflow:hidden;margin:0}
+.giant__svg{position:absolute;inset:0;width:100%;height:100%;display:block;transform-origin:50% 50%}
+.giant__cover{fill:var(--canvas)}
+.giant__text{font-family:var(--display);font-weight:700;font-size:420px;letter-spacing:-.04em;transform:translateY(-80px)}   /* ink 1448 of 1600 units wide, cap top y≈171, descenders y≈581 */
+@media (max-aspect-ratio:1/1){.giant__text{font-size:150px;transform:translateY(-160px)}}   /* portrait: the whole word fits the visible slice on tablets, ~4 letters on phones */
+@supports (animation-timeline:view()){
+  .pin{view-timeline:--pin block}
+  .giant__svg{animation:giant-settle linear both;animation-timeline:--pin;animation-range:contain}
+  .pin__scene::after{content:"";position:absolute;inset:0;z-index:6;background:var(--dark);opacity:0;pointer-events:none;animation:scene-dim linear both;animation-timeline:--pin;animation-range:contain}
+}
+@keyframes giant-settle{from{transform:scale(1.12)}to{transform:scale(1)}}
+@keyframes scene-dim{from{opacity:0}to{opacity:.28}}
+@media (prefers-reduced-motion:reduce){
+  .giant__svg{animation:none;transform:none}
+  .pin__scene::after{animation:none;opacity:.28}
+}
