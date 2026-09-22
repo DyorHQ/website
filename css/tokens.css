@@ -98,7 +98,7 @@
     --shadow-card:0 2px 6px rgb(0 0 0 / .3),0 34px 70px -34px rgb(0 0 0 / .75);
   }
   /* glass surfaces keep dark ink on a white face */
-  :root:not([data-theme="light"]) .holo:not(.holo--deep){--ink:#0F0F14;--text-3:#6E6E7C;--surface:#FFFFFF}
+  :root:not([data-theme="light"]) .holo:not(.holo--deep){--ink:#0F0F14;--text-3:#6E6E7C;--surface:#FFFFFF;--glass-face:linear-gradient(128deg,rgb(255 255 255 / .97),rgb(255 255 255 / .9))}
   :root:not([data-theme="light"]) .tile{--surface:#FFFFFF}
   :root:not([data-theme="light"]) .tile--holo-light{--ink:#0F0F14;--text-3:#6E6E7C}
 }
@@ -124,6 +124,6 @@
   --shadow-sm:0 1px 2px rgb(0 0 0 / .35);
   --shadow-card:0 2px 6px rgb(0 0 0 / .3),0 34px 70px -34px rgb(0 0 0 / .75);
 }
-:root[data-theme="dark"] .holo:not(.holo--deep){--ink:#0F0F14;--text-3:#6E6E7C;--surface:#FFFFFF}
+:root[data-theme="dark"] .holo:not(.holo--deep){--ink:#0F0F14;--text-3:#6E6E7C;--surface:#FFFFFF;--glass-face:linear-gradient(128deg,rgb(255 255 255 / .97),rgb(255 255 255 / .9))}
 :root[data-theme="dark"] .tile{--surface:#FFFFFF}
 :root[data-theme="dark"] .tile--holo-light{--ink:#0F0F14;--text-3:#6E6E7C}

@@ -1,0 +1,14 @@
+# DyorHQ landing — dependency-free static site.
+# Press Run to preview; use Deploy → Static to publish.
+
+run = "python3 -m http.server 5000 --bind 0.0.0.0"
+entrypoint = "index.html"
+
+[[ports]]
+localPort = 5000
+externalPort = 80
+
+# Static deployment: no build step, serve the repo root (where index.html lives).
+[deployment]
+deploymentTarget = "static"
+publicDir = "."

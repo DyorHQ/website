@@ -203,6 +203,8 @@
       const next = isDark() ? 'light' : 'dark';
       root.setAttribute('data-theme', next);
       try { localStorage.setItem('dyorhq.theme', next); } catch (e) { /* storage unavailable */ }
+      var meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.setAttribute('content', next === 'dark' ? '#0F0E17' : '#F3F3F6');
       labelToggle();
     });
   }
