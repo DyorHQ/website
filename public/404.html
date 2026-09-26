@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Page not found - DyorHQ</title>
+<meta name="description" content="This page does not exist.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#F3F3F6" media="(prefers-color-scheme:light)">
+<meta name="theme-color" content="#0F0E17" media="(prefers-color-scheme:dark)">
+<link rel="icon" href="/assets/brand/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/tokens.css">
+<link rel="stylesheet" href="/css/site.css">
+<link rel="stylesheet" href="/css/page.css">
+<script>/* the saved theme, before first paint (same as the home page) */(function(){try{var t=localStorage.getItem('dyorhq.theme');if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-theme',t);document.querySelectorAll('meta[name="theme-color"]').forEach(function(m){m.removeAttribute('media');m.setAttribute('content',t==='dark'?'#0F0E17':'#F3F3F6');});}}catch(e){}})();</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="doc__nav">
+  <div class="wrap doc__nav-in">
+    <a class="brand" href="/" aria-label="DyorHQ home"><img src="/assets/brand/wordmark.png" alt="DyorHQ" width="900" height="300"></a>
+    <a class="btn btn-outline btn-sm" href="/#updates">Join waitlist</a>
+  </div>
+</header>
+<main id="main" class="wrap doc">
+
+<h1 data-404-title>Page not found</h1>
+<p data-404-text>This page doesn't exist. It may have moved.</p>
+<ul class="doc__links">
+<li><a href="/">DyorHQ home</a></li>
+<li><a href="/support/">Support</a></li>
+<li><a href="/#updates">Join the waitlist</a></li>
+</ul>
+<script>/* Moment NFT links (/moments/<id>, /moments/c1/<id>, /moments/c2/<id>) land here until Moment pages exist. */
+(function(){var m=location.pathname.match(/^\/moments\/(?:(c1|c2)\/)?(\d+)\/?$/);if(!m)return;
+var t=document.querySelector('[data-404-title]'),p=document.querySelector('[data-404-text]');
+t.textContent='Moment #'+m[2];
+p.textContent=m[1]?'This Moment is from a past cohort. Collecting is closed; holders can still claim in the DyorHQ app under My Moments \u2192 Past Cohorts.':'Open DyorHQ to view this Moment, its collectors and its coin.';})();</script>
+</main>
+<footer class="foot">
+  <div class="wrap foot__in">
+    <a class="brand" href="/" aria-label="DyorHQ home"><img src="/assets/brand/wordmark.png" alt="DyorHQ" width="900" height="300"></a>
+    <nav class="foot__links" aria-label="Footer">
+      <a href="/">Home</a>
+      <a href="/support/">Support</a>
+      <a href="/terms/">Terms</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="/security/">Security</a>
+      <a href="mailto:team@dyorhq.fun">team@dyorhq.fun</a>
+    </nav>
+    <p class="foot__legal">&copy; 2026 DyorHQ &middot; Not investment advice. Self-custodial: only you hold your keys.</p>
+  </div>
+</footer>
+</body>
+</html>

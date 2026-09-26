@@ -37,8 +37,8 @@
   html.js [data-capture][data-anim="fade"].in:not(.done){animation-delay:.5s}                          /* input + Submit, 500ms into the pill */
   html.js .holo-pill--sm[data-anim="fade"].in:not(.done){animation-delay:.3s}
 
-  /* ---------- the scroll cue breathes (JS or not) ---------- */
-  .scroll-cue .ic{animation:m-cue 2s var(--ease-in-out) infinite}
+  /* ---------- the scroll cue breathes a few times (JS or not) ---------- */
+  .scroll-cue .ic{animation:m-cue 2s var(--ease-in-out) 3}   /* a few breaths, then still (WCAG 2.2.2) */
 
   /* ---------- keyframes: only a `from`; the `to` is whatever the cascade says ---------- */
   @keyframes m-fade{from{opacity:0}}

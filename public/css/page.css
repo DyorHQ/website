@@ -1,0 +1,16 @@
+/* Text pages (privacy, terms, support, security, 404): the home page's tokens, type and footer, one readable column. */
+.doc__nav{border-bottom:1px solid var(--line)}
+.doc__nav-in{display:flex;align-items:center;justify-content:space-between;height:76px}
+.doc__nav .brand img{filter:var(--mark-filter)}
+.doc{max-width:720px;padding:56px 0 72px;color:var(--text-2);line-height:1.65}
+.doc h1{font-family:var(--display);font-size:clamp(2rem,4vw,2.8rem);line-height:1.08;letter-spacing:-.02em;color:var(--text);margin:0 0 10px}
+.doc h2{font-family:var(--display);font-size:1.25rem;line-height:1.25;color:var(--text);margin:36px 0 8px}
+.doc p,.doc ul{margin:0 0 14px}
+.doc ul{padding-left:1.2em}
+.doc li{margin:6px 0}
+.doc b{color:var(--text)}
+.doc a{color:var(--text);text-decoration:underline;text-underline-offset:3px}
+.doc__meta{font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;color:var(--text-3)}
+.doc__draft,.doc__callout{border:1px solid var(--line-2);border-radius:14px;padding:14px 16px;background:var(--chip-bg)}
+.doc__draft{margin-bottom:28px}
+.doc__links{list-style:none;padding:0;display:flex;gap:22px;flex-wrap:wrap}

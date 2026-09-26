@@ -1,0 +1,5 @@
+Contact: mailto:team@dyorhq.fun
+Expires: 2027-09-26T00:00:00.000Z
+Policy: https://dyorhq.fun/security/
+Preferred-Languages: en
+Canonical: https://dyorhq.fun/.well-known/security.txt

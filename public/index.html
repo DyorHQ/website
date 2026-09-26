@@ -11,14 +11,18 @@
 <meta property="og:title" content="DyorHQ - The RWA HQ for social trading">
 <meta property="og:description" content="Everything on Monad, in one app. Swap, trade perps, launch coins and collect moments from one self-custodial account.">
 <meta property="og:url" content="https://dyorhq.fun/">
+<meta property="og:site_name" content="DyorHQ">
+<link rel="canonical" href="https://dyorhq.fun/">
 <meta property="og:image" content="https://dyorhq.fun/assets/photo/og-hero.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The DyorHQ app: swap, perps, launch and moments on Monad">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@DyorHQ_">
 <link rel="icon" href="assets/brand/favicon-32.png" sizes="32x32">
 <link rel="icon" href="assets/brand/favicon-64.png" sizes="64x64">
 <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
 <link rel="preload" href="assets/fonts/manrope.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/site.css">
@@ -26,7 +30,7 @@
 <link rel="stylesheet" href="css/scene.css">
 <link rel="stylesheet" href="css/bento.css">
 <link rel="stylesheet" href="css/motion.css">
-<script>/* apply the saved theme before first paint (a ?theme= query also works, for testing) */(function(){try{var q=new URLSearchParams(location.search).get('theme');var t=q||localStorage.getItem('dyorhq.theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script>/* apply the saved theme before first paint (a ?theme= query also works, for testing) */(function(){try{var q=new URLSearchParams(location.search).get('theme');var t=q||localStorage.getItem('dyorhq.theme');if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-theme',t);document.querySelectorAll('meta[name="theme-color"]').forEach(function(m){m.removeAttribute('media');m.setAttribute('content',t==='dark'?'#0F0E17':'#F3F3F6');});}}catch(e){}})();</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -49,7 +53,7 @@
         <svg class="ic ic-sun" aria-hidden="true"><use href="#i-sun"/></svg>
         <svg class="ic ic-moon" aria-hidden="true"><use href="#i-moon"/></svg>
       </button>
-      <a class="btn btn-outline btn-sm" href="#open">Open app</a>
+      <a class="btn btn-outline btn-sm" href="#updates">Join waitlist</a>
     </div>
   </div>
 </header>
@@ -89,7 +93,7 @@
       <article class="holo holo--5 holo--deep" data-fly="5">
         <span class="holo__shapes"><i class="hs hs--panel"></i><i class="hs hs--lines hs--lines-b"></i></span>
         <span class="holo__num">0235</span>
-        <div class="holo__meta"><b>Moments</b><span>collect · earn</span></div>
+        <div class="holo__meta"><b>Moments</b><span>collect · keep</span></div>
         <div class="holo__row"><span class="mono">US$0.10</span><span>per edition</span></div>
       </article>
     </div>
@@ -118,7 +122,7 @@
     <i class="scene__arrow scene__arrow--r"></i>
   </div>
   <div class="wrap scene__in">
-    <p class="scene__text scene__text--l" data-anim="lines"><span class="lt">Let's</span><span class="lt">learn</span><b>more</b></p>
+    <h2 class="scene__text scene__text--l" data-anim="lines"><span class="lt">Let's</span><span class="lt">learn</span><b>more</b></h2>
 
     <div class="scene__stage">
       <div class="glass-bar" data-anim="rise" aria-hidden="true">
@@ -127,11 +131,11 @@
         <span class="glass-bar__more"><svg class="ic"><use href="#i-dots"/></svg></span>
       </div>
       <div class="device scene__phone" data-anim="rise">
-        <img src="assets/screens/hero.png" alt="The DyorHQ home screen: portfolio across spot, perps, launch and moments" width="1178" height="2560" loading="lazy" decoding="async">
+        <picture><source srcset="assets/screens/hero.webp" type="image/webp"><img src="assets/screens/hero.jpg" alt="The DyorHQ home screen: portfolio across spot, perps, launch and moments" width="1178" height="2560" loading="lazy" decoding="async"></picture>
       </div>
     </div>
 
-    <p class="scene__text scene__text--r" data-anim="lines"><i class="star" aria-hidden="true">✱</i><span class="lt">about</span><b>DyorHQ</b></p>
+    <h2 class="scene__text scene__text--r" data-anim="lines"><i class="star" aria-hidden="true">✱</i><span class="lt">about</span><b>DyorHQ</b></h2>
   </div>
 </section>
 
@@ -142,7 +146,7 @@
       <article class="tile tile--holo-dark tile--t1">
         <div class="tile__body">
           <p class="tile__big">4</p>
-          <p class="tile__h"><b>venues</b><span class="lt">routed.</span></p>
+          <h3 class="tile__h"><b>venues</b><span class="lt">integrated.</span></h3>
           <ul class="tile__logos" aria-label="Venues">
             <li><img src="assets/brand/venues/kuru.png" alt="Kuru" width="28" height="28" loading="lazy"></li>
             <li><img src="assets/brand/venues/uniswap.png" alt="Uniswap" width="28" height="28" loading="lazy"></li>
@@ -154,44 +158,44 @@
 
       <article class="tile tile--dark tile--t2">
         <div class="tile__body">
-          <p class="tile__h"><b>Launch</b><span class="lt">a coin.</span></p>
+          <h3 class="tile__h"><b>Launch</b><span class="lt">a coin.</span></h3>
         </div>
-        <div class="device tile__phone tile__phone--corner"><img src="assets/screens/launch-empty.png" alt="The DyorHQ launch screen" width="660" height="1434" decoding="async"></div>
+        <div class="device tile__phone tile__phone--corner"><picture><source srcset="assets/screens/launch-empty.webp" type="image/webp"><img src="assets/screens/launch-empty.png" loading="lazy" alt="The DyorHQ launch screen" width="660" height="1434" decoding="async"></picture></div>
       </article>
 
       <article class="tile tile--holo-light tile--t3">
         <div class="tile__body tile__body--center">
-          <p class="tile__h tile__h--inline"><span class="lt">Best-price</span> <b>swaps</b></p>
+          <h3 class="tile__h tile__h--inline"><span class="lt">Best-price</span> <b>swaps</b></h3>
         </div>
       </article>
 
       <article class="tile tile--dark tile--t4">
         <div class="tile__body tile__body--bottom">
-          <p class="tile__h tile__h--sm"><span class="lt">Perps on a</span> <b>live book</b></p>
+          <h3 class="tile__h tile__h--sm"><span class="lt">Perps on a</span> <b>live book</b></h3>
         </div>
-        <div class="device tile__phone tile__phone--center"><img src="assets/screens/perps.png" alt="The DyorHQ perps screen with a live order book" width="660" height="1434" decoding="async"></div>
+        <div class="device tile__phone tile__phone--center"><picture><source srcset="assets/screens/perps.webp" type="image/webp"><img src="assets/screens/perps.png" loading="lazy" alt="The DyorHQ perps screen with a live order book" width="660" height="1434" decoding="async"></picture></div>
       </article>
 
       <article class="tile tile--holo-light tile--t5">
         <div class="tile__body tile__body--center">
-          <p class="tile__h tile__h--inline"><b>Self</b><span class="lt">-custodial</span></p>
+          <h3 class="tile__h tile__h--inline"><b>Self</b><span class="lt">-custodial</span></h3>
         </div>
       </article>
 
       <article class="tile tile--dark tile--t6">
         <div class="tile__body">
           <p class="tile__big">4-in-1</p>
-          <p class="tile__h tile__h--sm"><b>One</b> <span class="lt">account</span></p>
+          <h3 class="tile__h tile__h--sm"><b>One</b> <span class="lt">account</span></h3>
         </div>
-        <div class="device tile__phone tile__phone--corner"><img src="assets/screens/swap.png" alt="The DyorHQ swap screen" width="660" height="1434" decoding="async"></div>
+        <div class="device tile__phone tile__phone--corner"><picture><source srcset="assets/screens/swap.webp" type="image/webp"><img src="assets/screens/swap.png" loading="lazy" alt="The DyorHQ swap screen" width="660" height="1434" decoding="async"></picture></div>
       </article>
 
       <article class="tile tile--grey tile--t7">
         <div class="tile__body">
-          <p class="tile__h"><b>Moments</b><span class="lt">collect &amp; earn.</span></p>
+          <h3 class="tile__h"><b>Moments</b><span class="lt">collect &amp; keep.</span></h3>
         </div>
         <span class="tile__shapes" aria-hidden="true"><i class="hs hs--orb hs--orb-b"></i><i class="hs hs--panel"></i></span>
-        <div class="device tile__phone tile__phone--low"><img src="assets/screens/moments.png" alt="The DyorHQ moments feed" width="660" height="1434" decoding="async"></div>
+        <div class="device tile__phone tile__phone--low"><picture><source srcset="assets/screens/moments.webp" type="image/webp"><img src="assets/screens/moments.png" loading="lazy" alt="The DyorHQ moments feed" width="660" height="1434" decoding="async"></picture></div>
       </article>
     </div>
   </div>
@@ -204,7 +208,7 @@
       <div class="scene__floor scene__floor--wide"></div>
     </div>
     <div class="wrap scene__in">
-      <p class="scene__text scene__text--bl" data-anim="lines"><span class="lt">Open</span><b>DyorHQ</b></p>
+      <h2 class="scene__text scene__text--bl" data-anim="lines"><span class="lt">Open</span><b>DyorHQ</b></h2>
 
       <div class="slab" data-anim="rise" aria-hidden="true">
         <div class="slab__screen">
@@ -220,7 +224,7 @@
       </div>
 
       <div class="device scene__phone scene__phone--r" data-anim="rise">
-        <img src="assets/screens/hero.png" alt="" width="1178" height="2560" loading="lazy" decoding="async">
+        <picture><source srcset="assets/screens/hero.webp" type="image/webp"><img src="assets/screens/hero.jpg" alt="" width="1178" height="2560" loading="lazy" decoding="async"></picture>
       </div>
     </div>
   </section>
@@ -258,13 +262,13 @@
     <div class="holo-pill holo-pill--wide" data-anim="morph" aria-hidden="true"></div>
     <div class="holo-pill holo-pill--sm" data-anim="fade" aria-hidden="true"></div>
 
-    <form class="capture__form" data-capture data-anim="fade" action="mailto:team@dyorhq.fun" method="post" enctype="text/plain">
+    <form class="capture__form" data-capture data-endpoint="" data-anim="fade" action="mailto:team@dyorhq.fun" method="post" enctype="text/plain">
       <label class="sr-only" for="email">Email address</label>
-      <input id="email" name="email" type="email" placeholder="you@dyorhq.fun" autocomplete="email" required>
+      <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
       <i class="star" aria-hidden="true">✱</i>
       <button class="btn btn-dark" type="submit">Submit</button>
     </form>
-    <p class="capture__note" data-capture-note>Launch updates only. No spam.</p>
+    <p class="capture__note" data-capture-note>Launch updates only. No spam. We use your email only to tell you about DyorHQ; see our <a href="privacy/">privacy policy</a>.</p>
   </div>
 </section>
 </main>
@@ -277,6 +281,9 @@
       <a href="#learn">About</a>
       <a href="https://x.com/DyorHQ_" target="_blank" rel="noopener">X <svg class="ic" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></a>
       <a href="mailto:team@dyorhq.fun">team@dyorhq.fun</a>
+      <a href="terms/">Terms</a>
+      <a href="privacy/">Privacy</a>
+      <a href="security/">Security</a>
     </nav>
     <p class="foot__legal">&copy; 2026 DyorHQ &middot; App screens show the real app with example market data. Not investment advice. Self-custodial: only you hold your keys.</p>
   </div>

@@ -1,0 +1,12 @@
+{
+  "name": "DyorHQ",
+  "short_name": "DyorHQ",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#F3F3F6",
+  "theme_color": "#F3F3F6",
+  "icons": [
+    { "src": "/assets/brand/favicon-64.png", "sizes": "64x64", "type": "image/png" },
+    { "src": "/assets/brand/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}

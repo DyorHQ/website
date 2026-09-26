@@ -6,3 +6,11 @@ node_modules/
 # local reference material
 *.mov
 recording.mov
+
+# secrets and signing material — never commit
+.env
+.env.*
+*.pem
+*.key
+*.p8
+*.p12

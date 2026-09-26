@@ -16,6 +16,9 @@ type that reveals the scene through its letters as you scroll → email capture.
 
 ## Files
 
+Only `public/` is served (Replit `publicDir = "public"`), so this README, `REPLIT_BUILD_PROMPT.md` and dotfiles
+at the repo root are never published. Paths below are inside `public/`.
+
 - **`index.html`** — the page. All copy and content live here.
 - **`css/tokens.css`** — colours, holographic palette, glass, radii, easing, shadows, fonts.
 - **`css/site.css`** — base layer: reset, type (light 300 / bold 700 mixing), nav, section
@@ -28,21 +31,27 @@ type that reveals the scene through its letters as you scroll → email capture.
 - **`css/motion.css` + `js/motion.js`** — word-by-word headline, card fly-ins and idle float,
   staggered reveals, the pill morph, mouse parallax and the email form. IntersectionObserver
   only (no scroll listeners); everything is visible without JS and under reduced motion.
-- **`assets/`** — brand wordmark, real app screens (`screens/`), venue logos (`brand/venues/`),
-  bundled OFL fonts (Manrope, IBM Plex Mono).
+- **`assets/`** — brand wordmark, real app screens (`screens/`, WebP with PNG/JPEG fallback), venue logos
+  (`brand/venues/`), bundled OFL fonts (Manrope, IBM Plex Mono).
+- **`privacy/`, `terms/`, `support/`, `security/`** — text pages (`css/page.css`). Privacy and Terms are drafts:
+  complete the [bracketed] items and have counsel review them, then remove the draft notice.
+- **`404.html`** — not-found page; also answers Moment NFT links (`/moments/<id>`, `/moments/c1|c2/<id>`).
+- **`.well-known/security.txt`**, **`robots.txt`**, **`sitemap.xml`**, **`site.webmanifest`**, **`favicon.ico`**.
 
 ## Run locally
 
 ```bash
-python3 -m http.server 4173
+python3 -m http.server 4173 --directory public
 ```
 
 Then open http://127.0.0.1:4173.
 
 ## Notes
 
-- The email form has no backend yet: Submit opens the visitor's mail client with a message to
-  team@dyorhq.fun. Swap `[data-capture]` in `js/motion.js` for a real endpoint when there is one.
-- "Open app" links to the in-page scene until there is an App Store / web-app URL.
+- The email form POSTs `{"email"}` as JSON to the URL in the form's `data-endpoint` attribute and shows a
+  thank-you on success. While `data-endpoint` is empty (or the request fails) it falls back to opening the visitor's
+  mail client with a message to team@dyorhq.fun. Set it once the waitlist endpoint is deployed.
+- The nav button is "Join waitlist" (→ `#updates`) until there is an App Store / web-app URL.
+- Check after each deploy that `/.well-known/security.txt` is served (some static hosts skip dot-folders).
 - App screens show the real app with example market data. Nothing here is investment advice or
   an offer to trade. DyorHQ is self-custodial: only you hold your keys.

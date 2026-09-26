@@ -93,7 +93,7 @@
       { translate: '0 0', rotate: '0deg', easing: EASE_IO },
       { translate: '0 ' + amp + 'px', rotate: tilt + 'deg', easing: EASE_IO },
       { translate: '0 0', rotate: '0deg' }
-    ], { delay: delay + 1100, duration: 7000 + ((n * 1.3) % 4) * 1000, iterations: Infinity });   /* 8.1–10.9s, per card */
+    ], { delay: delay + 1100, duration: 7000 + ((n * 1.3) % 4) * 1000, iterations: 3 });   /* 8.1–10.9s, per card; a few cycles, then still (WCAG 2.2.2) */
   }
 
   /* ---- 3. Reveal: add .in (motion.css animates from there), fly any cards inside; the morph pill also
@@ -162,19 +162,33 @@
     });
   }
 
-  /* ---- 8. Email capture: validate, open the visitor's mail client, say so. Nothing is sent anywhere else. ---- */
+  /* ---- 8. Email capture: validate, then POST to the waitlist endpoint when the form names one
+          (data-endpoint); with no endpoint, or when it fails, open the visitor's mail client instead. ---- */
   const form = document.querySelector('[data-capture]');
   if (form) {
     const input = form.querySelector('input[type="email"]');
     const btn = form.querySelector('[type="submit"]');
     const label = btn.textContent;
+    const note = document.querySelector('[data-capture-note]');
     const live = document.createElement('p');                            /* screen-reader status line */
     live.className = 'sr-only';
     live.setAttribute('aria-live', 'polite');
     form.append(live);
+    const endpoint = (form.dataset.endpoint || '').trim();
+    const mailto = (email) => 'mailto:team@dyorhq.fun?subject=DyorHQ%20updates&body=' + encodeURIComponent(email);
+    const say = (text, html) => { live.textContent = text; if (note) { if (html) note.innerHTML = html; else note.textContent = text; } };
     let timer = 0;
-    form.addEventListener('submit', (e) => {
+    let busy = false;
+    const openMail = (email) => {
+      btn.textContent = 'Opening mail…';
+      say('Opening your mail app with a message to team@dyorhq.fun.', 'If nothing opened, email <a href="mailto:team@dyorhq.fun">team@dyorhq.fun</a> and we will add you.');
+      clearTimeout(timer);
+      timer = setTimeout(() => { btn.textContent = label; btn.style.minWidth = ''; }, 2000);
+      window.location.href = mailto(email);
+    };
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
+      if (busy) return;
       const email = input.value.trim();
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
         input.setCustomValidity('Please enter a valid email address.');
@@ -183,13 +197,24 @@
         return;
       }
       btn.style.minWidth = btn.offsetWidth + 'px';                       /* no layout jump while the label swaps */
-      btn.textContent = 'Opening mail…';
-      live.textContent = 'Opening your mail app with a message to team@dyorhq.fun.';
-      const note = document.querySelector('[data-capture-note]');
-      if (note) note.textContent = 'If nothing opened, email team@dyorhq.fun and we will add you.';
-      clearTimeout(timer);
-      timer = setTimeout(() => { btn.textContent = label; btn.style.minWidth = ''; }, 2000);
-      window.location.href = 'mailto:team@dyorhq.fun?subject=DyorHQ%20updates&body=' + encodeURIComponent(email);
+      if (!endpoint) { openMail(email); return; }
+      busy = true;
+      btn.disabled = true;
+      btn.textContent = 'Joining…';
+      try {
+        const res = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email }) });
+        if (!res.ok) throw new Error(String(res.status));
+        form.hidden = true;                                              /* a persistent thank-you, not a 2s label */
+        say("You're on the list. We'll email you when DyorHQ opens.");
+      } catch (err) {
+        btn.textContent = label;
+        btn.style.minWidth = '';
+        say('That did not go through. Try again, or email team@dyorhq.fun.',
+            'That did not go through. Try again, or <a href="' + mailto(email) + '">email team@dyorhq.fun</a>.');
+      } finally {
+        busy = false;
+        btn.disabled = false;
+      }
     });
   }
 
@@ -203,8 +228,10 @@
       const next = isDark() ? 'light' : 'dark';
       root.setAttribute('data-theme', next);
       try { localStorage.setItem('dyorhq.theme', next); } catch (e) { /* storage unavailable */ }
-      var meta = document.querySelector('meta[name="theme-color"]');
-      if (meta) meta.setAttribute('content', next === 'dark' ? '#0F0E17' : '#F3F3F6');
+      document.querySelectorAll('meta[name="theme-color"]').forEach((meta) => {   /* both media variants: a forced theme wins */
+        meta.removeAttribute('media');
+        meta.setAttribute('content', next === 'dark' ? '#0F0E17' : '#F3F3F6');
+      });
       labelToggle();
     });
   }

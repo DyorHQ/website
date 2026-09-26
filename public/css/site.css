@@ -108,7 +108,7 @@ html:not(.js) [data-theme-toggle]{display:none}
 .scene__env{position:absolute;inset:0;z-index:0;pointer-events:none}
 .scene__in{position:relative;z-index:2;width:min(var(--maxw),100% - 48px)}
 .scene--learn .scene__in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr) minmax(0,1fr);align-items:end;gap:24px;min-height:min(86svh,820px)}
-.scene__text{margin:0;font-family:var(--display);font-size:clamp(1.9rem,3.6vw,3.1rem);line-height:1.05;letter-spacing:-.02em;display:flex;flex-direction:column;align-self:center;padding-bottom:16vh}
+.scene__text{margin:0;font-weight:400;font-family:var(--display);font-size:clamp(1.9rem,3.6vw,3.1rem);line-height:1.05;letter-spacing:-.02em;display:flex;flex-direction:column;align-self:center;padding-bottom:16vh}
 .scene__text .star{color:var(--on-dark);font-size:1.1em;margin-bottom:.35em;opacity:.9}
 .scene__text--l{align-items:flex-start;padding-left:4%}
 .scene__text--r{align-items:flex-end;text-align:right;padding-right:4%}
@@ -187,4 +187,5 @@ html:not(.js) [data-theme-toggle]{display:none}
   background:linear-gradient(150deg,#54545c 0%,#1b1b20 20%,#141418 50%,#1b1b20 80%,#44444c 100%);
   box-shadow:var(--shadow-device),inset 0 0 0 1px rgb(255 255 255 / .09)}
 .device::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:3;background:linear-gradient(135deg,rgb(255 255 255 / .18),transparent 24%);opacity:.7;mix-blend-mode:screen}
+.device picture{display:contents}   /* the WebP <picture> wrapper must not change the frame's layout */
 .device img{position:relative;z-index:1;width:100%;height:100%;object-fit:cover;object-position:top;border-radius:13.4%/6.2%;background:#F2F2F7;box-shadow:0 0 0 2.5px #050509}
